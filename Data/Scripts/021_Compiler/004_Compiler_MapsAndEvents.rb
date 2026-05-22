@@ -30,6 +30,7 @@ module Compiler
     ["pbDayCareGetCompatibility",    "DayCare.get_compatibility"],
     ["pbEggGenerated?",              "DayCare.egg_generated?"],
     ["pbDayCareGenerateEgg",         "DayCare.collect_egg"],
+    ["pbDayCareUnlock",              "$PokemonGlobal.day_care.unlocks"],
     ["get_character(0)",             "get_self"],
     ["get_character(-1)",            "get_player"],
     ["pbCheckAble",                  "$player.has_other_able_pokemon?"],

@@ -418,3 +418,33 @@ SaveData.register_conversion(:v21_add_bump_stat) do
     end
   end
 end
+
+#===============================================================================
+
+SaveData.register_conversion(:v21_refactor_day_care_to_pairs) do
+  essentials_version 21
+  display_title "Refactoring Day Care to breeding pairs"
+  to_value :global_metadata do |global|
+    day_care = global.day_care
+    # Skip if already migrated (new saves built with BreedingPair from the start)
+    next if day_care.instance_variable_defined?(:@pairs) && day_care.instance_variable_get(:@pairs)
+    # Wrap the old two DayCareSlot objects into the first BreedingPair
+    pair = BreedingPair.new
+    old_slots = day_care.instance_variable_get(:@slots) || []
+    pair.slot_a       = old_slots[0] || DayCare::DayCareSlot.new
+    pair.slot_b       = old_slots[1] || DayCare::DayCareSlot.new
+    pair.egg_generated = day_care.instance_variable_get(:@egg_generated) || false
+    pair.step_counter  = day_care.instance_variable_get(:@step_counter)  || 0
+    # Build the full pairs array and fresh unlocks
+    pairs = Array.new(Settings::MAX_BREEDING_PAIRS) { BreedingPair.new }
+    pairs[0] = pair
+    day_care.instance_variable_set(:@pairs,   pairs)
+    day_care.instance_variable_set(:@unlocks, DayCareUnlocks.new)
+    # Preserve @gain_exp — it's already on the object
+    # Clear old ivars so Marshal doesn't carry dead weight
+    day_care.instance_variable_set(:@slots,          nil)
+    day_care.instance_variable_set(:@egg_generated,  nil)
+    day_care.instance_variable_set(:@step_counter,   nil)
+    day_care.instance_variable_set(:@share_egg_moves, nil)
+  end
+end

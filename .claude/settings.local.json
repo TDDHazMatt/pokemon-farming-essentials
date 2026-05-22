@@ -11,7 +11,8 @@
       "Bash(xargs grep -l \"pbDayCare\\\\|DayCare\")",
       "Bash(ls -la \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\\" | head -20)",
       "Read(//c/Users/Gamerr/Documents/RPGXP/**)",
-      "Bash(xargs grep -l \"DayCare\\\\|day_care\")"
+      "Bash(xargs grep -l \"DayCare\\\\|day_care\")",
+      "PowerShell(& \"C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe\" \"C:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\scripts_force_combine.rb\")"
     ]
   }
 }

@@ -81,6 +81,9 @@ module Settings
   # Whether a bred baby Pokémon can inherit egg moves from its mother. It can
   # always inherit egg moves from its father.
   BREEDING_CAN_INHERIT_EGG_MOVES_FROM_MOTHER = (MECHANICS_GENERATION >= 6)
+  # Maximum number of breeding pairs the Day Care can ever support.
+  # How many are active at a time is controlled by DayCareUnlocks#extra_pairs.
+  MAX_BREEDING_PAIRS = 4
   # Whether the Pokédex entry of a newly owned species will be shown after it
   # hatches from an egg, after it evolves and after obtaining it from a trade,
   # in addition to after catching it in battle.
