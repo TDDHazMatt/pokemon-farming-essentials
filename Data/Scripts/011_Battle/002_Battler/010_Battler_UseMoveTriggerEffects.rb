@@ -18,7 +18,6 @@ class Battle::Battler
         #       target Cramorant attacking the user) and the ability splash
         #       shouldn't be shown.
         @battle.pbShowAbilitySplash(target)
-        target.pbChangeForm(0, nil)
         if user.takesIndirectDamage?(Battle::Scene::USE_ABILITY_SPLASH)
           @battle.scene.pbDamageAnimation(user)
           user.pbReduceHP(user.totalhp / 4, false)

@@ -1,0 +1,31 @@
+# See the documentation on the wiki to learn how to edit this file.
+# HoursPerStage - hours spent in each growth stage (4 stages total, so × 4 = total grow time)
+# Yield         - min,max apricorns produced when picked
+#-------------------------------
+[REDAPRICORN]
+HoursPerStage = 12
+Yield = 2,2
+#-------------------------------
+[YELLOWAPRICORN]
+HoursPerStage = 12
+Yield = 2,2
+#-------------------------------
+[BLUEAPRICORN]
+HoursPerStage = 12
+Yield = 2,2
+#-------------------------------
+[GREENAPRICORN]
+HoursPerStage = 12
+Yield = 2,2
+#-------------------------------
+[PINKAPRICORN]
+HoursPerStage = 12
+Yield = 2,2
+#-------------------------------
+[WHITEAPRICORN]
+HoursPerStage = 12
+Yield = 2,2
+#-------------------------------
+[BLACKAPRICORN]
+HoursPerStage = 12
+Yield = 2,2

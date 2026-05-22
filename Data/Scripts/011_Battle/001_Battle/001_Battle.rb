@@ -732,7 +732,6 @@ class Battle
   end
 
   def pbEndPrimordialWeather
-    return if @field.weather == @field.defaultWeather
     oldWeather = @field.weather
     # End Primordial Sea, Desolate Land, Delta Stream
     case @field.weather

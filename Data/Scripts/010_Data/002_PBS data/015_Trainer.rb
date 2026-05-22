@@ -131,7 +131,10 @@ module GameData
         pkmn = Pokemon.new(species, pkmn_data[:level], trainer, false)
         trainer.party.push(pkmn)
         # Set Pokémon's properties if defined
-        pkmn.form_simple = pkmn_data[:form] if pkmn_data[:form]
+        if pkmn_data[:form]
+          pkmn.forced_form = pkmn_data[:form] if MultipleForms.hasFunction?(species, "getForm")
+          pkmn.form_simple = pkmn_data[:form]
+        end
         pkmn.item = pkmn_data[:item]
         if pkmn_data[:moves] && pkmn_data[:moves].length > 0
           pkmn_data[:moves].each { |move| pkmn.learn_move(move) }
