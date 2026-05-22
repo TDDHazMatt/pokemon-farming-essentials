@@ -32,6 +32,9 @@ class PokemonGlobalMetadata
   attr_accessor :bugContestState
   attr_accessor :challenge
   attr_accessor :lastbattle      # Saved recording of a battle
+  # Time
+  def time_offset;        return @time_offset || 0; end
+  def time_offset=(val);  @time_offset = val;        end
   # Events
   attr_accessor :eventvars
   # Affecting the map

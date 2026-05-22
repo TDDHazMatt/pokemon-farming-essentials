@@ -990,6 +990,7 @@ module Compiler
     compile_moves(*text_files[:Move][1])                       # Depends on Type
     compile_items(*text_files[:Item][1])                       # Depends on Move
     compile_berry_plants(*text_files[:BerryPlant][1])          # Depends on Item
+    compile_apricorn_trees(*text_files[:ApricornTree][1])      # Depends on Item
     compile_pokemon(*text_files[:Species][1])                  # Depends on Move, Item, Type, Ability
     compile_pokemon_forms(*text_files[:Species1][1])           # Depends on Species, Move, Item, Type, Ability
     compile_pokemon_metrics(*text_files[:SpeciesMetrics][1])   # Depends on Species

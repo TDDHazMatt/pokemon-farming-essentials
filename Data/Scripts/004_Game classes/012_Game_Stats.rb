@@ -20,6 +20,10 @@ class GameStats
   attr_accessor :poke_radar_count, :poke_radar_longest_chain
   attr_accessor :berry_plants_picked, :max_yield_berry_plants
   attr_accessor :berries_planted
+  def apricorns_picked;         return @apricorns_picked  || 0; end
+  def apricorns_picked=(val);   @apricorns_picked  = val;      end
+  def apricorns_planted;        return @apricorns_planted || 0; end
+  def apricorns_planted=(val);  @apricorns_planted = val;      end
   # NPCs
   attr_accessor :poke_center_count
   attr_accessor :revived_fossil_count
@@ -92,6 +96,8 @@ class GameStats
     @berry_plants_picked           = 0
     @max_yield_berry_plants        = 0
     @berries_planted               = 0
+    @apricorns_picked              = 0
+    @apricorns_planted             = 0
     # NPCs
     @poke_center_count             = 0   # Incremented in Poké Center nurse events
     @revived_fossil_count          = 0   # Incremented in fossil reviver events
