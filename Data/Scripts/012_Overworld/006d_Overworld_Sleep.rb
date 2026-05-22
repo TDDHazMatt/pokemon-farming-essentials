@@ -30,6 +30,7 @@ def pbSleepInBed
     $PokemonGlobal.time_offset += hours * 3600
     PBDayNight.instance_variable_set(:@dayNightToneLastUpdate, nil)
   end
+  $game_map.autoplayAsCue
 
   hour     = pbGetTimeNow.hour
   greeting = if hour >= 5 && hour < 12

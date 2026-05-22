@@ -6295,6 +6295,15 @@ FieldUse = Direct
 Flags = KeyItem
 Description = A very convenient map that can be viewed anytime. It even shows your present location.
 #-------------------------------
+[TENT]
+Name = Tent
+NamePlural = Tents
+Pocket = 8
+Price = 0
+FieldUse = Direct
+Flags = KeyItem
+Description = A portable tent that can be pitched anywhere. Rest inside to let time pass and let your plants grow.
+#-------------------------------
 [ESCAPEROPE]
 Name = Escape Rope
 NamePlural = Escape Ropes

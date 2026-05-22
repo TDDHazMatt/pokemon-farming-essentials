@@ -40,6 +40,10 @@ ItemHandlers::UseFromBag.add(:ESCAPEROPE, proc { |item|
   next 0
 })
 
+ItemHandlers::UseFromBag.add(:TENT, proc { |item|
+  next 2
+})
+
 ItemHandlers::UseFromBag.add(:BICYCLE, proc { |item|
   next (pbBikeCheck) ? 2 : 0
 })
@@ -257,6 +261,11 @@ ItemHandlers::UseInField.add(:SACREDASH, proc { |item|
     screen.pbEndScene
   end
   next (revived > 0)
+})
+
+ItemHandlers::UseInField.add(:TENT, proc { |item|
+  pbSleepInBed
+  next true
 })
 
 ItemHandlers::UseInField.add(:BICYCLE, proc { |item|
