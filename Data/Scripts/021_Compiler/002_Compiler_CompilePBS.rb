@@ -280,6 +280,21 @@ module Compiler
   end
 
   #=============================================================================
+  # Compile apricorn tree data
+  #=============================================================================
+  def compile_apricorn_trees(*paths)
+    compile_PBS_file_generic(GameData::ApricornTree, *paths) do |final_validate, hash|
+      (final_validate) ? validate_all_compiled_apricorn_trees : validate_compiled_apricorn_tree(hash)
+    end
+  end
+
+  def validate_compiled_apricorn_tree(hash)
+  end
+
+  def validate_all_compiled_apricorn_trees
+  end
+
+  #=============================================================================
   # Compile Pokémon data
   #=============================================================================
   def compile_pokemon(*paths)

@@ -2,7 +2,8 @@
 # Day and night system
 #===============================================================================
 def pbGetTimeNow
-  return Time.now
+  offset = $PokemonGlobal&.time_offset || 0
+  return offset == 0 ? Time.now : Time.now + offset
 end
 
 #===============================================================================
