@@ -216,11 +216,15 @@ end
 class PokemonLoadScreen
   def initialize(scene)
     @scene = scene
-    if SaveData.exists?
-      @save_data = load_save_file(SaveData::FILE_PATH)
-    else
-      @save_data = {}
+    # Load save data from every occupied slot.
+    @slot_data = {}
+    (1..Settings::MAX_SAVE_SLOTS).each do |slot|
+      next unless SaveData.exists?(slot)
+      data = load_save_file(SaveData.file_path(slot))
+      @slot_data[slot] = data unless data.empty?
     end
+    # @save_data points to the first occupied slot for scene display.
+    @save_data = @slot_data.values.first || {}
   end
 
   # @param file_path [String] file to load save data from
@@ -254,7 +258,7 @@ class PokemonLoadScreen
   def pbStartDeleteScreen
     @scene.pbStartDeleteScene
     @scene.pbStartScene2
-    if SaveData.exists?
+    if @slot_data.any?
       if pbConfirmMessageSerious(_INTL("Delete all saved data?"))
         pbMessage(_INTL("Once data has been deleted, there is no way to recover it.") + "\1")
         if pbConfirmMessageSerious(_INTL("Delete the saved data anyway?"))
@@ -271,11 +275,56 @@ class PokemonLoadScreen
 
   def delete_save_data
     begin
-      SaveData.delete_file
+      (1..Settings::MAX_SAVE_SLOTS).each { |slot| SaveData.delete_file(slot) }
       pbMessage(_INTL("The saved data was deleted."))
     rescue SystemCallError
       pbMessage(_INTL("All saved data could not be deleted."))
     end
+  end
+
+  # Shows a menu of occupied slots and returns the chosen slot number, or -1.
+  # If only one slot is occupied, returns it immediately with no menu.
+  def choose_slot_to_load
+    slots = @slot_data.keys
+    return slots.first if slots.length == 1
+    commands = slots.map do |slot|
+      data     = @slot_data[slot]
+      player   = data[:player]
+      secs     = data[:stats]&.play_time.to_i || 0
+      hour     = secs / 3600
+      min      = (secs / 60) % 60
+      time_str = hour > 0 ? _INTL("{1}h {2}m", hour, min) : _INTL("{1}m", min)
+      _INTL("Slot {1}: {2} — {3}", slot, player.name, time_str)
+    end
+    commands << _INTL("Cancel")
+    choice = pbMessage(_INTL("Which save file?"), commands, commands.length)
+    return -1 if choice == commands.length - 1
+    return slots[choice]
+  end
+
+  # Shows a slot picker for starting a new game.
+  # Auto-picks slot 1 when no saves exist. Shows all slots (with overwrite
+  # warning for occupied ones) when saves are present.
+  # Returns the chosen slot number, or -1 if cancelled.
+  def choose_slot_for_new_game
+    return 1 if Settings::MAX_SAVE_SLOTS == 1 || @slot_data.empty?
+    commands = (1..Settings::MAX_SAVE_SLOTS).map do |slot|
+      if @slot_data.key?(slot)
+        _INTL("Slot {1}: {2} [Overwrite]", slot, @slot_data[slot][:player].name)
+      else
+        _INTL("Slot {1}: Empty", slot)
+      end
+    end
+    commands << _INTL("Cancel")
+    choice = pbMessage(_INTL("Choose a save slot for your new game:"), commands, commands.length)
+    return -1 if choice == commands.length - 1
+    slot = choice + 1
+    if @slot_data.key?(slot)
+      return -1 unless pbConfirmMessageSerious(
+        _INTL("Slot {1} already has save data. It will be overwritten. Continue?", slot)
+      )
+    end
+    return slot
   end
 
   def pbStartLoadScreen
@@ -287,10 +336,10 @@ class PokemonLoadScreen
     cmd_mystery_gift = -1
     cmd_debug        = -1
     cmd_quit         = -1
-    show_continue = !@save_data.empty?
+    show_continue = @slot_data.any?
     if show_continue
       commands[cmd_continue = commands.length] = _INTL("Continue")
-      if @save_data[:player].mystery_gift_unlocked
+      if @save_data[:player]&.mystery_gift_unlocked
         commands[cmd_mystery_gift = commands.length] = _INTL("Mystery Gift")
       end
     end
@@ -309,10 +358,15 @@ class PokemonLoadScreen
       case command
       when cmd_continue
         @scene.pbEndScene
-        Game.load(@save_data)
+        slot = choose_slot_to_load
+        next if slot < 0
+        Game.load(@slot_data[slot], slot)
         return
       when cmd_new_game
         @scene.pbEndScene
+        slot = choose_slot_for_new_game
+        next if slot < 0
+        $game_temp.save_slot = slot
         Game.start_new
         return
       when cmd_mystery_gift
@@ -328,8 +382,10 @@ class PokemonLoadScreen
         $PokemonSystem.language = pbChooseLanguage
         MessageTypes.load_message_files(Settings::LANGUAGES[$PokemonSystem.language][1])
         if show_continue
-          @save_data[:pokemon_system] = $PokemonSystem
-          File.open(SaveData::FILE_PATH, "wb") { |file| Marshal.dump(@save_data, file) }
+          @slot_data.each do |slot, data|
+            data[:pokemon_system] = $PokemonSystem
+            File.open(SaveData.file_path(slot), "wb") { |f| Marshal.dump(data, f) }
+          end
         end
         $scene = pbCallTitle
         return

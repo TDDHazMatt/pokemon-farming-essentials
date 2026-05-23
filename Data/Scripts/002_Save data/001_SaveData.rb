@@ -4,16 +4,30 @@
 # @see SaveData.register
 # @see SaveData.register_conversion
 module SaveData
-  # Contains the file path of the save file.
+  # Path of slot 1's save file. Kept for backward compatibility.
   FILE_PATH = if File.directory?(System.data_directory)
                 System.data_directory + "/Game.rxdata"
               else
                 "./Game.rxdata"
               end
 
-  # @return [Boolean] whether the save file exists
-  def self.exists?
-    return File.file?(FILE_PATH)
+  # Returns the file path for the given save slot.
+  # Slot 1 always maps to Game.rxdata for backward compatibility.
+  # Slot N (N > 1) maps to GameN.rxdata.
+  def self.file_path(slot = 1)
+    return FILE_PATH if slot == 1
+    base = FILE_PATH.sub(/\.rxdata$/, "")
+    return "#{base}#{slot}.rxdata"
+  end
+
+  # @return [Boolean] whether the save file for the given slot exists
+  def self.exists?(slot = 1)
+    return File.file?(file_path(slot))
+  end
+
+  # @return [Array<Integer>] slot numbers that have save files
+  def self.occupied_slots
+    return (1..Settings::MAX_SAVE_SLOTS).select { |i| exists?(i) }
   end
 
   # Fetches the save data from the given file.
@@ -60,11 +74,12 @@ module SaveData
     File.open(file_path, "wb") { |file| Marshal.dump(save_data, file) }
   end
 
-  # Deletes the save file (and a possible .bak backup file if one exists)
+  # Deletes the save file for the given slot (and its .bak if present).
   # @raise [Error::ENOENT]
-  def self.delete_file
-    File.delete(FILE_PATH)
-    File.delete(FILE_PATH + ".bak") if File.file?(FILE_PATH + ".bak")
+  def self.delete_file(slot = 1)
+    path = file_path(slot)
+    File.delete(path) if File.file?(path)
+    File.delete(path + ".bak") if File.file?(path + ".bak")
   end
 
   # Converts the pre-v19 format data to the new format.

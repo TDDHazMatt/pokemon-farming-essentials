@@ -84,6 +84,9 @@ module Settings
   # Maximum number of breeding pairs the Day Care can ever support.
   # How many are active at a time is controlled by DayCareUnlocks#extra_pairs.
   MAX_BREEDING_PAIRS = 4
+  # Number of independent save slots available on the title screen.
+  # Slot 1 maps to Game.rxdata (backward compatible). Slot N maps to GameN.rxdata.
+  MAX_SAVE_SLOTS = 3
   # Whether the Pokédex entry of a newly owned species will be shown after it
   # hatches from an egg, after it evolves and after obtaining it from a trade,
   # in addition to after catching it in battle.

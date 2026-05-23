@@ -899,10 +899,7 @@ module Compiler
         GameData::Stat.each_main do |s|
           next if s.pbs_order < 0
           iv_hash[s.id] = pkmn[:iv][s.pbs_order] || pkmn[:iv][0]
-          if iv_hash[s.id] > Pokemon::IV_STAT_LIMIT
-            raise _INTL("Invalid IV: {1} (must be 0-{2}).\n{3}",
-                        iv_hash[s.id], Pokemon::IV_STAT_LIMIT, FileLineData.linereport)
-          end
+          # IVs are uncapped — no upper or lower bound enforced here.
         end
         pkmn[:iv] = iv_hash
       end

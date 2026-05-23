@@ -1,3 +1,10 @@
+# Track which save slot is currently active so Game.save always writes
+# to the correct file without needing an explicit path argument.
+class Game_Temp
+  def save_slot;      return @save_slot || 1; end
+  def save_slot=(v);  @save_slot = v;         end
+end
+
 # The Game module contains methods for saving and loading the game.
 module Game
   # Initializes various global variables and loads the game data.
@@ -60,8 +67,9 @@ module Game
   # Loads the game from the given save data and starts the map scene.
   # @param save_data [Hash] hash containing the save data
   # @raise [SaveData::InvalidValueError] if an invalid value is being loaded
-  def self.load(save_data)
+  def self.load(save_data, slot = 1)
     validate save_data => Hash
+    $game_temp.save_slot = slot
     SaveData.load_all_values(save_data)
     $game_temp.last_uptime_refreshed_play_time = System.uptime
     $stats.play_sessions += 1
@@ -108,7 +116,8 @@ module Game
   # @param safe [Boolean] whether $PokemonGlobal.safesave should be set to true
   # @return [Boolean] whether the operation was successful
   # @raise [SaveData::InvalidValueError] if an invalid value is being saved
-  def self.save(save_file = SaveData::FILE_PATH, safe: false)
+  def self.save(save_file = nil, safe: false)
+    save_file ||= SaveData.file_path($game_temp&.save_slot || 1)
     validate save_file => String, safe => [TrueClass, FalseClass]
     $PokemonGlobal.safesave = safe
     $game_system.save_count += 1

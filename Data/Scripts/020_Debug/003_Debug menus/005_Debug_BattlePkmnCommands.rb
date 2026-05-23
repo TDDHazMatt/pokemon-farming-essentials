@@ -373,10 +373,10 @@ MenuHandlers.add(:battle_pokemon_debug_menu, :hidden_values, {
           break if cmd2 < 0
           if cmd2 < iv_id.length
             params = ChooseNumberParams.new
-            params.setRange(0, Pokemon::IV_STAT_LIMIT)
+            params.setRange(-255, 255)
             params.setDefaultValue(pkmn.iv[iv_id[cmd2]])
             params.setCancelValue(pkmn.iv[iv_id[cmd2]])
-            f = pbMessageChooseNumber("\\ts[]" + _INTL("Set the IV for {1} (max. 31).",
+            f = pbMessageChooseNumber("\\ts[]" + _INTL("Set the IV for {1} (-255 to 255).",
                                                        GameData::Stat.get(iv_id[cmd2]).name), params)
             if f != pkmn.iv[iv_id[cmd2]]
               pkmn.iv[iv_id[cmd2]] = f

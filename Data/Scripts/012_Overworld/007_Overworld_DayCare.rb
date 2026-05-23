@@ -447,3 +447,128 @@ EventHandlers.add(:on_player_step_taken, :update_day_care,
 def pbDayCareUnlock
   return $PokemonGlobal.day_care.unlocks
 end
+
+#===============================================================================
+# Prompts the player to choose which breeding pair to interact with.
+# Returns the chosen pair index (0-based), or -1 if cancelled.
+# When only one pair is active, returns 0 immediately with no menu shown.
+#
+# Usage in NPC event Script box:
+#   $game_variables[VAR] = pbDayCareChoosePair
+# Then branch on VAR == -1 (cancelled) or use VAR as pair_index in all
+# DayCare.* calls (deposit, withdraw, egg_generated?, collect_egg, etc.)
+#===============================================================================
+# Short form: pbChoosePair(var_id) — stores result in $game_variables[var_id]
+def pbChoosePair(var_id)
+  $game_variables[var_id] = pbDayCareChoosePair
+end
+
+def pbDayCareChoosePair
+  day_care   = $PokemonGlobal.day_care
+  max_active = day_care.unlocks.max_active_pairs
+  return 0 if max_active <= 1
+
+  commands = []
+  max_active.times do |i|
+    pair  = day_care[i]
+    count = pair.count
+    egg   = pair.egg_generated ? " [Egg!]" : ""
+    label = case count
+            when 0 then _INTL("Pair {1} — Empty", i + 1)
+            when 1 then _INTL("Pair {1} — 1 Pokémon{2}", i + 1, egg)
+            when 2 then _INTL("Pair {1} — 2 Pokémon{2}", i + 1, egg)
+            end
+    commands << label
+  end
+  commands << _INTL("Cancel")
+
+  choice = pbMessage(_INTL("Which pair?"), commands, commands.length)
+  return -1 if choice == commands.length - 1
+  return choice
+end
+
+#===============================================================================
+# Egg helpers for NPC event scripts.
+#
+# pbDayCareAnyEgg?
+#   Use in a Conditional Branch (Script) to check if any pair has an egg ready.
+#
+# pbCollectEgg(var_id)
+#   Handles the full collection flow:
+#     - If one pair has an egg: collects it immediately.
+#     - If multiple pairs have eggs: shows a menu so the player picks which one.
+#     - If party is full: stores -2 in var_id, does nothing.
+#     - If player cancels (multi-egg menu): stores -1 in var_id.
+#     - On success: stores 1 in var_id.
+#
+#   NPC event branch on var_id:
+#     == 1   → "Here's your egg!" message, hand off egg
+#     == -2  → "Your party is full, come back later."
+#     == -1  → player changed their mind (already handled cancel text in event)
+#===============================================================================
+def pbDayCareAnyEgg?
+  day_care = $PokemonGlobal.day_care
+  day_care.unlocks.max_active_pairs.times.any? { |i| day_care[i].egg_generated }
+end
+
+def pbCollectEgg(var_id)
+  day_care   = $PokemonGlobal.day_care
+  max_active = day_care.unlocks.max_active_pairs
+  ready      = (0...max_active).select { |i| day_care[i].egg_generated }
+
+  if ready.empty?
+    $game_variables[var_id] = 0
+    return
+  end
+
+  if ready.length == 1
+    pair_index = ready[0]
+  else
+    commands = ready.map { |i|
+      pair = day_care[i]
+      _INTL("Pair {1} ({2} Pokémon)", i + 1, pair.count)
+    }
+    commands << _INTL("Cancel")
+    choice = pbMessage(
+      _INTL("Eggs are ready in multiple pairs!\nWhich would you like to take?"),
+      commands, commands.length
+    )
+    if choice == commands.length - 1
+      $game_variables[var_id] = -1
+      return
+    end
+    pair_index = ready[choice]
+  end
+
+  if $player.party_full?
+    $game_variables[var_id] = -2
+    return
+  end
+
+  DayCare.collect_egg(pair_index)
+  $game_variables[var_id] = 1
+end
+
+#===============================================================================
+# DEBUG — force egg ready on every active pair that has 2 deposited Pokémon.
+# If no pair has 2 Pokémon, forces pair 0 regardless (for quick testing).
+# Call from a Script event box: pbDebugForceEgg
+#===============================================================================
+def pbDebugForceEgg
+  day_care   = $PokemonGlobal.day_care
+  max_active = day_care.unlocks.max_active_pairs
+  forced     = []
+  max_active.times do |i|
+    pair = day_care[i]
+    if pair.has_pair?
+      pair.egg_generated = true
+      forced << i + 1
+    end
+  end
+  if forced.empty?
+    day_care[0].egg_generated = true
+    pbMessage(_INTL("[DEBUG] Forced egg on Pair 1 (no full pairs found)."))
+  else
+    pbMessage(_INTL("[DEBUG] Egg forced on Pair(s): {1}", forced.join(", ")))
+  end
+end
