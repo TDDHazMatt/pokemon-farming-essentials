@@ -362,6 +362,14 @@ class PictureEx
   def update
     time_now = System.uptime
     @timer_start = time_now if !@timer_start
+    if Input.tab_held?
+      if @_ff_last
+        @timer_start -= (time_now - @_ff_last) * 2.0
+      end
+      @_ff_last = time_now
+    else
+      @_ff_last = nil
+    end
     this_frame = ((time_now - @timer_start) * 20).to_i   # 20 frames per second
     procEnded = false
     @frameUpdates.clear
@@ -460,6 +468,7 @@ class PictureEx
     # Clear out empty spaces in @processes array caused by finished processes
     @processes.compact! if procEnded
     @timer_start = nil if @processes.empty? && @rotate_speed == 0
+    @_ff_last = nil if !@timer_start
     # Add the constant rotation speed
     if @rotate_speed != 0
       @frameUpdates.push(Processes::ANGLE) if !@frameUpdates.include?(Processes::ANGLE)

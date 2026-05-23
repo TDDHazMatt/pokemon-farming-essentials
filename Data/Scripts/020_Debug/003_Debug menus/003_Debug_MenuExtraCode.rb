@@ -233,96 +233,101 @@ def pbDebugDayCare
   day_care = $PokemonGlobal.day_care
   cmd_window = Window_CommandPokemonEx.newEmpty(0, 0, Graphics.width, Graphics.height)
   commands = []
+  cmd_map  = []   # [pair_index, :slot_a | :slot_b | :egg | :steps] per command
   cmd = 0
-  compat = 0
   need_refresh = true
   loop do
     if need_refresh
       commands.clear
-      day_care.slots.each_with_index do |slot, i|
-        if slot.filled?
-          pkmn = slot.pokemon
-          msg = _INTL("{1} ({2})", pkmn.name, pkmn.speciesName)
-          if pkmn.male?
-            msg += ", ♂"
-          elsif pkmn.female?
-            msg += ", ♀"
-          end
-          if slot.level_gain > 0
-            msg += ", " + _INTL("Lv.{1} (+{2})", pkmn.level, slot.level_gain)
+      cmd_map.clear
+      max_pairs = day_care.unlocks.max_active_pairs
+      max_pairs.times do |pi|
+        pair = day_care.pairs[pi]
+        prefix = max_pairs > 1 ? "P#{pi + 1} " : ""
+        [:slot_a, :slot_b].each_with_index do |sym, si|
+          slot = (si == 0) ? pair.slot_a : pair.slot_b
+          label = "#{prefix}Slot #{si == 0 ? 'A' : 'B'}"
+          if slot.filled?
+            pkmn = slot.pokemon
+            gender = pkmn.male? ? ", ♂" : pkmn.female? ? ", ♀" : ""
+            level  = slot.level_gain > 0 ? _INTL("Lv.{1} (+{2})", pkmn.level, slot.level_gain) : _INTL("Lv.{1}", pkmn.level)
+            commands.push("[#{label}] #{pkmn.name} (#{pkmn.speciesName})#{gender}, #{level}")
           else
-            msg += ", " + _INTL("Lv.{1}", pkmn.level)
+            commands.push("[#{label}] Empty")
           end
-          commands.push(_INTL("[Slot {1}] {2}", i, msg))
-        else
-          commands.push(_INTL("[Slot {1}] Empty", i))
+          cmd_map.push([pi, sym])
         end
+        compat = pair.compatibility
+        if pair.egg_generated
+          commands.push("[#{prefix}Egg available]")
+        elsif compat > 0
+          commands.push("[#{prefix}Can produce egg]")
+        else
+          commands.push("[#{prefix}Cannot breed]")
+        end
+        cmd_map.push([pi, :egg])
+        commands.push("[#{prefix}Steps to next cycle: #{BreedingPair::STEP_THRESHOLD - pair.step_counter}]")
+        cmd_map.push([pi, :steps])
       end
-      compat = $PokemonGlobal.day_care.get_compatibility
-      if day_care.egg_generated
-        commands.push(_INTL("[Egg available]"))
-      elsif compat > 0
-        commands.push(_INTL("[Can produce egg]"))
-      else
-        commands.push(_INTL("[Cannot breed]"))
-      end
-      commands.push(_INTL("[Steps to next cycle: {1}]", 256 - day_care.step_counter))
       cmd_window.commands = commands
       need_refresh = false
     end
     cmd = pbCommands2(cmd_window, commands, -1, cmd, true)
     break if cmd < 0
-    if cmd == commands.length - 2   # Egg
-      compat = $PokemonGlobal.day_care.get_compatibility
+    next unless cmd < cmd_map.length
+    pi, action = cmd_map[cmd]
+    pair = day_care.pairs[pi]
+    case action
+    when :egg
+      compat = pair.compatibility
       if compat == 0
         pbMessage(_INTL("Pokémon cannot breed."))
       else
         msg = _INTL("Pokémon can breed (compatibility = {1}).", compat)
-        # Show compatibility
-        if day_care.egg_generated
+        if pair.egg_generated
           case pbMessage("\\ts[]" + msg,
                          [_INTL("Collect egg"), _INTL("Clear egg"), _INTL("Cancel")], 3)
           when 0   # Collect egg
             if $player.party_full?
               pbMessage(_INTL("Party is full, can't collect the egg."))
             else
-              DayCare.collect_egg
+              DayCare.collect_egg(pi)
               pbMessage(_INTL("Collected the {1} egg.", $player.last_party.speciesName))
               need_refresh = true
             end
           when 1   # Clear egg
-            day_care.egg_generated = false
+            pair.egg_generated = false
             need_refresh = true
           end
         else
           case pbMessage("\\ts[]" + msg, [_INTL("Make egg available"), _INTL("Cancel")], 2)
           when 0   # Make egg available
-            day_care.egg_generated = true
+            pair.egg_generated = true
             need_refresh = true
           end
         end
       end
-    elsif cmd == commands.length - 1   # Steps to next cycle
-      case pbMessage("\\ts[]" + _INTL("Change number of steps to next cycle?"),
-                     [_INTL("Set to 1"), _INTL("Set to 256"), _INTL("Set to other value"), _INTL("Cancel")], 4)
+    when :steps
+      case pbMessage("\\ts[]" + _INTL("Change steps to next cycle for this pair?"),
+                     [_INTL("Set to 1"), _INTL("Set to max"), _INTL("Set to other value"), _INTL("Cancel")], 4)
       when 0   # Set to 1
-        day_care.step_counter = 255
+        pair.step_counter = BreedingPair::STEP_THRESHOLD - 1
         need_refresh = true
-      when 1   # Set to 256
-        day_care.step_counter = 0
+      when 1   # Set to max (next step triggers check)
+        pair.step_counter = 0
         need_refresh = true
-      when 2   # Set to other value
+      when 2   # Custom
         params = ChooseNumberParams.new
-        params.setDefaultValue(day_care.step_counter)
-        params.setRange(1, 256)
-        new_counter = pbMessageChooseNumber(_INTL("Set steps until next cycle (1-256)."), params)
-        if new_counter != 256 - day_care.step_counter
-          day_care.step_counter = 256 - new_counter
-          need_refresh = true
-        end
+        params.setDefaultValue(BreedingPair::STEP_THRESHOLD - pair.step_counter)
+        params.setRange(1, BreedingPair::STEP_THRESHOLD)
+        new_steps = pbMessageChooseNumber(
+          _INTL("Set steps until next cycle (1-{1}).", BreedingPair::STEP_THRESHOLD), params
+        )
+        pair.step_counter = BreedingPair::STEP_THRESHOLD - new_steps
+        need_refresh = true
       end
-    else   # Slot
-      slot = day_care[cmd]
+    when :slot_a, :slot_b
+      slot = (action == :slot_a) ? pair.slot_a : pair.slot_b
       if slot.filled?
         pkmn = slot.pokemon
         msg = _INTL("Cost: ${1}", slot.cost)
@@ -330,7 +335,6 @@ def pbDebugDayCare
           end_exp = pkmn.growth_rate.minimum_exp_for_level(pkmn.level + 1)
           msg += "\\n" + _INTL("Steps to next level: {1}", end_exp - pkmn.exp)
         end
-        # Show level change and cost
         case pbMessage("\\ts[]" + msg,
                        [_INTL("Summary"), _INTL("Withdraw"), _INTL("Cancel")], 3)
         when 0   # Summary
@@ -346,7 +350,7 @@ def pbDebugDayCare
           else
             $player.party.push(pkmn)
             slot.reset
-            day_care.reset_egg_counters
+            pair.reset_egg_counters
             need_refresh = true
           end
         end
@@ -363,13 +367,12 @@ def pbDebugDayCare
               pkmn = $player.party[party_index]
               slot.deposit(pkmn)
               $player.party.delete_at(party_index)
-              day_care.reset_egg_counters
+              pair.reset_egg_counters
               need_refresh = true
             end
           end
         end
       end
-
     end
   end
   cmd_window.dispose

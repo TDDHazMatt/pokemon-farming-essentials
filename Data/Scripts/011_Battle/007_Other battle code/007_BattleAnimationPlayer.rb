@@ -766,7 +766,16 @@ class PBAnimationPlayerX
 
   def update
     return if @frame < 0
-    @frame = ((System.uptime - @timer_start) * 20).to_i
+    now = System.uptime
+    if Input.tab_held?
+      if @_ff_last
+        @timer_start -= (now - @_ff_last) * 2.0
+      end
+      @_ff_last = now
+    else
+      @_ff_last = nil
+    end
+    @frame = ((now - @timer_start) * 20).to_i
     # Loop or end the animation if the animation has reached the end
     if @frame >= @animation.length
       if @looping
