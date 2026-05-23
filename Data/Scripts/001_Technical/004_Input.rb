@@ -8,6 +8,14 @@ module Input
   AUX1     = L
   AUX2     = R
 
+  VK_TAB = 0x09
+  @_get_key_state = Win32API.new("user32", "GetAsyncKeyState", "i", "i") rescue nil
+
+  # Returns true while Tab is physically held down.
+  def self.tab_held?
+    return @_get_key_state && (@_get_key_state.call(VK_TAB) & 0x8000) != 0
+  end
+
   unless defined?(update_KGC_ScreenCapture)
     class << Input
       alias update_KGC_ScreenCapture update

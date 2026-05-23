@@ -895,6 +895,7 @@ class Game_Character
     time_now = System.uptime
     @last_update_time = time_now if !@last_update_time || @last_update_time > time_now
     @delta_t = time_now - @last_update_time
+    @delta_t *= 3 if Input.tab_held?
     @last_update_time = time_now
     return if @delta_t > 0.25   # Was in a menu; delay movement
     @moved_last_frame = @moved_this_frame

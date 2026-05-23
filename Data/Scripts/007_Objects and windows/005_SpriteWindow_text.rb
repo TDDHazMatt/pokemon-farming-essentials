@@ -594,7 +594,14 @@ class Window_AdvancedTextPokemon < SpriteWindow_Base
     end
     if busy?
       refresh if !@text_delay_changed
-      updateInternal
+      if Input.tab_held? && @text_delay && @text_delay > 0
+        old_delay = @text_delay
+        @text_delay = old_delay / 3.0
+        updateInternal
+        @text_delay = old_delay
+      else
+        updateInternal
+      end
       refresh if @text_delay_changed   # Needed to allow "textspeed=0" to work seamlessly
     end
     @text_delay_changed = false

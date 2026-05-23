@@ -16,7 +16,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\" -Directory)",
       "Bash(Select-Object Name)",
       "Bash(xargs grep -l \"save_file\\\\|Save_Slot\\\\|FILE_PATH\")",
-      "Bash(grep -r \"Game\\\\\\\\.save\\\\|Game\\\\\\\\.load\" \"c:/Users/Gamerr/Documents/RPGXP/pokemon-farming-essentials/Data/Scripts\" --include=\"*.rb\")"
+      "Bash(grep -r \"Game\\\\\\\\.save\\\\|Game\\\\\\\\.load\" \"c:/Users/Gamerr/Documents/RPGXP/pokemon-farming-essentials/Data/Scripts\" --include=\"*.rb\")",
+      "Bash(C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb)"
     ]
   }
 }
