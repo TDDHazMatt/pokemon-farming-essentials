@@ -31,12 +31,12 @@ class DayCare
       mother_data = [mother, mother.species_data.egg_groups.include?(:Ditto)]
       father_data = [father, father.species_data.egg_groups.include?(:Ditto)]
       species_parent = (mother_data[1]) ? father : mother
-      baby_species = determine_egg_species(species_parent.species, mother, father)
+      baby_species = determine_egg_species(species_parent.species, mother, father, pair)
       mother_data.push(mother.species_data.breeding_can_produce?(baby_species))
       father_data.push(father.species_data.breeding_can_produce?(baby_species))
       egg = generate_basic_egg(baby_species)
       inherit_form(egg, species_parent, mother_data, father_data)
-      inherit_nature(egg, mother, father)
+      inherit_nature(egg, mother, father, pair)
       inherit_ability(egg, mother_data, father_data)
       inherit_moves(egg, mother_data, father_data, pair)
       inherit_IVs(egg, mother, father, pair)
@@ -47,8 +47,11 @@ class DayCare
       return egg
     end
 
-    def determine_egg_species(parent_species, mother, father)
-      ret = GameData::Species.get(parent_species).get_baby_species(true, mother.item_id, father.item_id)
+    def determine_egg_species(parent_species, mother, father, pair)
+      # pair_item acts as the mother's effective held item for incense/baby species checks.
+      # Falls back to the mother's actual held item when no pair item is set.
+      effective_item = pair&.pair_item || mother.item_id
+      ret = GameData::Species.get(parent_species).get_baby_species(true, effective_item, father.item_id)
       offspring = GameData::Species.get(ret).offspring
       ret = offspring.sample if offspring.length > 0
       return ret
@@ -114,9 +117,13 @@ class DayCare
       return moves
     end
 
-    # pair is accepted for future move-pinning modifier items; unused for now.
     def inherit_moves(egg, mother, father, pair)
       moves = get_moves_to_inherit(egg, mother, father)
+      # pair Light Ball grants Volt Tackle to Pichu when neither parent holds one.
+      if pair&.pair_item == :LIGHTBALL && egg.species == :PICHU &&
+         GameData::Move.exists?(:VOLTTACKLE) && !moves.include?(:VOLTTACKLE)
+        moves.push(:VOLTTACKLE)
+      end
       moves = moves.reverse
       moves |= []
       moves = moves.reverse
@@ -125,10 +132,14 @@ class DayCare
       (first_move_index...moves.length).each { |i| egg.learn_move(moves[i]) }
     end
 
-    def inherit_nature(egg, mother, father)
+    def inherit_nature(egg, mother, father, pair)
       new_natures = []
       new_natures.push(mother.nature) if mother.hasItem?(:EVERSTONE)
       new_natures.push(father.nature) if father.hasItem?(:EVERSTONE)
+      # pair Everstone pins a randomly chosen parent's nature when neither parent holds one.
+      if pair&.pair_item == :EVERSTONE && new_natures.empty?
+        new_natures.push([mother, father].sample.nature)
+      end
       return if new_natures.empty?
       egg.nature = new_natures.sample
     end
@@ -144,13 +155,14 @@ class DayCare
       end
     end
 
-    # pair is accepted for future IV-pinning modifier items; unused for now.
     def inherit_IVs(egg, mother, father, pair)
       stats = []
       GameData::Stat.each_main { |s| stats.push(s.id) }
       inherit_count = 3
       if Settings::MECHANICS_GENERATION >= 6
-        inherit_count = 5 if mother.hasItem?(:DESTINYKNOT) || father.hasItem?(:DESTINYKNOT)
+        destiny_knot = mother.hasItem?(:DESTINYKNOT) || father.hasItem?(:DESTINYKNOT) ||
+                       pair&.pair_item == :DESTINYKNOT
+        inherit_count = 5 if destiny_knot
       end
       power_items = [
         [:POWERWEIGHT, :HP],
@@ -167,6 +179,16 @@ class DayCare
           power_stats[item[1]] ||= []
           power_stats[item[1]].push(parent.iv[item[1]])
           break
+        end
+      end
+      # pair Power item pins the relevant IV from a randomly chosen parent.
+      if pair&.pair_item
+        power_items.each do |item_sym, stat|
+          if pair.pair_item == item_sym
+            power_stats[stat] ||= []
+            power_stats[stat].push([mother, father].sample.iv[stat])
+            break
+          end
         end
       end
       power_stats.each_pair do |stat, new_stats|
@@ -419,6 +441,46 @@ class DayCare
     end
   end
 
+  # Returns the item ID in the pair's item slot, or nil.
+  def pair_item(pair_index = 0)
+    return @pairs[pair_index]&.pair_item
+  end
+
+  # Places item_id into the pair's item slot.  Raises if the slot is occupied.
+  def set_pair_item(item_id, pair_index = 0)
+    raise _INTL("Pair {1} already has an item in its slot.", pair_index + 1) if @pairs[pair_index].pair_item
+    @pairs[pair_index].pair_item = item_id
+  end
+
+  # Removes and returns the item from the pair's item slot (nil if empty).
+  def clear_pair_item(pair_index = 0)
+    item = @pairs[pair_index]&.pair_item
+    @pairs[pair_index].pair_item = nil if @pairs[pair_index]
+    return item
+  end
+
+  # Takes item_id from the player's bag and places it in the pair's slot.
+  # Returns false if the item slot feature is not yet unlocked, the bag
+  # doesn't contain the item, or the slot is already occupied.
+  def self.give_item(item_id, pair_index = 0)
+    day_care = $PokemonGlobal.day_care
+    return false unless day_care.unlocks.pair_items_unlocked_for?(pair_index)
+    return false if day_care.pair_item(pair_index)
+    return false unless $bag.has?(item_id)
+    $bag.remove(item_id, 1)
+    day_care.set_pair_item(item_id, pair_index)
+    return true
+  end
+
+  # Returns the pair's item to the player's bag.
+  # Returns the item ID on success, nil if the slot was empty.
+  def self.return_item(pair_index = 0)
+    day_care = $PokemonGlobal.day_care
+    item = day_care.clear_pair_item(pair_index)
+    $bag.add(item) if item
+    return item
+  end
+
   def self.collect_egg(pair_index = 0)
     day_care = $PokemonGlobal.day_care
     egg      = day_care.generate_egg(pair_index)
@@ -547,6 +609,39 @@ def pbCollectEgg(var_id)
 
   DayCare.collect_egg(pair_index)
   $game_variables[var_id] = 1
+end
+
+#===============================================================================
+# Pair item slot helpers for NPC event scripts.
+#
+# pbDayCareGiveItem(pair_index, item_id)
+#   Takes item_id from the player's bag and places it in the pair's item slot.
+#   Returns true on success, false if the slot is already occupied or the bag
+#   doesn't contain the item.
+#   NPC usage example (pair 0, Rose Incense):
+#     pbDayCareGiveItem(0, :ROSEINCENSE)
+#
+# pbDayCareReturnItem(pair_index, var_id)
+#   Returns the pair's item to the player's bag and stores its item ID in
+#   var_id (stores nil if the slot was empty).
+#   NPC usage example:
+#     pbDayCareReturnItem(0, 5)   # result in $game_variables[5]
+#
+# pbDayCareItemName(pair_index)
+#   Returns the display name of the item in the pair's slot, or nil.
+#===============================================================================
+def pbDayCareGiveItem(pair_index, item_id)
+  return DayCare.give_item(item_id, pair_index)
+end
+
+def pbDayCareReturnItem(pair_index, var_id)
+  item = DayCare.return_item(pair_index)
+  $game_variables[var_id] = item
+end
+
+def pbDayCareItemName(pair_index)
+  item = $PokemonGlobal.day_care.pair_item(pair_index)
+  return item ? GameData::Item.get(item).name : nil
 end
 
 #===============================================================================

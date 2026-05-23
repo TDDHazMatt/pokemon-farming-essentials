@@ -16,8 +16,15 @@ class DayCareUnlocks
 
   def extra_pairs;          return @extra_pairs      || 0;     end
   def extra_pairs=(v);      @extra_pairs      = v;             end
-  def pair_items;           return @pair_items        || false; end
-  def pair_items=(v);       @pair_items       = v;             end
+  # Number of pairs that have an item slot unlocked (0 = none, 1 = pair 1 only, etc.).
+  # Handles old boolean saves: false → 0, true → 1.
+  def pair_items
+    val = @pair_items
+    return 0 if val.nil? || val == false
+    return 1 if val == true
+    return val.to_i
+  end
+  def pair_items=(v); @pair_items = v; end
   def egg_move_select;      return @egg_move_select   || false; end
   def egg_move_select=(v);  @egg_move_select  = v;             end
   def shiny_bonus;          return @shiny_bonus       || 0;    end
@@ -27,7 +34,7 @@ class DayCareUnlocks
 
   def initialize
     @extra_pairs      = 0
-    @pair_items       = false
+    @pair_items       = 0
     @egg_move_select  = false
     @shiny_bonus      = 0
     @speed_bonus      = 1
@@ -45,8 +52,15 @@ class DayCareUnlocks
     @extra_pairs = [(@extra_pairs || 0) + 1, Settings::MAX_BREEDING_PAIRS - 1].min
   end
 
+  # Each call unlocks the item slot for the next pair in order.
+  # 1st call → pair 1 gets a slot, 2nd → pair 2, etc., up to MAX_BREEDING_PAIRS.
   def unlock_pair_items
-    @pair_items = true
+    @pair_items = [pair_items + 1, Settings::MAX_BREEDING_PAIRS].min
+  end
+
+  # Returns true if pair_index (0-based) has an item slot unlocked.
+  def pair_items_unlocked_for?(pair_index)
+    return pair_index < pair_items
   end
 
   def unlock_egg_move_select
@@ -76,7 +90,8 @@ class BreedingPair
   attr_accessor :slot_a, :slot_b
   attr_accessor :egg_generated
   attr_accessor :step_counter
-  attr_accessor :item_a, :item_b   # per-slot modifier items (reserved for future use)
+  attr_accessor :pair_item         # Item ID (symbol) placed in the pair's item slot, or nil
+  attr_accessor :item_a, :item_b   # per-Pokémon modifier items (reserved for future use)
 
   STEP_THRESHOLD = 256   # steps between egg-chance rolls (unchanged from original)
 
@@ -88,6 +103,7 @@ class BreedingPair
     @slot_b        = DayCare::DayCareSlot.new
     @egg_generated = false
     @step_counter  = 0
+    @pair_item     = nil
     @item_a        = nil
     @item_b        = nil
   end

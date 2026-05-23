@@ -268,6 +268,15 @@ def pbDebugDayCare
         cmd_map.push([pi, :egg])
         commands.push("[#{prefix}Steps to next cycle: #{BreedingPair::STEP_THRESHOLD - pair.step_counter}]")
         cmd_map.push([pi, :steps])
+        item_label = if pair.pair_item
+                       GameData::Item.get(pair.pair_item).name
+                     elsif day_care.unlocks.pair_items
+                       "None"
+                     else
+                       "None (Locked)"
+                     end
+        commands.push("[#{prefix}Item slot: #{item_label}]")
+        cmd_map.push([pi, :item])
       end
       cmd_window.commands = commands
       need_refresh = false
@@ -325,6 +334,48 @@ def pbDebugDayCare
         )
         pair.step_counter = BreedingPair::STEP_THRESHOLD - new_steps
         need_refresh = true
+      end
+    when :item
+      unlocked = day_care.unlocks.pair_items_unlocked_for?(pi)
+      if pair.pair_item
+        item_name = GameData::Item.get(pair.pair_item).name
+        case pbMessage("\\ts[]" + _INTL("Item slot holds: {1}", item_name),
+                       [_INTL("Remove item"), _INTL("Replace item"), _INTL("Cancel")], 3)
+        when 0   # Remove (discard — debug doesn't return item to bag)
+          pair.pair_item = nil
+          need_refresh = true
+        when 1   # Replace
+          chosen = pbChooseItem
+          if chosen && chosen != :NONE
+            pair.pair_item = chosen
+            need_refresh = true
+          end
+        end
+      elsif !unlocked
+        case pbMessage("\\ts[]" + _INTL("[DEBUG] Item slot is locked. Unlock or place anyway?"),
+                       [_INTL("Unlock feature"), _INTL("Place item anyway"), _INTL("Cancel")], 3)
+        when 0   # Unlock up to and including this pair
+          until day_care.unlocks.pair_items_unlocked_for?(pi)
+            day_care.unlocks.unlock_pair_items
+          end
+          need_refresh = true
+        when 1   # Bypass lock — debug only
+          chosen = pbChooseItem
+          if chosen && chosen != :NONE
+            pair.pair_item = chosen
+            need_refresh = true
+          end
+        end
+      else
+        case pbMessage("\\ts[]" + _INTL("Item slot is empty."),
+                       [_INTL("Place item"), _INTL("Cancel")], 2)
+        when 0
+          chosen = pbChooseItem
+          if chosen && chosen != :NONE
+            pair.pair_item = chosen
+            need_refresh = true
+          end
+        end
       end
     when :slot_a, :slot_b
       slot = (action == :slot_a) ? pair.slot_a : pair.slot_b
