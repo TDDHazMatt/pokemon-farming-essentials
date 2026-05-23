@@ -227,6 +227,48 @@ def pbDebugVariables(mode)
 end
 
 #===============================================================================
+# Returns an array of human-readable effect strings for the pair's helper slot.
+# Delegates to DayCare::PairEffects predicates so this always reflects the actual
+# egg generation logic.  Empty array means no recognized effect.
+#===============================================================================
+def pbDebugHelperEffectText(pair)
+  effects = []
+  stat_display = { HP: "HP", ATTACK: "Attack", DEFENSE: "Defense",
+                   SPECIAL_ATTACK: "Sp. Atk", SPECIAL_DEFENSE: "Sp. Def", SPEED: "Speed" }
+
+  if DayCare::PairEffects.helper_ditto_surrogate?(pair)
+    effects << "Ditto surrogate: enables same-gender breeding and randomly chooses which parent determines the egg species."
+  end
+
+  helper = pair&.helper_pokemon
+  if helper&.item_id
+    iname = GameData::Item.get(helper.item_id).name
+    if DayCare::PairEffects.helper_everstone?(pair)
+      effects << "#{iname}: pins a randomly chosen parent's nature (only when neither parent holds one)."
+    elsif DayCare::PairEffects.helper_destiny_knot?(pair)
+      effects << "#{iname}: causes 5 IVs to be inherited instead of 3."
+    elsif DayCare::PairEffects.helper_light_ball?(pair)
+      effects << "#{iname}: grants Volt Tackle to Pichu eggs."
+    else
+      pi = DayCare::PairEffects.helper_power_items(pair)
+      if !pi.empty?
+        effects << "#{iname}: pins the #{stat_display[pi[0][1]] || pi[0][1]} IV from a randomly chosen parent."
+      elsif DayCare::PairEffects.helper_incense?(pair)
+        effects << "#{iname}: may alter the egg species (incense effect applied as if held by the mother)."
+      else
+        effects << "#{iname}: no recognized breeding effect from this slot."
+      end
+    end
+  end
+
+  if DayCare::PairEffects.ha_boost_active?(pair)
+    effects << "Psychic-type with Hidden Power: 60% chance the offspring inherits a hidden ability."
+  end
+
+  return effects
+end
+
+#===============================================================================
 # Debug Day Care screen
 #===============================================================================
 def pbDebugDayCare
@@ -268,9 +310,19 @@ def pbDebugDayCare
         cmd_map.push([pi, :egg])
         commands.push("[#{prefix}Steps to next cycle: #{BreedingPair::STEP_THRESHOLD - pair.step_counter}]")
         cmd_map.push([pi, :steps])
+        helper_locked = !day_care.unlocks.helper_slot_unlocked_for?(pi)
+        helper_label  = if pair.helper_pokemon
+                          "#{pair.helper_pokemon.name} (#{pair.helper_pokemon.speciesName})"
+                        elsif helper_locked
+                          "None (Locked)"
+                        else
+                          "None"
+                        end
+        commands.push("[#{prefix}Helper: #{helper_label}]")
+        cmd_map.push([pi, :helper])
         item_label = if pair.pair_item
                        GameData::Item.get(pair.pair_item).name
-                     elsif day_care.unlocks.pair_items
+                     elsif day_care.unlocks.pair_items_unlocked_for?(pi)
                        "None"
                      else
                        "None (Locked)"
@@ -334,6 +386,59 @@ def pbDebugDayCare
         )
         pair.step_counter = BreedingPair::STEP_THRESHOLD - new_steps
         need_refresh = true
+      end
+    when :helper
+      helper_unlocked = day_care.unlocks.helper_slot_unlocked_for?(pi)
+      if pair.helper_pokemon
+        pkmn = pair.helper_pokemon
+        msg = _INTL("{1} (Lv.{2}, {3})", pkmn.name, pkmn.level, pkmn.speciesName)
+        case pbMessage("\\ts[]" + _INTL("Helper slot holds: {1}", msg),
+                       [_INTL("Check effect"), _INTL("Return to party"), _INTL("Cancel")], 3)
+        when 0   # Check effect
+          effects = pbDebugHelperEffectText(pair)
+          if effects.empty?
+            pbMessage(_INTL("{1} has no recognized effect as a helper.", pkmn.name))
+          else
+            pbMessage("[DEBUG] Effects for #{pkmn.name}:\n" + effects.map { |e| "• #{e}" }.join("\n"))
+          end
+        when 1   # Return to party
+          if $player.party_full?
+            pbMessage(_INTL("Party is full, can't return helper."))
+          else
+            $player.party.push(pkmn)
+            pair.helper_pokemon = nil
+            need_refresh = true
+          end
+        end
+      elsif !helper_unlocked
+        case pbMessage("\\ts[]" + _INTL("[DEBUG] Helper slot is locked. Unlock or place anyway?"),
+                       [_INTL("Unlock feature"), _INTL("Place anyway"), _INTL("Cancel")], 3)
+        when 0
+          until day_care.unlocks.helper_slot_unlocked_for?(pi)
+            day_care.unlocks.unlock_helper_slot
+          end
+          need_refresh = true
+        when 1
+          pbChooseNonEggPokemon(1, 3)
+          party_index = pbGet(1)
+          if party_index >= 0
+            pair.helper_pokemon = $player.party[party_index]
+            $player.party.delete_at(party_index)
+            need_refresh = true
+          end
+        end
+      else
+        case pbMessage("\\ts[]" + _INTL("Helper slot is empty."),
+                       [_INTL("Place helper"), _INTL("Cancel")], 2)
+        when 0
+          pbChooseNonEggPokemon(1, 3)
+          party_index = pbGet(1)
+          if party_index >= 0
+            pair.helper_pokemon = $player.party[party_index]
+            $player.party.delete_at(party_index)
+            need_refresh = true
+          end
+        end
       end
     when :item
       unlocked = day_care.unlocks.pair_items_unlocked_for?(pi)

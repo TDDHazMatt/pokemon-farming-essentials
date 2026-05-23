@@ -20,7 +20,9 @@
       "Bash(C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb)",
       "Bash(xargs grep -l \"class PictureEx\")",
       "Bash(xargs grep -l \"def lerp\")",
-      "Bash(xargs grep -l \"System.uptime\")"
+      "Bash(xargs grep -l \"System.uptime\")",
+      "Bash(ruby scripts_force_combine.rb)",
+      "PowerShell(& \"C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe\" \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\scripts_force_combine.rb\" 2>&1)"
     ]
   }
 }

@@ -25,6 +25,15 @@ class DayCareUnlocks
     return val.to_i
   end
   def pair_items=(v); @pair_items = v; end
+
+  # Number of pairs that have a helper Pokémon slot unlocked (0 = none).
+  def helper_slots
+    val = @helper_slots
+    return 0 if val.nil? || val == false
+    return 1 if val == true
+    return val.to_i
+  end
+  def helper_slots=(v); @helper_slots = v; end
   def egg_move_select;      return @egg_move_select   || false; end
   def egg_move_select=(v);  @egg_move_select  = v;             end
   def shiny_bonus;          return @shiny_bonus       || 0;    end
@@ -35,6 +44,7 @@ class DayCareUnlocks
   def initialize
     @extra_pairs      = 0
     @pair_items       = 0
+    @helper_slots     = 0
     @egg_move_select  = false
     @shiny_bonus      = 0
     @speed_bonus      = 1
@@ -61,6 +71,16 @@ class DayCareUnlocks
   # Returns true if pair_index (0-based) has an item slot unlocked.
   def pair_items_unlocked_for?(pair_index)
     return pair_index < pair_items
+  end
+
+  # Each call unlocks the helper slot for the next pair in order, up to MAX_BREEDING_PAIRS.
+  def unlock_helper_slot
+    @helper_slots = [helper_slots + 1, Settings::MAX_BREEDING_PAIRS].min
+  end
+
+  # Returns true if pair_index (0-based) has a helper Pokémon slot unlocked.
+  def helper_slot_unlocked_for?(pair_index)
+    return pair_index < helper_slots
   end
 
   def unlock_egg_move_select
@@ -91,6 +111,7 @@ class BreedingPair
   attr_accessor :egg_generated
   attr_accessor :step_counter
   attr_accessor :pair_item         # Item ID (symbol) placed in the pair's item slot, or nil
+  attr_accessor :helper_pokemon    # Pokémon placed as a passive helper, or nil
   attr_accessor :item_a, :item_b   # per-Pokémon modifier items (reserved for future use)
 
   STEP_THRESHOLD = 256   # steps between egg-chance rolls (unchanged from original)
@@ -99,13 +120,14 @@ class BreedingPair
     # DayCare::DayCareSlot is defined in 007_Overworld_DayCare.rb, which loads
     # after this file — but initialize is only ever called at runtime (never at
     # class-definition time), so the constant is already resolved by then.
-    @slot_a        = DayCare::DayCareSlot.new
-    @slot_b        = DayCare::DayCareSlot.new
-    @egg_generated = false
-    @step_counter  = 0
-    @pair_item     = nil
-    @item_a        = nil
-    @item_b        = nil
+    @slot_a          = DayCare::DayCareSlot.new
+    @slot_b          = DayCare::DayCareSlot.new
+    @egg_generated   = false
+    @step_counter    = 0
+    @pair_item       = nil
+    @helper_pokemon  = nil
+    @item_a          = nil
+    @item_b          = nil
   end
 
   #-----------------------------------------------------------------------------
@@ -156,7 +178,9 @@ class BreedingPair
     return 0 if grps1.include?(:Undiscovered) || grps2.include?(:Undiscovered)
     return 0 if !grps1.include?(:Ditto) && !grps2.include?(:Ditto) &&
                 (grps1 & grps2).empty?
-    return 0 unless compatible_gender?(pkmn1, pkmn2)
+    # A Ditto helper acts as a surrogate, enabling same-gender pairs that would otherwise fail.
+    gender_ok = compatible_gender?(pkmn1, pkmn2) || DayCare::PairEffects.ditto_surrogate?(self)
+    return 0 unless gender_ok
     ret = 1
     ret += 1 if pkmn1.species == pkmn2.species
     ret += 1 if pkmn1.owner.id != pkmn2.owner.id

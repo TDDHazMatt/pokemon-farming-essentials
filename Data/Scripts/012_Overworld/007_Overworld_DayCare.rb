@@ -13,6 +13,101 @@
 #===============================================================================
 class DayCare
   #=============================================================================
+  # Predicates that encapsulate all item and helper effect checks.  Both
+  # EggGenerator and the debug display call these so the two can never drift
+  # out of sync.
+  #=============================================================================
+  module PairEffects
+    module_function
+
+    POWER_ITEM_STATS = {
+      POWERWEIGHT: :HP,
+      POWERBRACER: :ATTACK,
+      POWERBELT:   :DEFENSE,
+      POWERLENS:   :SPECIAL_ATTACK,
+      POWERBAND:   :SPECIAL_DEFENSE,
+      POWERANKLET: :SPEED
+    }.freeze
+
+    KNOWN_INCENSE = %i[
+      ROSEINCENSE SEAINCENSE WAVEINCENSE ROCKINCENSE
+      ODDINCENSE LUCKINCENSE PUREINCENSE FULLINCENSE LAXINCENSE
+    ].freeze
+
+    # --- Helper-specific predicates (called by debug "Check effect") ---
+
+    def helper_ditto_surrogate?(pair)
+      return pair&.helper_pokemon&.isSpecies?(:DITTO) == true
+    end
+
+    def helper_everstone?(pair)
+      return pair&.helper_pokemon&.hasItem?(:EVERSTONE) == true
+    end
+
+    def helper_destiny_knot?(pair)
+      return pair&.helper_pokemon&.hasItem?(:DESTINYKNOT) == true
+    end
+
+    def helper_light_ball?(pair)
+      return pair&.helper_pokemon&.hasItem?(:LIGHTBALL) == true
+    end
+
+    # Returns [[item_id, stat_sym]] for the helper's Power item, or [].
+    def helper_power_items(pair)
+      item_id = pair&.helper_pokemon&.item_id
+      return [] unless item_id
+      POWER_ITEM_STATS.each { |sym, stat| return [[item_id, stat]] if item_id == sym }
+      return []
+    end
+
+    def helper_incense?(pair)
+      item_id = pair&.helper_pokemon&.item_id
+      return item_id ? KNOWN_INCENSE.include?(item_id) : false
+    end
+
+    def helper_ha_boost?(pair)
+      helper = pair&.helper_pokemon
+      return false unless helper
+      return helper.types.include?(:PSYCHIC) && helper.hasMove?(:HIDDENPOWER)
+    end
+
+    # --- Combined predicates (called by EggGenerator) ---
+
+    def ditto_surrogate?(pair)
+      return helper_ditto_surrogate?(pair)
+    end
+
+    def everstone_active?(pair)
+      return pair&.pair_item == :EVERSTONE || helper_everstone?(pair)
+    end
+
+    def destiny_knot_active?(pair)
+      return pair&.pair_item == :DESTINYKNOT || helper_destiny_knot?(pair)
+    end
+
+    def light_ball_active?(pair)
+      return pair&.pair_item == :LIGHTBALL || helper_light_ball?(pair)
+    end
+
+    # Returns [[item_id, stat_sym]] for the pair item's Power item, or [].
+    def pair_item_power_items(pair)
+      item_id = pair&.pair_item
+      return [] unless item_id
+      POWER_ITEM_STATS.each { |sym, stat| return [[item_id, stat]] if item_id == sym }
+      return []
+    end
+
+    # Returns [[item_id, stat_sym]] for both pair item and helper, deduplicating by stat.
+    def all_power_items(pair)
+      return (pair_item_power_items(pair) + helper_power_items(pair)).uniq { |_id, stat| stat }
+    end
+
+    def ha_boost_active?(pair)
+      return helper_ha_boost?(pair)
+    end
+  end
+
+  #=============================================================================
   # Code that generates an egg based on two given Pokémon.
   #
   # Signature change from original:
@@ -31,6 +126,11 @@ class DayCare
       mother_data = [mother, mother.species_data.egg_groups.include?(:Ditto)]
       father_data = [father, father.species_data.egg_groups.include?(:Ditto)]
       species_parent = (mother_data[1]) ? father : mother
+      # Ditto helper as surrogate: neither pair member is Ditto, so randomly pick
+      # either parent as the species parent instead of always defaulting to mother.
+      if PairEffects.ditto_surrogate?(pair) && !mother_data[1] && !father_data[1]
+        species_parent = [mother, father].sample
+      end
       baby_species = determine_egg_species(species_parent.species, mother, father, pair)
       mother_data.push(mother.species_data.breeding_can_produce?(baby_species))
       father_data.push(father.species_data.breeding_can_produce?(baby_species))
@@ -38,6 +138,7 @@ class DayCare
       inherit_form(egg, species_parent, mother_data, father_data)
       inherit_nature(egg, mother, father, pair)
       inherit_ability(egg, mother_data, father_data)
+      apply_helper_ability_effects(egg, pair)
       inherit_moves(egg, mother_data, father_data, pair)
       inherit_IVs(egg, mother, father, pair)
       inherit_poke_ball(egg, mother_data, father_data)
@@ -48,10 +149,10 @@ class DayCare
     end
 
     def determine_egg_species(parent_species, mother, father, pair)
-      # pair_item acts as the mother's effective held item for incense/baby species checks.
-      # Falls back to the mother's actual held item when no pair item is set.
-      effective_item = pair&.pair_item || mother.item_id
-      ret = GameData::Species.get(parent_species).get_baby_species(true, effective_item, father.item_id)
+      # Check for incense/baby-species items in priority order:
+      # pair slot → helper held → mother held, then father held as second argument.
+      mother_side = pair&.pair_item || pair&.helper_pokemon&.item_id || mother.item_id
+      ret = GameData::Species.get(parent_species).get_baby_species(true, mother_side, father.item_id)
       offspring = GameData::Species.get(ret).offspring
       ret = offspring.sample if offspring.length > 0
       return ret
@@ -119,10 +220,9 @@ class DayCare
 
     def inherit_moves(egg, mother, father, pair)
       moves = get_moves_to_inherit(egg, mother, father)
-      # pair Light Ball grants Volt Tackle to Pichu when neither parent holds one.
-      if pair&.pair_item == :LIGHTBALL && egg.species == :PICHU &&
-         GameData::Move.exists?(:VOLTTACKLE) && !moves.include?(:VOLTTACKLE)
-        moves.push(:VOLTTACKLE)
+      # pair item or helper Light Ball grants Volt Tackle to Pichu.
+      if egg.species == :PICHU && GameData::Move.exists?(:VOLTTACKLE) && !moves.include?(:VOLTTACKLE)
+        moves.push(:VOLTTACKLE) if PairEffects.light_ball_active?(pair)
       end
       moves = moves.reverse
       moves |= []
@@ -136,9 +236,9 @@ class DayCare
       new_natures = []
       new_natures.push(mother.nature) if mother.hasItem?(:EVERSTONE)
       new_natures.push(father.nature) if father.hasItem?(:EVERSTONE)
-      # pair Everstone pins a randomly chosen parent's nature when neither parent holds one.
-      if pair&.pair_item == :EVERSTONE && new_natures.empty?
-        new_natures.push([mother, father].sample.nature)
+      # pair item or helper Everstone pins a randomly chosen parent's nature when neither parent holds one.
+      if new_natures.empty?
+        new_natures.push([mother, father].sample.nature) if PairEffects.everstone_active?(pair)
       end
       return if new_natures.empty?
       egg.nature = new_natures.sample
@@ -161,35 +261,21 @@ class DayCare
       inherit_count = 3
       if Settings::MECHANICS_GENERATION >= 6
         destiny_knot = mother.hasItem?(:DESTINYKNOT) || father.hasItem?(:DESTINYKNOT) ||
-                       pair&.pair_item == :DESTINYKNOT
+                       PairEffects.destiny_knot_active?(pair)
         inherit_count = 5 if destiny_knot
       end
-      power_items = [
-        [:POWERWEIGHT, :HP],
-        [:POWERBRACER, :ATTACK],
-        [:POWERBELT,   :DEFENSE],
-        [:POWERLENS,   :SPECIAL_ATTACK],
-        [:POWERBAND,   :SPECIAL_DEFENSE],
-        [:POWERANKLET, :SPEED]
-      ]
       power_stats = {}
       [mother, father].each do |parent|
-        power_items.each do |item|
-          next if !parent.hasItem?(item[0])
-          power_stats[item[1]] ||= []
-          power_stats[item[1]].push(parent.iv[item[1]])
+        PairEffects::POWER_ITEM_STATS.each do |item_sym, stat|
+          next if !parent.hasItem?(item_sym)
+          power_stats[stat] ||= []
+          power_stats[stat].push(parent.iv[stat])
           break
         end
       end
-      # pair Power item pins the relevant IV from a randomly chosen parent.
-      if pair&.pair_item
-        power_items.each do |item_sym, stat|
-          if pair.pair_item == item_sym
-            power_stats[stat] ||= []
-            power_stats[stat].push([mother, father].sample.iv[stat])
-            break
-          end
-        end
+      PairEffects.all_power_items(pair).each do |_item_id, stat|
+        power_stats[stat] ||= []
+        power_stats[stat].push([mother, father].sample.iv[stat])
       end
       power_stats.each_pair do |stat, new_stats|
         next if !new_stats || new_stats.length == 0
@@ -229,6 +315,13 @@ class DayCare
 
     def set_pokerus(egg)
       egg.givePokerus if rand(65_536) < Settings::POKERUS_CHANCE
+    end
+
+    # Applies passive effects from the pair's helper Pokémon after normal inheritance.
+    def apply_helper_ability_effects(egg, pair)
+      egg.ability_index = 2 if PairEffects.ha_boost_active?(pair) && rand(100) < 60
+      # Hook: ability-based effects (add new entries here as designed).
+      # Hook: species-based effects beyond Ditto (add new entries here as designed).
     end
   end
 
@@ -441,6 +534,49 @@ class DayCare
     end
   end
 
+  # Returns the helper Pokémon in the pair's helper slot, or nil.
+  def helper_pokemon(pair_index = 0)
+    return @pairs[pair_index]&.helper_pokemon
+  end
+
+  # Places pkmn into the pair's helper slot.  Raises if the slot is occupied.
+  def set_helper(pkmn, pair_index = 0)
+    raise _INTL("Pair {1} already has a helper Pokémon.", pair_index + 1) if @pairs[pair_index].helper_pokemon
+    @pairs[pair_index].helper_pokemon = pkmn
+  end
+
+  # Removes and returns the helper Pokémon from the pair (nil if empty).
+  def clear_helper(pair_index = 0)
+    pkmn = @pairs[pair_index]&.helper_pokemon
+    @pairs[pair_index].helper_pokemon = nil if @pairs[pair_index]
+    return pkmn
+  end
+
+  # Takes party[party_index] and places it as the pair's helper.
+  # Returns false if the helper slot feature is locked, the slot is occupied,
+  # or the party index is invalid.
+  def self.give_helper(party_index, pair_index = 0)
+    day_care = $PokemonGlobal.day_care
+    return false unless day_care.unlocks.helper_slot_unlocked_for?(pair_index)
+    return false if day_care.helper_pokemon(pair_index)
+    pkmn = $player.party[party_index]
+    return false unless pkmn
+    day_care.set_helper(pkmn, pair_index)
+    $player.party.delete_at(party_index)
+    return true
+  end
+
+  # Returns the helper Pokémon to the player's party.
+  # Returns false if the slot was empty or the party is full.
+  def self.return_helper(pair_index = 0)
+    day_care = $PokemonGlobal.day_care
+    return false if $player.party_full?
+    pkmn = day_care.clear_helper(pair_index)
+    return false unless pkmn
+    $player.party.push(pkmn)
+    return true
+  end
+
   # Returns the item ID in the pair's item slot, or nil.
   def pair_item(pair_index = 0)
     return @pairs[pair_index]&.pair_item
@@ -629,6 +765,42 @@ end
 #
 # pbDayCareItemName(pair_index)
 #   Returns the display name of the item in the pair's slot, or nil.
+#===============================================================================
+#===============================================================================
+# Helper Pokémon slot helpers for NPC event scripts.
+#
+# pbDayCareGiveHelper(pair_index, party_index)
+#   Takes party[party_index] and places it as the pair's helper Pokémon.
+#   Returns true on success, false if locked, occupied, or invalid index.
+#
+# pbDayCareReturnHelper(pair_index)
+#   Returns the helper Pokémon to the player's party.
+#   Returns false if the slot was empty or the party is full.
+#
+# pbDayCareHelperName(pair_index)
+#   Returns the helper Pokémon's name (species), or nil if slot is empty.
+#
+# pbDayCareChooseHelper(pair_index, var_id)
+#   Shows the party screen so the player can choose which Pokémon to place
+#   as a helper.  Stores the chosen party index in var_id, or -1 if cancelled.
+#===============================================================================
+def pbDayCareGiveHelper(pair_index, party_index)
+  return DayCare.give_helper(party_index, pair_index)
+end
+
+def pbDayCareReturnHelper(pair_index)
+  return DayCare.return_helper(pair_index)
+end
+
+def pbDayCareHelperName(pair_index)
+  pkmn = $PokemonGlobal.day_care.helper_pokemon(pair_index)
+  return pkmn ? pkmn.name : nil
+end
+
+def pbDayCareChooseHelper(pair_index, var_id)
+  pbChooseNonEggPokemon(var_id, 3)
+end
+
 #===============================================================================
 def pbDayCareGiveItem(pair_index, item_id)
   return DayCare.give_item(item_id, pair_index)
