@@ -448,3 +448,37 @@ SaveData.register_conversion(:v21_refactor_day_care_to_pairs) do
     day_care.instance_variable_set(:@share_egg_moves, nil)
   end
 end
+
+#===============================================================================
+
+SaveData.register_conversion(:v22_unify_crop_data) do
+  essentials_version 22
+  display_title "Migrating plant data to unified CropData"
+  to_value :global_metadata do |global|
+    next unless global.eventvars.is_a?(Hash)
+    global.eventvars.each_pair do |key, val|
+      next unless val.is_a?(BerryPlantData) || val.is_a?(ApricornTreeData)
+      crop = CropData.new
+      if val.is_a?(BerryPlantData)
+        if val.planted?
+          crop.crop_id           = val.berry_id
+          crop.mulch_id          = val.mulch_id
+          crop.moisture_level    = val.moisture_level || 100
+          crop.yield_penalty     = val.yield_penalty  || 0
+        end
+      else
+        if val.planted?
+          crop.crop_id        = val.apricorn_id
+          crop.moisture_level = 100
+        end
+      end
+      if val.planted?
+        crop.time_alive        = val.time_alive
+        crop.time_last_updated = val.time_last_updated
+        crop.growth_stage      = val.growth_stage
+        crop.replant_count     = val.replant_count
+      end
+      global.eventvars[key] = crop
+    end
+  end
+end

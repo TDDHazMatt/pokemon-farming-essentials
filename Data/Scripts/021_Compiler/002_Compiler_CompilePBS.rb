@@ -295,6 +295,14 @@ module Compiler
   end
 
   #=============================================================================
+  # Compile crop plant data
+  #=============================================================================
+  def compile_crop_plants(*paths)
+    compile_PBS_file_generic(GameData::CropPlant, *paths) do |final_validate, hash|
+    end
+  end
+
+  #=============================================================================
   # Compile Pokémon data
   #=============================================================================
   def compile_pokemon(*paths)

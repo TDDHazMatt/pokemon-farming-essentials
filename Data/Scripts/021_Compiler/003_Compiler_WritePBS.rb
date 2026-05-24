@@ -160,10 +160,10 @@ module Compiler
   end
 
   #=============================================================================
-  # Save berry plant data to PBS file
+  # Save crop plant data to PBS file
   #=============================================================================
-  def write_berry_plants
-    write_PBS_file_generic(GameData::BerryPlant)
+  def write_crop_plants
+    write_PBS_file_generic(GameData::CropPlant)
   end
 
   #=============================================================================
@@ -799,7 +799,7 @@ module Compiler
     write_abilities
     write_moves
     write_items
-    write_berry_plants
+    write_crop_plants
     write_pokemon
     write_pokemon_forms
     write_pokemon_metrics

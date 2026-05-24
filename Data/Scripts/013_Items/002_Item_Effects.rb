@@ -15,6 +15,12 @@ ItemHandlers::UseText.add(:EXPALL, proc { |item|
   next _INTL("Turn off")
 })
 
+ItemHandlers::UseText.add(:HARVESTER, proc { |item|
+  next $PokemonGlobal.harvester_active ? _INTL("Put away") : _INTL("Use")
+})
+
+
+
 #===============================================================================
 # UseFromBag handlers
 # Return values: 0 = not used
@@ -265,6 +271,37 @@ ItemHandlers::UseInField.add(:SACREDASH, proc { |item|
 
 ItemHandlers::UseInField.add(:TENT, proc { |item|
   pbSleepInBed
+  next true
+})
+
+ItemHandlers::UseInField.add(:HARVESTER, proc { |item|
+  $PokemonGlobal.harvester_active = !$PokemonGlobal.harvester_active
+  if $PokemonGlobal.harvester_active
+    pbMessage(_INTL("The Harvester is now active.\nRipe berries and apricorns will be collected silently."))
+  else
+    pbMessage(_INTL("The Harvester has been put away."))
+  end
+  next true
+})
+
+ItemHandlers::UseInField.add(:SPREADER, proc { |item|
+  was_loaded = $PokemonGlobal.spreader_loaded_item
+  chosen = nil
+  pbFadeOutIn do
+    scene  = PokemonBag_Scene.new
+    screen = PokemonBagScreen.new(scene, $bag)
+    chosen = screen.pbChooseItemScreen(proc { |i|
+      d = GameData::Item.get(i)
+      d.is_plantable? || d.is_mulch?
+    })
+  end
+  if chosen
+    $PokemonGlobal.spreader_loaded_item = chosen
+    pbMessage(_INTL("The Spreader is loaded with {1}.", GameData::Item.get(chosen).name))
+  else
+    $PokemonGlobal.spreader_loaded_item = nil
+    pbMessage(_INTL("The Spreader was put away.")) if was_loaded
+  end
   next true
 })
 

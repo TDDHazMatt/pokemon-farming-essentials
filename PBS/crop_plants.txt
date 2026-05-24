@@ -1,0 +1,482 @@
+# Unified crop plant definitions.
+# Fields:
+#   HoursPerStage   - hours spent in each growth stage
+#   DryingPerHour   - moisture lost per in-game hour; 0 or omit = no moisture system
+#   Yield           - min,max items produced when picked
+#   Replants        - how many times the plant auto-replants before dying (default 9)
+#   FullyGrownStages - how many ripe stages before the harvest window closes (default 4)
+#   SpritePrefix    - base name for character sheet lookup (default "crop")
+#   HarvestItem     - item given on harvest; defaults to the planted item's ID
+#-------------------------------
+# Berries (SpritePrefix = berrytree, Replants = 9, FullyGrownStages = 4)
+#-------------------------------
+[CHERIBERRY]
+HoursPerStage = 3
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[CHESTOBERRY]
+HoursPerStage = 3
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[PECHABERRY]
+HoursPerStage = 3
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[RAWSTBERRY]
+HoursPerStage = 3
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[ASPEARBERRY]
+HoursPerStage = 3
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[LEPPABERRY]
+HoursPerStage = 4
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[ORANBERRY]
+HoursPerStage = 4
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[PERSIMBERRY]
+HoursPerStage = 4
+DryingPerHour = 15
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[LUMBERRY]
+HoursPerStage = 12
+DryingPerHour = 8
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[SITRUSBERRY]
+HoursPerStage = 8
+DryingPerHour = 7
+Yield = 2,5
+SpritePrefix = berrytree
+#-------------------------------
+[FIGYBERRY]
+HoursPerStage = 5
+DryingPerHour = 10
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[WIKIBERRY]
+HoursPerStage = 5
+DryingPerHour = 10
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[MAGOBERRY]
+HoursPerStage = 5
+DryingPerHour = 10
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[AGUAVBERRY]
+HoursPerStage = 5
+DryingPerHour = 10
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[IAPAPABERRY]
+HoursPerStage = 5
+DryingPerHour = 10
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[RAZZBERRY]
+HoursPerStage = 2
+DryingPerHour = 35
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[BLUKBERRY]
+HoursPerStage = 2
+DryingPerHour = 35
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[NANABBERRY]
+HoursPerStage = 2
+DryingPerHour = 35
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[WEPEARBERRY]
+HoursPerStage = 2
+DryingPerHour = 35
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[PINAPBERRY]
+HoursPerStage = 2
+DryingPerHour = 35
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[POMEGBERRY]
+HoursPerStage = 8
+DryingPerHour = 8
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[KELPSYBERRY]
+HoursPerStage = 8
+DryingPerHour = 8
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[QUALOTBERRY]
+HoursPerStage = 8
+DryingPerHour = 8
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[HONDEWBERRY]
+HoursPerStage = 8
+DryingPerHour = 8
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[GREPABERRY]
+HoursPerStage = 8
+DryingPerHour = 8
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[TAMATOBERRY]
+HoursPerStage = 8
+DryingPerHour = 8
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[CORNNBERRY]
+HoursPerStage = 6
+DryingPerHour = 10
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[MAGOSTBERRY]
+HoursPerStage = 6
+DryingPerHour = 10
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[RABUTABERRY]
+HoursPerStage = 6
+DryingPerHour = 10
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[NOMELBERRY]
+HoursPerStage = 6
+DryingPerHour = 10
+Yield = 2,10
+SpritePrefix = berrytree
+#-------------------------------
+[SPELONBERRY]
+HoursPerStage = 15
+DryingPerHour = 8
+Yield = 2,15
+SpritePrefix = berrytree
+#-------------------------------
+[PAMTREBERRY]
+HoursPerStage = 15
+DryingPerHour = 8
+Yield = 3,15
+SpritePrefix = berrytree
+#-------------------------------
+[WATMELBERRY]
+HoursPerStage = 15
+DryingPerHour = 8
+Yield = 2,15
+SpritePrefix = berrytree
+#-------------------------------
+[DURINBERRY]
+HoursPerStage = 15
+DryingPerHour = 8
+Yield = 3,15
+SpritePrefix = berrytree
+#-------------------------------
+[BELUEBERRY]
+HoursPerStage = 15
+DryingPerHour = 8
+Yield = 2,15
+SpritePrefix = berrytree
+#-------------------------------
+[OCCABERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[PASSHOBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[WACANBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[RINDOBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[YACHEBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[CHOPLEBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[KEBIABERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[SHUCABERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[COBABERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[PAYAPABERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[TANGABERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[CHARTIBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[KASIBBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[HABANBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[COLBURBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[BABIRIBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[CHILANBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[LIECHIBERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[GANLONBERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[SALACBERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[PETAYABERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[APICOTBERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[LANSATBERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[STARFBERRY]
+HoursPerStage = 24
+DryingPerHour = 4
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[ENIGMABERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[MICLEBERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[CUSTAPBERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[JABOCABERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[ROWAPBERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[ROSELIBERRY]
+HoursPerStage = 18
+DryingPerHour = 6
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[KEEBERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+[MARANGABERRY]
+HoursPerStage = 24
+DryingPerHour = 7
+Yield = 1,5
+SpritePrefix = berrytree
+#-------------------------------
+# Apricorns (SpritePrefix = apricorntree, Replants = 20, FullyGrownStages = 2, DryingPerHour = 10)
+#-------------------------------
+[REDAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+[YELLOWAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+[BLUEAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+[GREENAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+[PINKAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+[WHITEAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+[BLACKAPRICORN]
+HoursPerStage = 12
+DryingPerHour = 10
+Yield = 2,2
+Replants = 20
+FullyGrownStages = 2
+SpritePrefix = apricorntree
+#-------------------------------
+# New crops
+#-------------------------------
+[CARROTSEED]
+HoursPerStage = 6
+DryingPerHour = 8
+Yield = 1,3
+Replants = 5
+FullyGrownStages = 3
+SpritePrefix = carrotcrop
+HarvestItem = CARROT

@@ -3,6 +3,12 @@
 # span multiple maps.
 #===============================================================================
 class PokemonGlobalMetadata
+  # Harvester key item toggle
+  def harvester_active;       return @harvester_active || false; end
+  def harvester_active=(val); @harvester_active = val;          end
+  # Spreader key item toggle + loaded item
+  def spreader_loaded_item;         return @spreader_loaded_item;    end
+  def spreader_loaded_item=(val);   @spreader_loaded_item = val;     end
   # Movement
   attr_accessor :bicycle
   attr_accessor :surfing

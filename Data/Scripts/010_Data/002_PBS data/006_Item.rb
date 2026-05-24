@@ -183,6 +183,7 @@ module GameData
     def is_apricorn?;        return has_flag?("Apricorn"); end
     def is_gem?;             return has_flag?("TypeGem"); end
     def is_mulch?;           return has_flag?("Mulch"); end
+    def is_plantable?;       return has_flag?("Plantable"); end
     def is_mega_stone?;      return has_flag?("MegaStone"); end   # Does NOT include Red Orb/Blue Orb
     def is_scent?;           return has_flag?("Scent"); end
 

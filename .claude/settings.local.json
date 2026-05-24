@@ -22,7 +22,15 @@
       "Bash(xargs grep -l \"def lerp\")",
       "Bash(xargs grep -l \"System.uptime\")",
       "Bash(ruby scripts_force_combine.rb)",
-      "PowerShell(& \"C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe\" \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\scripts_force_combine.rb\" 2>&1)"
+      "PowerShell(& \"C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe\" \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\scripts_force_combine.rb\" 2>&1)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\" -Directory -ErrorAction SilentlyContinue)",
+      "Bash(xargs grep -l \"class.*PokemonGlobal\\\\|attr.*bicycle\")",
+      "Bash(grep -r '$PokemonGlobal\\\\|class PokemonGlobal' c:/Users/Gamerr/Documents/RPGXP/pokemon-farming-essentials/Data/Scripts)",
+      "Bash(grep -E \"\\\\.rb$\")",
+      "Bash(ruby scripts_combine.rb)",
+      "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_combine.rb; Write-Host \"Exit: $LASTEXITCODE\")",
+      "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb; Write-Host \"Exit: $LASTEXITCODE\")",
+      "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb 2>&1; Write-Host \"Exit: $LASTEXITCODE\")"
     ]
   }
 }
