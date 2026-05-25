@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\\\\011_Battle\\\\004_Scene\\\\*.rb' -Pattern 'def.*pbThrow|def.*pbHideCapture' -Context 2\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\\\\002_BattleSettings.rb' -Pattern 'Safari|safari|SAFARI' -Context 2\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts' -Pattern 'safari_map|metadata.*safari' -Recurse | head -20\")",
+      "Bash(Get-Content \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\\\\011_Battle\\\\008_Other battle types\\\\001_SafariBattle.rb\")",
+      "Bash(Measure-Object -Line)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Gamerr\\.claude\\projects\\c--Users-Gamerr-Documents-RPGXP-pokemon-farming-essentials\\memory"
+    ]
+  }
+}

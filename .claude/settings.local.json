@@ -30,7 +30,13 @@
       "Bash(ruby scripts_combine.rb)",
       "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_combine.rb; Write-Host \"Exit: $LASTEXITCODE\")",
       "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb; Write-Host \"Exit: $LASTEXITCODE\")",
-      "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb 2>&1; Write-Host \"Exit: $LASTEXITCODE\")"
+      "PowerShell(cd \"c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\"; C:\\\\Ruby40-x64\\\\bin\\\\ruby.exe scripts_force_combine.rb 2>&1; Write-Host \"Exit: $LASTEXITCODE\")",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts' -Name '*onfig*' | head -20\")",
+      "Bash(powershell -Command \"Get-ChildItem -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials' -Filter '*Settings*' -Recurse | Select-Object -First 10\")",
+      "Bash(powershell -Command \"Get-ChildItem 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts' -Filter '*002*' | Select-Object Name\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\\\\001_Settings.rb' -Pattern 'SAFARI' -Context 2\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\\\\011_Battle\\\\004_Scene\\\\008_Battle_Scene_Animations.rb' -Pattern 'def.*Throw|class.*Throw' -Context 1 | head -40\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\Gamerr\\\\Documents\\\\RPGXP\\\\pokemon-farming-essentials\\\\Data\\\\Scripts\\\\011_Battle\\\\004_Scene\\\\005_Battle_Scene_Menus.rb' -Pattern 'def.*throw|def.*Throw|pbThrow' -Context 1 | head -20\")"
     ]
   }
 }
