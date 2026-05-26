@@ -34,6 +34,33 @@ class DayCare
       ODDINCENSE LUCKINCENSE PUREINCENSE FULLINCENSE LAXINCENSE
     ].freeze
 
+    # Cross-species mutation table: {[speciesA, speciesB] => result_species}
+    # Order of the pair doesn't matter — checked bidirectionally.
+    CROSS_SPECIES_MUTATIONS = {
+      # Electric Rodents
+      [:PIKACHU,    :MINUN]      => :PACHIRISU,
+      [:PIKACHU,    :PLUSLE]     => :DEDENNE,
+      [:MINUN,      :PLUSLE]     => :EMOLGA,
+      # Fire Quadrupeds
+      [:GROWLITHE,  :HOUNDOUR]   => :FLAREON,
+      # Grass Starters
+      [:BULBASAUR,  :CHIKORITA]  => :TREECKO,
+      # Fire Starters
+      [:CHARMANDER, :CYNDAQUIL]  => :TORCHIC,
+      # Water Starters
+      [:SQUIRTLE,   :TOTODILE]   => :MUDKIP,
+      # Bug Types
+      [:CATERPIE,   :WURMPLE]    => :SPINARAK,
+      # Small Early Birds
+      [:PIDGEY,     :TAILLOW]    => :STARLY,
+      # Normal Rodents
+      [:RATTATA,    :SENTRET]    => :ZIGZAGOON,
+      # Fairy-Normal
+      [:CLEFAIRY,   :JIGGLYPUFF] => :SNUBBULL,
+      # Psychic
+      [:ABRA,       :RALTS]      => :ESPURR,
+    }.freeze
+
     # --- Helper-specific predicates (called by debug "Check effect") ---
 
     def helper_ditto_surrogate?(pair)
@@ -105,6 +132,22 @@ class DayCare
     def ha_boost_active?(pair)
       return helper_ha_boost?(pair)
     end
+
+    # Returns the mutation result species if the two species appear in
+    # CROSS_SPECIES_MUTATIONS, nil otherwise. Same-species pairs are skipped.
+    def check_mutation(species_a, species_b)
+      return nil if species_a == species_b
+      CROSS_SPECIES_MUTATIONS[[species_a, species_b]] ||
+        CROSS_SPECIES_MUTATIONS[[species_b, species_a]]
+    end
+
+    # True if Mutagenic Incense is present anywhere in the breeding setup.
+    def mutagenic_incense_active?(mother, father, pair)
+      [pair&.pair_item,
+       pair&.helper_pokemon&.item_id,
+       mother.item_id,
+       father.item_id].any? { |item| item == :MUTAGENICINCENSE }
+    end
   end
 
   #=============================================================================
@@ -155,6 +198,12 @@ class DayCare
       ret = GameData::Species.get(parent_species).get_baby_species(true, mother_side, father.item_id)
       offspring = GameData::Species.get(ret).offspring
       ret = offspring.sample if offspring.length > 0
+      # Cross-species mutation: check table when parents are different species.
+      mutation = PairEffects.check_mutation(mother.species, father.species)
+      if mutation && GameData::Species.exists?(mutation)
+        chance = PairEffects.mutagenic_incense_active?(mother, father, pair) ? 1.0 : 0.25
+        ret = mutation if rand < chance
+      end
       return ret
     end
 

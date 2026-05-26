@@ -1564,6 +1564,16 @@ Price = 2000
 Flags = Fling_10
 Description = An item to be held by a Pokémon. This exotic-smelling incense boosts the power of Rock-type moves.
 #-------------------------------
+[MUTAGENICINCENSE]
+Name = Mutagenic Incense
+NamePlural = Mutagenic Incenses
+PortionName = jar of Mutagenic Incense
+PortionNamePlural = jars of Mutagenic Incense
+Pocket = 1
+Price = 10000
+Flags = Fling_10
+Description = A rare, pungent incense that catalyzes cross-species breeding reactions. When present during breeding, it guarantees a hybrid egg species for compatible pairings.
+#-------------------------------
 [CHARCOAL]
 Name = Charcoal
 NamePlural = Charcoals
