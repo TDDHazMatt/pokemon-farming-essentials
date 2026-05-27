@@ -1,17 +1,13 @@
 ﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
-# Route 5 (41) - Route 4 Cycling Road (40)
-41,North,0,40,South,0
-# Route 5 (41) - Route 6 Cycling Road (45)
-41,South,6,45,North,0
-# Route 1 (5) - Ranch Entrance (22)
-5,South,0,22,North,47
-# Safari Zone outside (66) - Ranch Entrance (22)
-66,West,0,22,East,0
-# Route 8 (69) - Ranch Entrance (22)
-69,North,0,22,South,39
 # Lappet Town (2) - Route 1 (5)
 2,North,0,5,South,4
+# Safari Zone outside (66) - Lappet Town (2)
+66,East,0,2,West,0
+# Route 8 (69) - Lappet Town (2)
+69,North,12,2,South,0
+# Route 1 (5) - Ranch Entrance (22)
+5,South,0,22,North,47
 # Safari Zone outside (66) - Route 1 (5)
 66,North,18,5,South,0
 # Route 6 (44) - Route 1 (5)
@@ -20,12 +16,6 @@
 7,South,0,5,North,2
 # Route 7 (47) - Route 1 (5)
 47,South,0,5,North,62
-# Safari Zone outside (66) - Lappet Town (2)
-66,East,0,2,West,0
-# Route 8 (69) - Lappet Town (2)
-69,North,12,2,South,0
-# Route 8 (69) - Safari Zone outside (66)
-69,North,0,66,South,10
 # Cedolan City (7) - Route 6 (44)
 7,West,5,44,East,0
 # Lerucean Town (23) - Cedolan City (7)
@@ -36,13 +26,79 @@
 47,West,0,7,East,0
 # Route 2 (21) - Lerucean Town (23)
 21,East,0,23,West,1
-# Route 3 (31) - Lerucean Town (23)
-31,South,32,23,North,0
 # Route 7 (47) - Route 2 (21)
 47,West,0,21,East,77
-# Battle Frontier (52) - Route 7 (47)
-52,West,0,47,East,8
+# Safari Zone outside (66) - Ranch Entrance (22)
+66,West,0,22,East,0
+# Route 8 (69) - Ranch Entrance (22)
+69,North,0,22,South,39
+# Route 3 (31) - Lerucean Town (23)
+31,South,32,23,North,0
 # Ingido Plateau outside (35) - Route 3 (31)
 35,East,10,31,West,0
 # Route 4 (39) - Ingido Plateau outside (35)
 39,East,0,35,West,11
+# Route 5 (41) - Route 4 Cycling Road (40)
+41,North,0,40,South,0
+# Route 5 (41) - Route 6 Cycling Road (45)
+41,South,6,45,North,0
+# Battle Frontier (52) - Route 7 (47)
+52,West,0,47,East,8
+# Route 8 (69) - Safari Zone outside (66)
+69,North,0,66,South,10
+# RanchSW (43) - RanchS (42)
+43,East,0,42,West,0
+# RanchW (48) - RanchS (42)
+48,East,20,42,West,0
+# RanchNW (76) - RanchS (42)
+76,East,40,42,West,0
+# RanchC (78) - RanchS (42)
+78,South,0,42,North,0
+# RanchNE (79) - RanchS (42)
+79,West,40,42,East,0
+# RanchE (80) - RanchS (42)
+80,West,20,42,East,0
+# RanchSE (81) - RanchS (42)
+81,West,0,42,East,0
+# RanchW (48) - RanchSW (43)
+48,South,0,43,North,0
+# RanchN (77) - RanchSW (43)
+77,West,40,43,East,0
+# RanchC (78) - RanchSW (43)
+78,West,20,43,East,0
+# RanchE (80) - RanchSW (43)
+80,South,0,43,North,40
+# RanchNW (76) - RanchW (48)
+76,South,0,48,North,0
+# RanchN (77) - RanchW (48)
+77,West,20,48,East,0
+# RanchC (78) - RanchW (48)
+78,West,0,48,East,0
+# RanchNE (79) - RanchW (48)
+79,South,0,48,North,40
+# RanchSE (81) - RanchW (48)
+81,North,0,48,South,40
+# RanchN (77) - RanchNW (76)
+77,West,0,76,East,0
+# RanchC (78) - RanchNW (76)
+78,West,0,76,East,20
+# RanchE (80) - RanchNW (76)
+80,North,0,76,South,40
+# RanchC (78) - RanchN (77)
+78,North,0,77,South,0
+# RanchNE (79) - RanchN (77)
+79,West,0,77,East,0
+# RanchE (80) - RanchN (77)
+80,West,0,77,East,20
+# RanchSE (81) - RanchN (77)
+81,West,0,77,East,40
+# RanchNE (79) - RanchC (78)
+79,West,20,78,East,0
+# RanchE (80) - RanchC (78)
+80,West,0,78,East,0
+# RanchSE (81) - RanchC (78)
+81,West,0,78,East,20
+# RanchE (80) - RanchNE (79)
+80,North,0,79,South,0
+# RanchSE (81) - RanchE (80)
+81,North,0,80,South,0

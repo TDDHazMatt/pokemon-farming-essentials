@@ -176,8 +176,12 @@ class BreedingPair
     grps1 = pkmn1.species_data.egg_groups
     grps2 = pkmn2.species_data.egg_groups
     return 0 if grps1.include?(:Undiscovered) || grps2.include?(:Undiscovered)
-    return 0 if !grps1.include?(:Ditto) && !grps2.include?(:Ditto) &&
-                (grps1 & grps2).empty?
+    if !grps1.include?(:Ditto) && !grps2.include?(:Ditto) && (grps1 & grps2).empty?
+      # Cross-group breeding is only allowed for Ditto-required mutation pairs
+      # when a Ditto surrogate is in the helper slot.
+      ditto_mutation = DayCare::PairEffects.check_ditto_required_mutation(pkmn1.species, pkmn2.species)
+      return 0 unless ditto_mutation && DayCare::PairEffects.ditto_surrogate?(self)
+    end
     # A Ditto helper acts as a surrogate, enabling same-gender pairs that would otherwise fail.
     gender_ok = compatible_gender?(pkmn1, pkmn2) || DayCare::PairEffects.ditto_surrogate?(self)
     return 0 unless gender_ok

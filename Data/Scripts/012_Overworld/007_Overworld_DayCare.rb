@@ -36,29 +36,100 @@ class DayCare
 
     # Cross-species mutation table: {[speciesA, speciesB] => result_species}
     # Order of the pair doesn't matter — checked bidirectionally.
+    # All entries share at least one egg group (natural breeding compatible).
     CROSS_SPECIES_MUTATIONS = {
-      # Electric Rodents
+      # Electric Rodents (Field)
       [:PIKACHU,    :MINUN]      => :PACHIRISU,
       [:PIKACHU,    :PLUSLE]     => :DEDENNE,
       [:MINUN,      :PLUSLE]     => :EMOLGA,
-      # Fire Quadrupeds
+      # Fire Quadrupeds (Field)
       [:GROWLITHE,  :HOUNDOUR]   => :FLAREON,
-      # Grass Starters
+      # Grass Starters (Monster/Grass)
       [:BULBASAUR,  :CHIKORITA]  => :TREECKO,
-      # Fire Starters
+      # Fire Starters (Monster/Dragon)
       [:CHARMANDER, :CYNDAQUIL]  => :TORCHIC,
-      # Water Starters
+      # Water Starters (Monster/Water1)
       [:SQUIRTLE,   :TOTODILE]   => :MUDKIP,
-      # Bug Types
+      # Bug Types (Bug)
       [:CATERPIE,   :WURMPLE]    => :SPINARAK,
-      # Small Early Birds
+      # Small Early Birds (Flying)
       [:PIDGEY,     :TAILLOW]    => :STARLY,
-      # Normal Rodents
+      # Normal Rodents (Field)
       [:RATTATA,    :SENTRET]    => :ZIGZAGOON,
-      # Fairy-Normal
+      # Fairy-Normal (Fairy)
       [:CLEFAIRY,   :JIGGLYPUFF] => :SNUBBULL,
-      # Psychic
+      # Psychic (Humanlike)
       [:ABRA,       :RALTS]      => :ESPURR,
+      # ----- Encounter-findable pairs -----
+      # Small Birds (Flying) — chatty music bird from two common sparrows
+      [:PIDGEY,     :SPEAROW]    => :CHATOT,
+      # Mushroom (Grass) — two mushroom Pokémon produce the pokéball mushroom
+      [:SHROOMISH,  :PARAS]      => :FOONGUS,
+      # Floral Grass (Grass) — small petal types produce a cotton puff
+      [:ODDISH,     :HOPPIP]     => :COTTONEE,
+      # Seeds (Grass) — acorn + sunflower seed → cherry blossom
+      [:SEEDOT,     :SUNKERN]    => :CHERUBI,
+      # Psychic Humanlike — two sleepy psychics produce a psychic fairy
+      [:ABRA,       :DROWZEE]    => :RALTS,
+      # Water Amphibians (Water1) — tadpole frog + axolotl → amphibian starter
+      [:POLIWAG,    :WOOPER]     => :MUDKIP,
+      # Water Mammals (Water1/Field) — sea weasel + water duck → sea otter starter
+      [:BUIZEL,     :PSYDUCK]    => :OSHAWOTT,
+      # Underdog Fish (Water2) — two famous "weak fish" produce a water dragon
+      [:MAGIKARP,   :FEEBAS]     => :HORSEA,
+      # Crustaceans (Water3) — crab + bivalve → lobster
+      [:KRABBY,     :SHELLDER]   => :CORPHISH,
+      # Electric Mammals (Field) — electric sheep + electric lion cub → electric baby
+      [:MAREEP,     :SHINX]      => :ELEKID,
+      # Dark Sneaky (Field) — dark crow + dark weasel → dark trickster fox
+      [:MURKROW,    :SNEASEL]    => :ZORUA,
+      # Rock Types (Mineral) — living rock + compass rock → rock bud
+      [:GEODUDE,    :NOSEPASS]   => :ROGGENROLA,
+      # Magnetic (Mineral) — magnetic steel balls + magnetic compass → psychic steel unit
+      [:MAGNETON,   :NOSEPASS]   => :BELDUM,
+      # Martial Arts (Humanlike) — fighting spirit baby + aura warrior → meditative fighter
+      [:TYROGUE,    :RIOLU]      => :MEDITITE,
+      # Pink Happiness (Fairy) — happiness blob + nurse joy's partner → happiness egg
+      [:CLEFAIRY,   :CHANSEY]    => :TOGEPI,
+      # Deer Quadrupeds (Field) — psychic giraffe + antlered deer → seasonal deer
+      [:GIRAFARIG,  :STANTLER]   => :SAWSBUCK,
+      # Gentle Aquatics (Water1) — graceful serpent + river slug → seafaring transport
+      [:DRATINI,    :SLOWPOKE]   => :LAPRAS,
+      # ----- Safari Zone pairs -----
+      # Safari Icons (Monster/Field) — the iconic paired Nidoran produce the Safari's maternal guardian
+      [:NIDORANfE,  :NIDORANmA]  => :KANGASKHAN,
+      # Ancient Plants (Grass) — vine blob + seed cluster → prehistoric grass/flying dinosaur
+      [:TANGELA,    :EXEGGCUTE]  => :TROPIUS,
+      # Beetle Rivals (Bug) — the classic stag/rhino beetle rivals produce a humble ground larva
+      [:PINSIR,     :HERACROSS]  => :NINCADA,
+      # Safari Heavies (Monster) — two large prehistoric Safari monsters produce a rare rock reptile
+      [:RHYHORN,    :KANGASKHAN] => :LARVITAR,
+      # Dragon Seed (Water1) — graceful serpent dragon + round Water1 → small dragon dreaming of flight
+      [:DRATINI,    :MARILL]     => :BAGON,
+      # Confused Psychics (Water1) — two dopey Water/Psychic types → psychic squid
+      [:PSYDUCK,    :SLOWPOKE]   => :INKAY,
+      # Round Water Types (Water1) — blue round Water Pokémon pair → penguin starter
+      [:MARILL,     :BUIZEL]     => :PIPLUP,
+      # Ornamental Fish (Water2) — fancy goldfish + neon lanternfish → guardian heart fish
+      [:GOLDEEN,    :FINNEON]    => :ALOMOMOLA,
+      # Ancient Bugs (Bug) — fuzzy primitive bug + sleek warrior bug → ancient dragonfly
+      [:VENONAT,    :SCYTHER]    => :YANMA,
+      # Unusual Appendages (Field) — tail-hand monkey + tail-head giraffe → painting-tail dog
+      [:AIPOM,      :GIRAFARIG]  => :SMEARGLE,
+    }.freeze
+
+    # Ditto-required mutation table: pairs that cross egg groups and can only
+    # breed when a Ditto is in the helper slot acting as a surrogate.
+    # Order of the pair doesn't matter — checked bidirectionally.
+    DITTO_REQUIRED_MUTATIONS = {
+      # Fire types (Field × Amorphous) — fire horse + lava slug → fire baby
+      [:PONYTA,     :SLUGMA]     => :MAGBY,
+      # Rocky armored (Monster/Field × Mineral) — rock rhino + rock fist → iron armor
+      [:RHYHORN,    :GEODUDE]    => :ARON,
+      # Ice types (Field × Fairy/Mineral) — ice pig + ice ghost → ice bear cub
+      [:SWINUB,     :SNORUNT]    => :CUBCHOO,
+      # Safari mammals (Monster × Field) — kangaroo mom + bull herd → milk cow counterpart
+      [:KANGASKHAN, :TAUROS]     => :MILTANK,
     }.freeze
 
     # --- Helper-specific predicates (called by debug "Check effect") ---
@@ -141,6 +212,14 @@ class DayCare
         CROSS_SPECIES_MUTATIONS[[species_b, species_a]]
     end
 
+    # Returns the mutation result species if the pair is in DITTO_REQUIRED_MUTATIONS,
+    # nil otherwise. These pairs need a Ditto in the helper slot to breed at all.
+    def check_ditto_required_mutation(species_a, species_b)
+      return nil if species_a == species_b
+      DITTO_REQUIRED_MUTATIONS[[species_a, species_b]] ||
+        DITTO_REQUIRED_MUTATIONS[[species_b, species_a]]
+    end
+
     # True if Mutagenic Incense is present anywhere in the breeding setup.
     def mutagenic_incense_active?(mother, father, pair)
       [pair&.pair_item,
@@ -203,6 +282,12 @@ class DayCare
       if mutation && GameData::Species.exists?(mutation)
         chance = PairEffects.mutagenic_incense_active?(mother, father, pair) ? 1.0 : 0.25
         ret = mutation if rand < chance
+      end
+      # Ditto-required mutations: only trigger when a Ditto surrogate is in the helper slot.
+      ditto_mutation = PairEffects.check_ditto_required_mutation(mother.species, father.species)
+      if ditto_mutation && GameData::Species.exists?(ditto_mutation) && PairEffects.ditto_surrogate?(pair)
+        chance = PairEffects.mutagenic_incense_active?(mother, father, pair) ? 1.0 : 0.25
+        ret = ditto_mutation if rand < chance
       end
       return ret
     end
