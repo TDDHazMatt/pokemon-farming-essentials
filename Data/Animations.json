@@ -1,0 +1,2877 @@
+[
+  null,
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld dust and grass",
+      "@frame_max": 9,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 1,
+      "@name": "Grass rustle",
+      "@position": 2,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld dust and grass",
+      "@frame_max": 9,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              1,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              1,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              1,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 2,
+      "@name": "Dust",
+      "@position": 2,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld exclaim",
+      "@frame_max": 20,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -88,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              1,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              1,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -88,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              0,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 3,
+      "@name": "Exclaim bubble",
+      "@position": 2,
+      "@timings": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Timing",
+          "ivars": {
+            "@condition": 0,
+            "@flash_color": {
+              "__type": "Color",
+              "red": 255.0,
+              "green": 255.0,
+              "blue": 255.0,
+              "alpha": 255.0
+            },
+            "@flash_duration": 5,
+            "@flash_scope": 0,
+            "@frame": 0,
+            "@se": {
+              "__type": "object",
+              "class": "RPG::AudioFile",
+              "ivars": {
+                "@name": "Exclaim",
+                "@pitch": 100,
+                "@volume": 80
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld exclaim",
+      "@frame_max": 20,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -88,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -96,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -88,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              2,
+              0,
+              -80,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 4,
+      "@name": "Question bubble",
+      "@position": 2,
+      "@timings": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Timing",
+          "ivars": {
+            "@condition": 0,
+            "@flash_color": {
+              "__type": "Color",
+              "red": 255.0,
+              "green": 255.0,
+              "blue": 255.0,
+              "alpha": 255.0
+            },
+            "@flash_duration": 5,
+            "@flash_scope": 0,
+            "@frame": 0,
+            "@se": {
+              "__type": "object",
+              "class": "RPG::AudioFile",
+              "ivars": {
+                "@name": "Exclaim",
+                "@pitch": 100,
+                "@volume": 80
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld dust and grass",
+      "@frame_max": 19,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 5,
+      "@name": "Grass rustle vigorous",
+      "@position": 2,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld dust and grass",
+      "@frame_max": 14,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              3,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              5,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              6,
+              0,
+              -16,
+              100,
+              0,
+              0,
+              255,
+              1
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 6,
+      "@name": "Grass rustle shiny",
+      "@position": 2,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "Overworld dust and grass",
+      "@frame_max": 23,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              7,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        },
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 1,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+              8,
+              0,
+              -8,
+              100,
+              0,
+              0,
+              255,
+              0
+            ]
+            },
+            "@cell_max": 1
+          }
+        }
+      ],
+      "@id": 7,
+      "@name": "Berry plant sparkle",
+      "@position": 2,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "",
+      "@frame_max": 1,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 0,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+
+            ]
+            },
+            "@cell_max": 0
+          }
+        }
+      ],
+      "@id": 8,
+      "@name": "",
+      "@position": 1,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "",
+      "@frame_max": 1,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 0,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+
+            ]
+            },
+            "@cell_max": 0
+          }
+        }
+      ],
+      "@id": 9,
+      "@name": "",
+      "@position": 1,
+      "@timings": []
+    }
+  },
+  {
+    "__type": "object",
+    "class": "RPG::Animation",
+    "ivars": {
+      "@animation_hue": 0,
+      "@animation_name": "",
+      "@frame_max": 1,
+      "@frames": [
+        {
+          "__type": "object",
+          "class": "RPG::Animation::Frame",
+          "ivars": {
+            "@cell_data": {
+              "__type": "Table",
+              "xsize": 0,
+              "ysize": 8,
+              "zsize": 1,
+              "data": [
+
+            ]
+            },
+            "@cell_max": 0
+          }
+        }
+      ],
+      "@id": 10,
+      "@name": "",
+      "@position": 1,
+      "@timings": []
+    }
+  }
+]
