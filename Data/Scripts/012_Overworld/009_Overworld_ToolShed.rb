@@ -20,8 +20,8 @@ def pbToolShedGetTools
       break
     end
     commands = stored.map { |item| GameData::Item.get(item).name }
-    cmd = pbMessage(_INTL("Which tool would you like to take?"), commands, commands.length)
-    break if cmd >= stored.length
+    cmd = pbMessage(_INTL("Which tool would you like to take?"), commands, -1)
+    break if cmd < 0
     item_id = stored[cmd]
     item_data = GameData::Item.get(item_id)
     if !$bag.can_add?(item_id)
@@ -49,8 +49,8 @@ def pbToolShedStoreTools
       break
     end
     commands = owned.map { |item| GameData::Item.get(item).name }
-    cmd = pbMessage(_INTL("Which tool would you like to store?"), commands, commands.length)
-    break if cmd >= owned.length
+    cmd = pbMessage(_INTL("Which tool would you like to store?"), commands, -1)
+    break if cmd < 0
     item_id = owned[cmd]
     item_data = GameData::Item.get(item_id)
     $bag.remove(item_id)

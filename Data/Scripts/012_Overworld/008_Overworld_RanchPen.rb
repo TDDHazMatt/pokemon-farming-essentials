@@ -119,7 +119,8 @@ def pbInteractWithRanchPen(pen)
   commands[cmdCollect = commands.length] = _INTL("Collect produce") if prod && pen.stockpile > 0
   commands[cmdCheck   = commands.length] = _INTL("Check on {1}", pkmn.name)
   commands[cmdTake    = commands.length] = _INTL("Take {1} back", pkmn.name)
-  cmd = pbMessage(_INTL("{1} is here.", pkmn.name), commands, commands.length)
+  cmd = pbMessage(_INTL("{1} is here.", pkmn.name), commands, -1)
+  return if cmd < 0
 
   if cmd == cmdCollect
     item_id, qty = pen.collect
@@ -176,8 +177,8 @@ def pbRanchLivestockSale
       item_d = GameData::Item.get(i)
       _INTL("{1} x{2} (${3} each)", item_d.name, $bag.quantity(i), item_d.sell_price)
     end
-    cmd = pbMessage(_INTL("What would you like to sell?"), commands, commands.length)
-    break if cmd >= owned.length
+    cmd = pbMessage(_INTL("What would you like to sell?"), commands, -1)
+    break if cmd < 0
     item_id  = owned[cmd]
     item_d   = GameData::Item.get(item_id)
     price    = item_d.sell_price

@@ -273,8 +273,8 @@ def pbCropProduceSale
       item_d = GameData::Item.get(i)
       _INTL("{1} x{2} (${3} each)", item_d.name, $bag.quantity(i), item_d.sell_price)
     end
-    cmd = pbMessage(_INTL("What would you like to sell?"), commands, commands.length)
-    break if cmd >= owned.length
+    cmd = pbMessage(_INTL("What would you like to sell?"), commands, -1)
+    break if cmd < 0
     item_id  = owned[cmd]
     item_d   = GameData::Item.get(item_id)
     price    = item_d.sell_price
