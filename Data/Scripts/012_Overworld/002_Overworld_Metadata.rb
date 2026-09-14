@@ -9,6 +9,10 @@ class PokemonGlobalMetadata
   # Spreader key item toggle + loaded item
   def spreader_loaded_item;         return @spreader_loaded_item;    end
   def spreader_loaded_item=(val);   @spreader_loaded_item = val;     end
+  # Tool Shed inventory - key items (Flags = ShedTool) currently stored away
+  # rather than carried in the Bag. Starts with a Spreader and a Harvester.
+  def shed_tools;       return @shed_tools ||= [:SPREADER, :HARVESTER]; end
+  def shed_tools=(val); @shed_tools = val;                              end
   # Movement
   attr_accessor :bicycle
   attr_accessor :surfing

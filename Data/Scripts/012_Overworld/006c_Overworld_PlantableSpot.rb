@@ -254,6 +254,76 @@ def pbPickCrop(crop_id, qty, crop_def = nil)
 end
 
 #===============================================================================
+# "Produce Sales" - sells only harvested crop/berry/apricorn produce (not the
+# player's whole Bag). Intended to be called from Grandma's shop event, the
+# same way pbRanchLivestockSale handles "Livestock Sales".
+#===============================================================================
+def pbCropProduceSale
+  produce_items = []
+  GameData::CropPlant.each { |c| produce_items << c.harvest_item }
+  produce_items.uniq!
+
+  loop do
+    owned = produce_items.select { |i| $bag.has?(i) }
+    if owned.empty?
+      pbMessage(_INTL("You don't have any produce to sell right now."))
+      break
+    end
+    commands = owned.map do |i|
+      item_d = GameData::Item.get(i)
+      _INTL("{1} x{2} (${3} each)", item_d.name, $bag.quantity(i), item_d.sell_price)
+    end
+    cmd = pbMessage(_INTL("What would you like to sell?"), commands, commands.length)
+    break if cmd >= owned.length
+    item_id  = owned[cmd]
+    item_d   = GameData::Item.get(item_id)
+    price    = item_d.sell_price
+    qty_have = $bag.quantity(item_id)
+    qty = 1
+    if qty_have > 1
+      params = ChooseNumberParams.new
+      params.setRange(1, qty_have)
+      params.setDefaultValue(qty_have)
+      qty = pbMessageChooseNumber(_INTL("How many {1} would you like to sell?", item_d.name_plural), params)
+    end
+    next if qty <= 0
+    total = price * qty
+    next unless pbConfirmMessage(_INTL("I can pay ${1} for {2} {3}.\nIs that OK?", total, qty, item_d.name))
+    $bag.remove(item_id, qty)
+    $player.money += total
+    pbMessage(_INTL("Turned over {1} {2} and got ${3}.", qty, item_d.name, total))
+  end
+end
+
+#===============================================================================
+# "Current Market Rates" - lists the current sell price of registered
+# harvestable produce, regardless of whether the player owns any. Split into
+# three by produce type (Berry/Apricorn/Crop) since the combined list is too
+# long for one message box.
+#===============================================================================
+def pbCropPlantMarketRatesFor(&block)
+  lines = []
+  GameData::CropPlant.each do |c|
+    next unless block.call(GameData::Item.get(c.id))
+    item_d = GameData::Item.get(c.harvest_item)
+    lines << _INTL("{1}: ${2} each", item_d.name, item_d.sell_price)
+  end
+  pbMessage(lines.uniq.join("\r\n"))
+end
+
+def pbBerryMarketRates
+  pbCropPlantMarketRatesFor { |seed_data| seed_data.is_berry? }
+end
+
+def pbApricornMarketRates
+  pbCropPlantMarketRatesFor { |seed_data| seed_data.is_apricorn? }
+end
+
+def pbCropMarketRates
+  pbCropPlantMarketRatesFor { |seed_data| !seed_data.is_berry? && !seed_data.is_apricorn? }
+end
+
+#===============================================================================
 # Always-on sprite wrapper for /plantablespot/i events. Dynamically creates
 # the correct sub-sprites whenever the type of planted data changes.
 #===============================================================================

@@ -295,18 +295,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "\\rHello Sweetheart. Is there anything I can help you "
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 401,
-                          "@indent": 0,
-                          "@parameters": [
-                            "with?"
+                            "\\rHello Sweetheart. Is there anything I can help you with?"
                           ]
                         }
                       },
@@ -354,8 +343,17 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 102,
+                          "@code": 112,
                           "@indent": 1,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 102,
+                          "@indent": 2,
                           "@parameters": [
                             [
                               "Make Sale",
@@ -363,7 +361,7 @@
                               "Explanation",
                               "Nevermind"
                             ],
-                            4
+                            5
                           ]
                         }
                       },
@@ -372,7 +370,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             0,
                             "Make Sale"
@@ -383,8 +381,19 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 355,
+                          "@indent": 3,
+                          "@parameters": [
+                            "pbCropProduceSale"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -393,7 +402,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             1,
                             "Current Market Rates"
@@ -404,8 +413,58 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 101,
+                          "@indent": 3,
+                          "@parameters": [
+                            "\\rWhich prices would you like to see?"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 102,
+                          "@indent": 3,
+                          "@parameters": [
+                            [
+                              "Berry",
+                              "Apricorn",
+                              "Crop"
+                            ],
+                            3
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 3,
+                          "@parameters": [
+                            0,
+                            "Berry"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 4,
+                          "@parameters": [
+                            "pbBerryMarketRates"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 4,
                           "@parameters": []
                         }
                       },
@@ -414,7 +473,89 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 3,
+                          "@parameters": [
+                            1,
+                            "Apricorn"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 4,
+                          "@parameters": [
+                            "pbApricornMarketRates"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 4,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 3,
+                          "@parameters": [
+                            2,
+                            "Crop"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 4,
+                          "@parameters": [
+                            "pbCropMarketRates"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 4,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 404,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 2,
                           "@parameters": [
                             2,
                             "Explanation"
@@ -425,8 +566,58 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 101,
+                          "@indent": 3,
+                          "@parameters": [
+                            "\\rWhich would you like to know about?"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 102,
+                          "@indent": 3,
+                          "@parameters": [
+                            [
+                              "Berry",
+                              "Crop",
+                              "Apricorn"
+                            ],
+                            3
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 3,
+                          "@parameters": [
+                            0,
+                            "Berry"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 4,
+                          "@parameters": [
+                            "\\rBring me any Berries you've picked, and I'll pay you a fair price for each one."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 4,
                           "@parameters": []
                         }
                       },
@@ -435,7 +626,89 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 3,
+                          "@parameters": [
+                            1,
+                            "Crop"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 4,
+                          "@parameters": [
+                            "\\rSame goes for vegetables from the fields - Carrots, Potatoes, and the rest. I'll buy whatever you bring."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 4,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 3,
+                          "@parameters": [
+                            2,
+                            "Apricorn"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 4,
+                          "@parameters": [
+                            "\\rApricorns too, though you might want to save a few for Kurt and his Poké Balls first."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 4,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 404,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 2,
                           "@parameters": [
                             3,
                             "Nevermind"
@@ -446,6 +719,60 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 113,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 403,
+                          "@indent": 2,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 113,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 404,
+                          "@indent": 2,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
                           "@indent": 2,
                           "@parameters": []
@@ -455,7 +782,7 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 404,
+                          "@code": 413,
                           "@indent": 1,
                           "@parameters": []
                         }
@@ -485,8 +812,17 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 102,
+                          "@code": 112,
                           "@indent": 1,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 102,
+                          "@indent": 2,
                           "@parameters": [
                             [
                               "Make Sale",
@@ -494,7 +830,7 @@
                               "Explanation",
                               "Nevermind"
                             ],
-                            4
+                            5
                           ]
                         }
                       },
@@ -503,7 +839,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             0,
                             "Make Sale"
@@ -515,7 +851,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 355,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": [
                             "pbRanchLivestockSale"
                           ]
@@ -526,7 +862,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -535,7 +871,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             1,
                             "Current Market Rates"
@@ -547,7 +883,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 355,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": [
                             "pbRanchMarketRates"
                           ]
@@ -558,7 +894,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -567,7 +903,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             2,
                             "Explanation"
@@ -579,31 +915,9 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 101,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": [
-                            "\\rIf you put a Pokémon like a Miltank, Slowpoke, or "
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 401,
-                          "@indent": 2,
-                          "@parameters": [
-                            "Chansey in one of the ranch pens out back, it'll "
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 401,
-                          "@indent": 2,
-                          "@parameters": [
-                            "produce something special over time."
+                            "\\rIf you put a Pokémon like a Miltank, Slowpoke, or Chansey in one of the ranch pens out back, it'll produce something special over time."
                           ]
                         }
                       },
@@ -612,20 +926,9 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 101,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": [
-                            "\\rVisit the pen once in a while to collect what's "
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 401,
-                          "@indent": 2,
-                          "@parameters": [
-                            "piled up, then come sell it to me anytime."
+                            "\\rVisit the pen once in a while to collect what's piled up, then come sell it to me anytime."
                           ]
                         }
                       },
@@ -634,7 +937,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -643,7 +946,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             3,
                             "Nevermind"
@@ -654,6 +957,60 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 113,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 403,
+                          "@indent": 2,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 113,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 404,
+                          "@indent": 2,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
                           "@indent": 2,
                           "@parameters": []
@@ -663,7 +1020,7 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 404,
+                          "@code": 413,
                           "@indent": 1,
                           "@parameters": []
                         }
@@ -693,8 +1050,17 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 102,
+                          "@code": 112,
                           "@indent": 1,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 102,
+                          "@indent": 2,
                           "@parameters": [
                             [
                               "Make Sale",
@@ -702,7 +1068,7 @@
                               "Explanation",
                               "Nevermind"
                             ],
-                            4
+                            5
                           ]
                         }
                       },
@@ -711,7 +1077,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             0,
                             "Make Sale"
@@ -723,7 +1089,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -732,7 +1098,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             1,
                             "Current Market Rates"
@@ -744,7 +1110,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -753,7 +1119,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             2,
                             "Explanation"
@@ -765,7 +1131,7 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 0,
-                          "@indent": 2,
+                          "@indent": 3,
                           "@parameters": []
                         }
                       },
@@ -774,11 +1140,65 @@
                         "class": "RPG::EventCommand",
                         "ivars": {
                           "@code": 402,
-                          "@indent": 1,
+                          "@indent": 2,
                           "@parameters": [
                             3,
                             "Nevermind"
                           ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 113,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 403,
+                          "@indent": 2,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 113,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 3,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 404,
+                          "@indent": 2,
+                          "@parameters": []
                         }
                       },
                       {
@@ -794,7 +1214,7 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 404,
+                          "@code": 413,
                           "@indent": 1,
                           "@parameters": []
                         }

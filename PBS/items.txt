@@ -6248,7 +6248,7 @@ NamePlural = Old Rods
 Pocket = 8
 Price = 0
 FieldUse = Direct
-Flags = KeyItem
+Flags = KeyItem,ShedTool
 Description = An old and beat-up fishing rod. Use it by any body of water to fish for wild aquatic Pokémon.
 #-------------------------------
 [GOODROD]
@@ -6257,7 +6257,7 @@ NamePlural = Good Rods
 Pocket = 8
 Price = 0
 FieldUse = Direct
-Flags = KeyItem
+Flags = KeyItem,ShedTool
 Description = A new, good-quality fishing rod. Use it by any body of water to fish for wild aquatic Pokémon.
 #-------------------------------
 [SUPERROD]
@@ -6266,7 +6266,7 @@ NamePlural = Super Rods
 Pocket = 8
 Price = 0
 FieldUse = Direct
-Flags = KeyItem
+Flags = KeyItem,ShedTool
 Description = An awesome, high-tech fishing rod. Use it by any body of water to fish for wild aquatic Pokémon.
 #-------------------------------
 [ITEMFINDER]
@@ -6329,7 +6329,7 @@ NamePlural = Harvesters
 Pocket = 8
 Price = 0
 FieldUse = Direct
-Flags = KeyItem
+Flags = KeyItem,ShedTool
 Description = A specialized harvesting tool. When active, interacting with ripe berry or apricorn trees silently collects their yield without any prompts.
 #-------------------------------
 [SPREADER]
@@ -6338,7 +6338,7 @@ NamePlural = Spreaders
 Pocket = 8
 Price = 0
 FieldUse = Direct
-Flags = KeyItem
+Flags = KeyItem,ShedTool
 Description = A planting tool. Load it with a berry, apricorn, or fertilizer, then interact with bare soil to plant silently without any prompts.
 #-------------------------------
 [CARROTSEED]
