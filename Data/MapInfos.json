@@ -510,7 +510,7 @@
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
-          "@expanded": true,
+          "@expanded": false,
           "@name": "Ranch Entrance",
           "@order": 70,
           "@parent_id": 0,
@@ -811,7 +811,7 @@
           "@name": "Route 1",
           "@order": 6,
           "@parent_id": 0,
-          "@scroll_x": 576,
+          "@scroll_x": 561,
           "@scroll_y": 384
         }
       }
