@@ -1,0 +1,37 @@
+# Ranch livestock produce definitions.
+# Each entry maps a species (kept in a ranch pen) to the item it produces
+# over time. Sections are keyed by species ID, mirroring crop_plants.txt.
+# Fields:
+#   Item          - item given when the pen's stockpile is collected
+#   HoursPerUnit  - hours to accumulate one unit of produce
+#   MaxStockpile  - cap on accumulated uncollected units (default 5)
+#-------------------------------
+[MILTANK]
+Item = MOOMOOMILK
+HoursPerUnit = 4
+MaxStockpile = 3
+#-------------------------------
+[SLOWPOKE]
+Item = SLOWPOKETAIL
+HoursPerUnit = 24
+MaxStockpile = 2
+#-------------------------------
+[CHANSEY]
+Item = CHANSEYEGG
+HoursPerUnit = 8
+MaxStockpile = 3
+#-------------------------------
+[MAREEP]
+Item = WOOL
+HoursPerUnit = 10
+MaxStockpile = 5
+#-------------------------------
+[COMBEE]
+Item = HONEY
+HoursPerUnit = 6
+MaxStockpile = 4
+#-------------------------------
+[TAUROS]
+Item = TAUROSHIDE
+HoursPerUnit = 12
+MaxStockpile = 3

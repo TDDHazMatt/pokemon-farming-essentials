@@ -303,6 +303,14 @@ module Compiler
   end
 
   #=============================================================================
+  # Compile ranch livestock produce data
+  #=============================================================================
+  def compile_ranch_produce(*paths)
+    compile_PBS_file_generic(GameData::RanchProduce, *paths) do |final_validate, hash|
+    end
+  end
+
+  #=============================================================================
   # Compile Pokémon data
   #=============================================================================
   def compile_pokemon(*paths)

@@ -167,6 +167,13 @@ module Compiler
   end
 
   #=============================================================================
+  # Save ranch livestock produce data to PBS file
+  #=============================================================================
+  def write_ranch_produce
+    write_PBS_file_generic(GameData::RanchProduce)
+  end
+
+  #=============================================================================
   # Save Pokémon data to PBS file
   # NOTE: Doesn't use write_PBS_file_generic because it needs to ignore defined
   #       species with a form that isn't 0.
@@ -800,6 +807,7 @@ module Compiler
     write_moves
     write_items
     write_crop_plants
+    write_ranch_produce
     write_pokemon
     write_pokemon_forms
     write_pokemon_metrics

@@ -6371,6 +6371,132 @@ Pocket = 5
 Price = 40
 Description = A crisp lettuce grown in the field.
 #-------------------------------
+[POTATOSEED]
+Name = Potato Seed
+NamePlural = Potato Seeds
+Pocket = 5
+Price = 90
+Flags = Plantable
+Description = A seed that grows into a potato crop over several hours.
+#-------------------------------
+[POTATO]
+Name = Potato
+NamePlural = Potatoes
+Pocket = 5
+Price = 45
+Description = A hearty potato dug up from the field.
+#-------------------------------
+[TOMATOSEED]
+Name = Tomato Seed
+NamePlural = Tomato Seeds
+Pocket = 5
+Price = 90
+Flags = Plantable
+Description = A seed that grows into a tomato crop over several hours.
+#-------------------------------
+[TOMATO]
+Name = Tomato
+NamePlural = Tomatoes
+Pocket = 5
+Price = 45
+Description = A juicy tomato grown in the field.
+#-------------------------------
+[ONIONSEED]
+Name = Onion Seed
+NamePlural = Onion Seeds
+Pocket = 5
+Price = 70
+Flags = Plantable
+Description = A seed that grows into an onion crop over several hours.
+#-------------------------------
+[ONION]
+Name = Onion
+NamePlural = Onions
+Pocket = 5
+Price = 35
+Description = A pungent onion dug up from the field.
+#-------------------------------
+[PUMPKINSEED]
+Name = Pumpkin Seed
+NamePlural = Pumpkin Seeds
+Pocket = 5
+Price = 150
+Flags = Plantable
+Description = A seed that grows slowly into a large pumpkin.
+#-------------------------------
+[PUMPKIN]
+Name = Pumpkin
+NamePlural = Pumpkins
+Pocket = 5
+Price = 100
+Description = A large, hefty pumpkin grown in the field.
+#-------------------------------
+[CORNSEED]
+Name = Corn Seed
+NamePlural = Corn Seeds
+Pocket = 5
+Price = 85
+Flags = Plantable
+Description = A seed that grows into a corn crop over several hours.
+#-------------------------------
+[CORN]
+Name = Corn
+NamePlural = Corn
+Pocket = 5
+Price = 40
+Description = A fresh ear of corn grown in the field.
+#-------------------------------
+[WHEATSEED]
+Name = Wheat Seed
+NamePlural = Wheat Seeds
+Pocket = 5
+Price = 60
+Flags = Plantable
+Description = A seed that grows quickly into a bundle of wheat.
+#-------------------------------
+[WHEAT]
+Name = Wheat
+NamePlural = Wheat
+Pocket = 5
+Price = 20
+Description = A bundle of golden wheat harvested from the field.
+#-------------------------------
+[CABBAGESEED]
+Name = Cabbage Seed
+NamePlural = Cabbage Seeds
+Pocket = 5
+Price = 75
+Flags = Plantable
+Description = A seed that grows into a cabbage crop over several hours.
+#-------------------------------
+[CABBAGE]
+Name = Cabbage
+NamePlural = Cabbages
+Pocket = 5
+Price = 38
+Description = A crisp head of cabbage grown in the field.
+#-------------------------------
+[CHANSEYEGG]
+Name = Chansey Egg
+NamePlural = Chansey Eggs
+Pocket = 1
+Price = 3000
+Description = A nutrient-rich egg laid by a Chansey. Highly sought after by chefs.
+#-------------------------------
+[WOOL]
+Name = Wool
+NamePlural = Wool
+Pocket = 1
+Price = 250
+Description = Soft wool sheared from a Mareep. Popular for spinning into yarn.
+#-------------------------------
+[TAUROSHIDE]
+Name = Tauros Hide
+NamePlural = Tauros Hides
+Pocket = 1
+Price = 400
+Description = A tough hide shed by a Tauros. Prized by leatherworkers.
+#-------------------------------
 [COINCASE]
 Name = Coin Case
 NamePlural = Coin Cases

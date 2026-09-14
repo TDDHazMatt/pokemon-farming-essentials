@@ -495,3 +495,73 @@ FullyGrownStages = 3
 GrowthStages = 2
 SpritePrefix = lettucecrop
 HarvestItem = LETTUCE
+#-------------------------------
+[POTATOSEED]
+HoursPerStage = 8
+DryingPerHour = 6
+Yield = 2,4
+Replants = 5
+FullyGrownStages = 3
+GrowthStages = 2
+SpritePrefix = potatocrop
+HarvestItem = POTATO
+#-------------------------------
+[TOMATOSEED]
+HoursPerStage = 5
+DryingPerHour = 10
+Yield = 2,5
+Replants = 6
+FullyGrownStages = 3
+GrowthStages = 2
+SpritePrefix = tomatocrop
+HarvestItem = TOMATO
+#-------------------------------
+[ONIONSEED]
+HoursPerStage = 7
+DryingPerHour = 5
+Yield = 2,3
+Replants = 5
+FullyGrownStages = 3
+GrowthStages = 2
+SpritePrefix = onioncrop
+HarvestItem = ONION
+#-------------------------------
+[PUMPKINSEED]
+HoursPerStage = 12
+DryingPerHour = 8
+Yield = 1,2
+Replants = 3
+FullyGrownStages = 4
+GrowthStages = 2
+SpritePrefix = pumpkincrop
+HarvestItem = PUMPKIN
+#-------------------------------
+[CORNSEED]
+HoursPerStage = 6
+DryingPerHour = 8
+Yield = 2,4
+Replants = 6
+FullyGrownStages = 3
+GrowthStages = 2
+SpritePrefix = corncrop
+HarvestItem = CORN
+#-------------------------------
+[WHEATSEED]
+HoursPerStage = 3
+DryingPerHour = 6
+Yield = 3,6
+Replants = 8
+FullyGrownStages = 2
+GrowthStages = 2
+SpritePrefix = wheatcrop
+HarvestItem = WHEAT
+#-------------------------------
+[CABBAGESEED]
+HoursPerStage = 5
+DryingPerHour = 9
+Yield = 1,3
+Replants = 5
+FullyGrownStages = 3
+GrowthStages = 2
+SpritePrefix = cabbagecrop
+HarvestItem = CABBAGE
