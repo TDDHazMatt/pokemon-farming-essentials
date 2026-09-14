@@ -6,8 +6,6 @@
 66,East,0,2,West,0
 # Route 8 (69) - Lappet Town (2)
 69,North,12,2,South,0
-# Route 1 (5) - Ranch Entrance (22)
-5,South,0,22,North,47
 # Safari Zone outside (66) - Route 1 (5)
 66,North,18,5,South,0
 # Route 6 (44) - Route 1 (5)
@@ -28,10 +26,6 @@
 21,East,0,23,West,1
 # Route 7 (47) - Route 2 (21)
 47,West,0,21,East,77
-# Safari Zone outside (66) - Ranch Entrance (22)
-66,West,0,22,East,0
-# Route 8 (69) - Ranch Entrance (22)
-69,North,0,22,South,39
 # Route 3 (31) - Lerucean Town (23)
 31,South,32,23,North,0
 # Ingido Plateau outside (35) - Route 3 (31)
@@ -102,3 +96,5 @@
 80,North,0,79,South,0
 # RanchSE (81) - RanchE (80)
 81,North,0,80,South,0
+# RanchS (42) - Ranch Entrance (22)
+42,0,18,22,10,0

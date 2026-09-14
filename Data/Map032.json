@@ -8,7 +8,7 @@
       "__type": "object",
       "class": "RPG::AudioFile",
       "ivars": {
-        "@name": "Safari Zone exterior",
+        "@name": "Lappet Town",
         "@pitch": 100,
         "@volume": 80
       }
