@@ -6497,6 +6497,22 @@ Pocket = 1
 Price = 400
 Description = A tough hide shed by a Tauros. Prized by leatherworkers.
 #-------------------------------
+[HOE]
+Name = Hoe
+NamePlural = Hoes
+Pocket = 8
+Price = 0
+Flags = KeyItem,ShedTool
+Description = A sturdy hoe. Interact with a patch of dry soil while carrying it to till the soil, turning it into soft, plantable earth.
+#-------------------------------
+[AUTOTILLER]
+Name = Auto Tiller
+NamePlural = Auto Tillers
+Pocket = 8
+Price = 0
+Flags = KeyItem,ShedTool
+Description = A mechanized tiller. While you carry it, any dry soil you step on is tilled automatically.
+#-------------------------------
 [COINCASE]
 Name = Coin Case
 NamePlural = Coin Cases
