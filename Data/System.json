@@ -79,7 +79,7 @@
         "@volume": 80
       }
     },
-    "@edit_map_id": 32,
+    "@edit_map_id": 42,
     "@elements": [
       "",
       ""
@@ -130,7 +130,7 @@
         "@volume": 80
       }
     },
-    "@magic_number": 36094374,
+    "@magic_number": 56679470,
     "@party_members": [
       1
     ],
