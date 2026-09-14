@@ -157,7 +157,7 @@ def pbInteractWithCrop(crop_data)
   crop_def  = GameData::CropPlant.get(crop_data.crop_id)
 
   if crop_data.grown?
-    this_event.turn_up
+    pbTurnCropSprite(this_event, crop_def, crop_data.growth_stage)
     if pbPickCrop(crop_data.crop_id, crop_data.crop_yield, crop_def)
       crop_data.reset(true)   # keep mulch for replanting
     end

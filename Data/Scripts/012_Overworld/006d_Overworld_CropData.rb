@@ -48,11 +48,13 @@ class CropData
   end
 
   def growing?
-    return @growth_stage > 0 && @growth_stage < 5
+    return false if @growth_stage <= 0
+    return @growth_stage <= GameData::CropPlant.get(@crop_id).growth_stages
   end
 
   def grown?
-    return @growth_stage >= 5
+    return false if @growth_stage <= 0
+    return @growth_stage > GameData::CropPlant.get(@crop_id).growth_stages
   end
 
   def replanted?
@@ -88,7 +90,7 @@ class CropData
     time_per_stage  = crop_def.time_per_stage
     drying_per_hour = crop_def.drying_per_hour
     max_replants    = crop_def.replants
-    stages_growing  = GameData::CropPlant::NUMBER_OF_GROWTH_STAGES
+    stages_growing  = crop_def.growth_stages
     stages_full     = crop_def.fully_grown_stages
     case @mulch_id
     when :GROWTHMULCH
@@ -235,11 +237,32 @@ class CropMoistureSprite
 end
 
 #===============================================================================
+# Shared row/direction lookup for a crop's growth-stage art, used both by
+# CropSprite (the overworld sprite) and by pbInteractWithCrop (which turns the
+# event to face the player using the same row it's currently displaying).
+# Row is held at crop_def.growth_stages for every stage beyond that (i.e. for
+# the whole ripe/grown window).
+#===============================================================================
+def pbTurnCropSprite(event, crop_def, growth_stage)
+  row = [growth_stage - 1, crop_def.growth_stages].min
+  case row
+  when 1 then event.turn_down
+  when 2 then event.turn_left
+  when 3 then event.turn_right
+  else        event.turn_up
+  end
+end
+
+#===============================================================================
 # Overworld sprite for any planted crop event.
 # Graphic lookup:
 #   Stage 1  -> "#{sprite_prefix}planted", fallback "croplanted"
 #   Stage 2+ -> "#{sprite_prefix}_#{crop_id}", fallback "Object ball"
-#   Direction: stage 1-2 = down, 3 = left, 4 = right, 5+ = up
+#   Direction: row = min(stage - 1, crop's GrowthStages), 1=down 2=left 3=right
+#   4=up. The last row is held for every stage beyond GrowthStages (i.e. for
+#   the whole ripe/grown window), so a crop with GrowthStages=4 (the default)
+#   cycles through all 4 rows before holding on "up", while GrowthStages=2
+#   only uses rows 1-2 (sprout, then fully grown).
 #===============================================================================
 class CropSprite
   def initialize(event, map, _viewport)
@@ -284,15 +307,10 @@ class CropSprite
         else
           @event.character_name = "Object ball"
         end
-        case crop.growth_stage
-        when 2 then @event.turn_down
-        when 3 then @event.turn_left
-        when 4 then @event.turn_right
-        else        @event.turn_up if crop.growth_stage >= 5
-        end
+        pbTurnCropSprite(@event, crop_def, crop.growth_stage)
       end
       if @old_stage != crop.growth_stage && @old_stage > 0 &&
-         crop.growth_stage <= GameData::CropPlant::NUMBER_OF_GROWTH_STAGES + 1
+         crop.growth_stage <= crop_def.growth_stages + 1
         spriteset = $scene.spriteset(@map.map_id)
         spriteset&.addUserAnimation(Settings::PLANT_SPARKLE_ANIMATION_ID,
                                     @event.x, @event.y, false, 1)

@@ -6,6 +6,7 @@ module GameData
     attr_reader :yield
     attr_reader :replants
     attr_reader :fully_grown_stages
+    attr_reader :growth_stages
     attr_reader :sprite_prefix
     attr_reader :harvest_item
     attr_reader :pbs_file_suffix
@@ -21,6 +22,7 @@ module GameData
       "Yield"           => [:yield,             "uv"],
       "Replants"        => [:replants,          "v"],
       "FullyGrownStages"=> [:fully_grown_stages,"v"],
+      "GrowthStages"    => [:growth_stages,     "v"],
       "SpritePrefix"    => [:sprite_prefix,     "s"],
       "HarvestItem"     => [:harvest_item,      "m"]
     }
@@ -39,6 +41,7 @@ module GameData
       @yield.reverse! if @yield[1] < @yield[0]
       @replants          = hash[:replants]          || 9
       @fully_grown_stages= hash[:fully_grown_stages]|| 4
+      @growth_stages     = hash[:growth_stages]     || NUMBER_OF_GROWTH_STAGES
       @sprite_prefix     = hash[:sprite_prefix]     || "crop"
       @harvest_item      = hash[:harvest_item]      || @id
       @pbs_file_suffix   = hash[:pbs_file_suffix]   || ""

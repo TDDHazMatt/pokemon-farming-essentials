@@ -5,6 +5,10 @@
 #   Yield           - min,max items produced when picked
 #   Replants        - how many times the plant auto-replants before dying (default 9)
 #   FullyGrownStages - how many ripe stages before the harvest window closes (default 4)
+#   GrowthStages    - how many pre-ripe rows the character sheet has, used as
+#                     "planted" (dirt, stage 1) + rows 1..N (down/left/right/up,
+#                     stages 2..N+1); the last row then holds for the whole
+#                     ripe window (default 4, i.e. all 4 rows)
 #   SpritePrefix    - base name for character sheet lookup (default "crop")
 #   HarvestItem     - item given on harvest; defaults to the planted item's ID
 #-------------------------------
@@ -478,5 +482,16 @@ DryingPerHour = 8
 Yield = 1,3
 Replants = 5
 FullyGrownStages = 3
+GrowthStages = 2
 SpritePrefix = carrotcrop
 HarvestItem = CARROT
+#-------------------------------
+[LETTUCESEED]
+HoursPerStage = 4
+DryingPerHour = 8
+Yield = 2,4
+Replants = 5
+FullyGrownStages = 3
+GrowthStages = 2
+SpritePrefix = lettucecrop
+HarvestItem = LETTUCE

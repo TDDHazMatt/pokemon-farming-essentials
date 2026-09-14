@@ -6356,6 +6356,21 @@ Pocket = 5
 Price = 50
 Description = A fresh carrot grown in the field.
 #-------------------------------
+[LETTUCESEED]
+Name = Lettuce Seed
+NamePlural = Lettuce Seeds
+Pocket = 5
+Price = 80
+Flags = Plantable
+Description = A seed that grows into a lettuce crop over several hours.
+#-------------------------------
+[LETTUCE]
+Name = Lettuce
+NamePlural = Lettuces
+Pocket = 5
+Price = 40
+Description = A crisp lettuce grown in the field.
+#-------------------------------
 [COINCASE]
 Name = Coin Case
 NamePlural = Coin Cases
