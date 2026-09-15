@@ -84,6 +84,12 @@ module Settings
   # Maximum number of breeding pairs the Day Care can ever support.
   # How many are active at a time is controlled by DayCareUnlocks#extra_pairs.
   MAX_BREEDING_PAIRS = 4
+  # How many seconds the in-game clock (pbGetTimeNow) advances for every step
+  # the player takes. The clock is otherwise frozen - it does not advance in
+  # real time while the player is standing still, in a menu, or in battle -
+  # so a full in-game week takes roughly (7*24*60*60 / SECONDS_PER_STEP)
+  # steps of walking, not an IRL week.
+  SECONDS_PER_STEP = 90
   # Number of independent save slots available on the title screen.
   # Slot 1 maps to Game.rxdata (backward compatible). Slot N maps to GameN.rxdata.
   MAX_SAVE_SLOTS = 3

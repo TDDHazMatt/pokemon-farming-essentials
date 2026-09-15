@@ -50,7 +50,7 @@ def pbApricornTree
     return
   end
   # Empty soil — Spreader shortcut or normal plant flow.
-  if $PokemonGlobal.spreader_loaded_item
+  if $PokemonGlobal.active_tool == :SPREADER && $PokemonGlobal.spreader_loaded_item
     loaded = pbSpreaderGetItem
     if loaded
       item_data = GameData::Item.get(loaded)

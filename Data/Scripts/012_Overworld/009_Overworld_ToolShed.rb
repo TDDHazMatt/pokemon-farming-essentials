@@ -35,10 +35,10 @@ def pbToolShedGetTools
 end
 
 #===============================================================================
-# "Store Tools" - put a tool from the Bag away in the shed. Also clears any
-# stale "active" state for tools whose Bag-use toggles something (the
-# Harvester's on/off flag, the Spreader's loaded item), since that state would
-# otherwise silently keep affecting the game after the item's put away.
+# "Store Tools" - put a tool from the Bag away in the shed. Also clears the
+# tool slot if the stored tool was the active one, plus the Spreader's loaded
+# item specifically, since that state would otherwise silently keep affecting
+# the game after the item's put away.
 #===============================================================================
 def pbToolShedStoreTools
   loop do
@@ -54,12 +54,8 @@ def pbToolShedStoreTools
     item_id = owned[cmd]
     item_data = GameData::Item.get(item_id)
     $bag.remove(item_id)
-    case item_id
-    when :HARVESTER
-      $PokemonGlobal.harvester_active = false
-    when :SPREADER
-      $PokemonGlobal.spreader_loaded_item = nil
-    end
+    $PokemonGlobal.active_tool = nil if $PokemonGlobal.active_tool == item_id
+    $PokemonGlobal.spreader_loaded_item = nil if item_id == :SPREADER
     $PokemonGlobal.shed_tools.push(item_id) unless $PokemonGlobal.shed_tools.include?(item_id)
     pbMessage(_INTL("Stored the {1} in the shed.", item_data.name))
   end

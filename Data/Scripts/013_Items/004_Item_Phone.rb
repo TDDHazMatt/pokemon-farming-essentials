@@ -114,19 +114,25 @@ class Phone
 
   #=============================================================================
 
-  # Checks once every second.
+  # Checks whenever the game clock has moved on (it's step-driven, not
+  # real-time - see pbGetTimeNow - so this may jump by several minutes'
+  # worth of game-seconds between checks rather than ticking by exactly 1).
   def refresh_ready_trainers
     return if !@rematches_enabled
     time = pbGetTimeNow.to_i
     return if @last_refresh_time == time
+    # First-ever call: just establish a baseline, don't treat the gap between
+    # the Unix epoch and the game's start time as elapsed game time.
+    delta = (@last_refresh_time == 0) ? 0 : time - @last_refresh_time
     @last_refresh_time = time
+    return if delta <= 0
     @contacts.each do |contact|
       next if !contact.trainer? || !contact.visible?
       next if contact.rematch_flag > 0   # Already ready for rematch
       if contact.time_to_ready <= 0
         contact.time_to_ready = rand(20...40) * 60   # 20-40 minutes
       end
-      contact.time_to_ready -= 1
+      contact.time_to_ready -= delta
       next if contact.time_to_ready > 0
       contact.rematch_flag = 1   # Ready for rematch
       contact.set_trainer_event_ready_for_rematch

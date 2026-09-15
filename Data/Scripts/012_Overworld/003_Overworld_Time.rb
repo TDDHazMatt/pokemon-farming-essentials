@@ -1,9 +1,20 @@
 #===============================================================================
 # Day and night system
+#
+# The in-game clock is step-driven, not real-time: it starts at a fixed
+# Monday morning and only advances when $PokemonGlobal.time_offset grows,
+# which happens by Settings::SECONDS_PER_STEP every step the player takes
+# (see 012_Overworld_GameClock.rb) or by a fixed jump when sleeping in a bed
+# (pbSleepInBed, 006d_Overworld_Sleep.rb). It does NOT track Time.now/real
+# wall-clock time at all - standing still, browsing menus, or being in
+# battle does not advance it, by design (so a narrative "one week" deadline
+# is paced by how much the player has played, not an IRL week).
 #===============================================================================
+GAME_START_EPOCH = Time.local(2000, 1, 3, 8, 0, 0)   # a Monday, 8:00 AM
+
 def pbGetTimeNow
   offset = $PokemonGlobal&.time_offset || 0
-  return offset == 0 ? Time.now : Time.now + offset
+  return GAME_START_EPOCH + offset
 end
 
 #===============================================================================

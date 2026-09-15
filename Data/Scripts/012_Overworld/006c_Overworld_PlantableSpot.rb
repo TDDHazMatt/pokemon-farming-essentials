@@ -30,7 +30,7 @@ def pbPlantableSpot
   mulch_on_soil = mulch_only ? plant_data.mulch_id : nil
 
   # ── Spreader path ──────────────────────────────────────────────────────────
-  if $PokemonGlobal.spreader_loaded_item
+  if $PokemonGlobal.active_tool == :SPREADER && $PokemonGlobal.spreader_loaded_item
     loaded = $PokemonGlobal.spreader_loaded_item
     loaded = pbSpreaderGetItem if !loaded || !$bag.has?(loaded)
     return unless loaded
@@ -98,7 +98,7 @@ def pbPlantCrop(item_id)
   interp    = pbMapInterpreter
   item_data = GameData::Item.get(item_id)
 
-  if $PokemonGlobal.spreader_loaded_item
+  if $PokemonGlobal.active_tool == :SPREADER && $PokemonGlobal.spreader_loaded_item
     loaded = pbSpreaderGetItem
     return unless loaded
     item_data = GameData::Item.get(loaded)
@@ -208,7 +208,7 @@ def pbPickCrop(crop_id, qty, crop_def = nil)
   harvest_id  = crop_def.harvest_item
   harvest     = GameData::Item.get(harvest_id)
   seed_data = GameData::Item.get(crop_id)
-  if $PokemonGlobal.harvester_active
+  if $PokemonGlobal.active_tool == :HARVESTER
     if !$bag.can_add?(harvest, qty)
       pbMessage(_INTL("Too bad...\nThe Bag is full..."))
       return false

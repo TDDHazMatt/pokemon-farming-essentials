@@ -16,8 +16,9 @@ ItemHandlers::UseText.add(:EXPALL, proc { |item|
 })
 
 ItemHandlers::UseText.add(:HARVESTER, proc { |item|
-  next $PokemonGlobal.harvester_active ? _INTL("Put away") : _INTL("Use")
+  next ($PokemonGlobal.active_tool == item) ? _INTL("Put away") : _INTL("Use")
 })
+ItemHandlers::UseText.copy(:HARVESTER, :SPREADER, :HOE, :AUTOTILLER)
 
 
 
@@ -274,18 +275,50 @@ ItemHandlers::UseInField.add(:TENT, proc { |item|
   next true
 })
 
-ItemHandlers::UseInField.add(:HARVESTER, proc { |item|
-  $PokemonGlobal.harvester_active = !$PokemonGlobal.harvester_active
-  if $PokemonGlobal.harvester_active
-    pbMessage(_INTL("The Harvester is now active.\nRipe berries and apricorns will be collected silently."))
+#===============================================================================
+# Shared "tool slot" behavior for simple on/off ShedTool items - using the
+# item again while it's already the active tool puts it away; otherwise it
+# becomes the active tool, replacing whatever was active before (there's
+# only one slot).
+#===============================================================================
+def pbToggleActiveTool(item_id, active_message, inactive_message)
+  if $PokemonGlobal.active_tool == item_id
+    $PokemonGlobal.active_tool = nil
+    pbMessage(inactive_message)
   else
-    pbMessage(_INTL("The Harvester has been put away."))
+    $PokemonGlobal.active_tool = item_id
+    pbMessage(active_message)
   end
+end
+
+ItemHandlers::UseInField.add(:HARVESTER, proc { |item|
+  pbToggleActiveTool(:HARVESTER,
+    _INTL("The Harvester is now active.\nRipe berries and apricorns will be collected silently."),
+    _INTL("The Harvester has been put away."))
+  next true
+})
+
+ItemHandlers::UseInField.add(:HOE, proc { |item|
+  pbToggleActiveTool(:HOE,
+    _INTL("The Hoe is now active.\nInteract with dry soil to till it."),
+    _INTL("The Hoe has been put away."))
+  next true
+})
+
+ItemHandlers::UseInField.add(:AUTOTILLER, proc { |item|
+  pbToggleActiveTool(:AUTOTILLER,
+    _INTL("The Auto Tiller is now active.\nDry soil you step on will be tilled automatically."),
+    _INTL("The Auto Tiller has been put away."))
   next true
 })
 
 ItemHandlers::UseInField.add(:SPREADER, proc { |item|
-  was_loaded = $PokemonGlobal.spreader_loaded_item
+  if $PokemonGlobal.active_tool == :SPREADER
+    $PokemonGlobal.active_tool = nil
+    $PokemonGlobal.spreader_loaded_item = nil
+    pbMessage(_INTL("The Spreader has been put away."))
+    next true
+  end
   chosen = nil
   pbFadeOutIn do
     scene  = PokemonBag_Scene.new
@@ -295,12 +328,13 @@ ItemHandlers::UseInField.add(:SPREADER, proc { |item|
       d.is_plantable? || d.is_mulch?
     })
   end
+  $PokemonGlobal.active_tool = :SPREADER
   if chosen
     $PokemonGlobal.spreader_loaded_item = chosen
-    pbMessage(_INTL("The Spreader is loaded with {1}.", GameData::Item.get(chosen).name))
+    pbMessage(_INTL("The Spreader is now active, loaded with {1}.", GameData::Item.get(chosen).name))
   else
     $PokemonGlobal.spreader_loaded_item = nil
-    pbMessage(_INTL("The Spreader was put away.")) if was_loaded
+    pbMessage(_INTL("The Spreader is now active, but nothing is loaded."))
   end
   next true
 })
@@ -320,6 +354,7 @@ ItemHandlers::UseInField.add(:BICYCLE, proc { |item|
 ItemHandlers::UseInField.copy(:BICYCLE, :MACHBIKE, :ACROBIKE)
 
 ItemHandlers::UseInField.add(:OLDROD, proc { |item|
+  $PokemonGlobal.active_tool = :OLDROD
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
     pbMessage(_INTL("Can't use that here."))
@@ -334,6 +369,7 @@ ItemHandlers::UseInField.add(:OLDROD, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:GOODROD, proc { |item|
+  $PokemonGlobal.active_tool = :GOODROD
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
     pbMessage(_INTL("Can't use that here."))
@@ -348,6 +384,7 @@ ItemHandlers::UseInField.add(:GOODROD, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:SUPERROD, proc { |item|
+  $PokemonGlobal.active_tool = :SUPERROD
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
     pbMessage(_INTL("Can't use that here."))

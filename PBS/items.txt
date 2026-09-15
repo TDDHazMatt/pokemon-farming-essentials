@@ -6502,16 +6502,18 @@ Name = Hoe
 NamePlural = Hoes
 Pocket = 8
 Price = 0
+FieldUse = Direct
 Flags = KeyItem,ShedTool
-Description = A sturdy hoe. Interact with a patch of dry soil while carrying it to till the soil, turning it into soft, plantable earth.
+Description = A sturdy hoe. Use it to equip it as your active tool, then interact with a patch of dry soil to till it.
 #-------------------------------
 [AUTOTILLER]
 Name = Auto Tiller
 NamePlural = Auto Tillers
 Pocket = 8
 Price = 0
+FieldUse = Direct
 Flags = KeyItem,ShedTool
-Description = A mechanized tiller. While you carry it, any dry soil you step on is tilled automatically.
+Description = A mechanized tiller. Use it to equip it as your active tool - any dry soil you then step on is tilled automatically.
 #-------------------------------
 [COINCASE]
 Name = Coin Case

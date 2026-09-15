@@ -3,15 +3,20 @@
 # span multiple maps.
 #===============================================================================
 class PokemonGlobalMetadata
-  # Harvester key item toggle
-  def harvester_active;       return @harvester_active || false; end
-  def harvester_active=(val); @harvester_active = val;          end
-  # Spreader key item toggle + loaded item
+  # The single "tool slot" shared by every ShedTool item (Harvester, Spreader,
+  # Hoe, Auto Tiller, the three Rods) - nil, or the item ID of whichever one
+  # is currently active. Activating a tool always replaces whatever was
+  # active before, since only one can be equipped at a time.
+  def active_tool;       return @active_tool; end
+  def active_tool=(val); @active_tool = val;   end
+  # Spreader's loaded item - separate from whether the Spreader itself is the
+  # active tool (its silent-plant effect needs both to be true).
   def spreader_loaded_item;         return @spreader_loaded_item;    end
   def spreader_loaded_item=(val);   @spreader_loaded_item = val;     end
   # Tool Shed inventory - key items (Flags = ShedTool) currently stored away
-  # rather than carried in the Bag. Starts with a Spreader and a Harvester.
-  def shed_tools;       return @shed_tools ||= [:SPREADER, :HARVESTER]; end
+  # rather than carried in the Bag. Starts with a Spreader, a Harvester, and
+  # a Hoe.
+  def shed_tools;       return @shed_tools ||= [:SPREADER, :HARVESTER, :HOE]; end
   def shed_tools=(val); @shed_tools = val;                              end
   # Movement
   attr_accessor :bicycle

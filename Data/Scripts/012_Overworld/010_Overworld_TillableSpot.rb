@@ -43,13 +43,14 @@ end
 
 #===============================================================================
 # "Hoe" interaction - call from a /tillablespot/i event's script box, on the
-# page that runs before it's been tilled.
+# page that runs before it's been tilled. The Hoe must be the active tool
+# (equipped via its Bag "Use"), not just owned.
 #===============================================================================
 def pbTillableSpot
   interp = pbMapInterpreter
   this_event = interp.get_self
-  if !$bag.has?(:HOE)
-    pbMessage(_INTL("This soil looks like it could be tilled, but you'll need a Hoe to do it."))
+  if $PokemonGlobal.active_tool != :HOE
+    pbMessage(_INTL("This soil looks like it could be tilled, but you'll need to equip your Hoe first."))
     return
   end
   if pbTillTileAt($game_map, this_event.x, this_event.y)
@@ -62,12 +63,12 @@ end
 
 #===============================================================================
 # Auto Tiller - silently tills any untilled /tillablespot/i tile the player
-# steps onto, no Hoe required and no interaction needed.
+# steps onto, no interaction needed, as long as it's the active tool.
 #===============================================================================
 EventHandlers.add(:on_step_taken, :auto_till_tillable_spot,
   proc { |event|
     next if event != $game_player
-    next if !$bag.has?(:AUTOTILLER)
+    next if $PokemonGlobal.active_tool != :AUTOTILLER
     map = event.map
     map.events.each_value do |ev|
       next if !ev.name[/tillablespot/i]
