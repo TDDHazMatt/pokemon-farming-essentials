@@ -51,20 +51,29 @@ end
 # Redirects purchases into the pending order instead of the Bag. Money is
 # still deducted normally (getMoney/setMoney are inherited unchanged) - only
 # where the items themselves go is different.
+#
+# Built lazily (not as a top-level "class X < PokemonMartAdapter") because
+# PokemonMartAdapter lives in 016_UI/020_UI_PokeMart.rb, which loads AFTER
+# this 012_Overworld file - subclassing it at load time would raise
+# "uninitialized constant PokemonMartAdapter". Building the class the first
+# time it's actually needed (i.e. once gameplay is running and every script
+# has long since loaded) sidesteps that entirely.
 #===============================================================================
-class GrandmaOrderAdapter < PokemonMartAdapter
-  def initialize(order)
-    @order = order
-  end
+def pbGrandmaOrderAdapterClass
+  $grandma_order_adapter_class ||= Class.new(PokemonMartAdapter) do
+    def initialize(order)
+      @order = order
+    end
 
-  def addItem(item)
-    @order.add(item, 1)
-    return true
-  end
+    def addItem(item)
+      @order.add(item, 1)
+      return true
+    end
 
-  def removeItem(item)
-    @order.remove(item, 1)
-    return true
+    def removeItem(item)
+      @order.remove(item, 1)
+      return true
+    end
   end
 end
 
@@ -99,7 +108,7 @@ def pbGrandmaOrderGoods
   new_order = GrandmaOrder.new
   scene  = PokemonMart_Scene.new
   screen = PokemonMartScreen.new(scene, stock.dup)
-  screen.instance_variable_set(:@adapter, GrandmaOrderAdapter.new(new_order))
+  screen.instance_variable_set(:@adapter, pbGrandmaOrderAdapterClass.new(new_order))
   pbMessage(_INTL("\\rWhat would you like me to order in for you?"))
   screen.pbBuyScreen
   if new_order.empty?

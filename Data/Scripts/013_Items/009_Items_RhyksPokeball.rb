@@ -12,6 +12,13 @@
 # Unlike the actual Safari Zone, this isn't a timed session with its own ball
 # allowance: it uses the player's real Safari Ball count from the Bag, and
 # whatever gets thrown during the battle is deducted from the Bag afterward.
+#
+# Lives here in 013_Items (not 012_Overworld, where the rest of the
+# Overworld-side farm scripts live) because it registers with ItemHandlers
+# at load time (ItemHandlers::UseInField.add etc.) - ItemHandlers itself is
+# defined in 013_Items/001_Item_Utilities.rb, which loads AFTER all of
+# 012_Overworld. Registering here, alongside every other item's handlers,
+# guarantees ItemHandlers already exists.
 #===============================================================================
 class PokemonGlobalMetadata
   attr_accessor :rhyks_pokeball_active
