@@ -195,7 +195,10 @@ EventHandlers.add(:on_player_change_direction, :trigger_encounter,
 )
 
 def pbBattleOnStepTaken(repel_active)
-  return if $player.able_pokemon_count == 0
+  # Rhyk's Pokeball turns every encounter into a Safari-style catch attempt,
+  # which never requires a usable Pokémon of your own - see
+  # 013_Overworld_RhyksPokeball.rb.
+  return if $player.able_pokemon_count == 0 && !pbRhyksPokeballActive?
   return if !$PokemonEncounters.encounter_possible_here?
   encounter_type = $PokemonEncounters.encounter_type
   return if !encounter_type

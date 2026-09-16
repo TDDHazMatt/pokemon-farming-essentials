@@ -6727,6 +6727,15 @@ Price = 0
 Flags = KeyItem
 Description = A shiny charm said to increase the chance of finding a Shiny Pokémon.
 #-------------------------------
+[RHYKSPOKEBALL]
+Name = Rhyk's Pokeball
+NamePlural = Rhyk's Pokeballs
+Pocket = 8
+Price = 0
+FieldUse = Direct
+Flags = KeyItem
+Description = A strange, custom-made Poké Ball. While active, every wild encounter becomes a Safari-style catching challenge instead of a battle, and you don't need a Pokémon of your own to trigger one.
+#-------------------------------
 [CATCHINGCHARM]
 Name = Catching Charm
 NamePlural = Catching Charms
