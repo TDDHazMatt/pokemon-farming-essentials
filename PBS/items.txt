@@ -619,7 +619,7 @@ PortionNamePlural = bags of Growth Mulch
 Pocket = 1
 Price = 200
 Flags = Mulch,Fling_30
-Description = A fertilizer to be spread on soft soil in regions where Berries are grown. A maniac will buy it for a high price.
+Description = A fertilizer that speeds up growth by about a quarter, though whatever it's spread on will dry out faster for it. Wears out after a handful of plantings.
 #-------------------------------
 [DAMPMULCH]
 Name = Damp Mulch
@@ -629,7 +629,7 @@ PortionNamePlural = bags of Damp Mulch
 Pocket = 1
 Price = 200
 Flags = Mulch,Fling_30
-Description = A fertilizer to be spread on soft soil in regions where Berries are grown. A maniac will buy it for a high price.
+Description = A fertilizer that holds moisture much longer, so you won't need to water as often - though growth is a touch slower for it. Wears out after a handful of plantings.
 #-------------------------------
 [STABLEMULCH]
 Name = Stable Mulch
@@ -639,7 +639,7 @@ PortionNamePlural = bags of Stable Mulch
 Pocket = 1
 Price = 200
 Flags = Mulch,Fling_30
-Description = A fertilizer to be spread on soft soil in regions where Berries are grown. A maniac will buy it for a high price.
+Description = A fertilizer that keeps a plant ripe and ready to pick for longer before it wilts. Wears out after a handful of plantings.
 #-------------------------------
 [GOOEYMULCH]
 Name = Gooey Mulch
@@ -649,7 +649,7 @@ PortionNamePlural = bags of Gooey Mulch
 Pocket = 1
 Price = 200
 Flags = Mulch,Fling_30
-Description = A fertilizer to be spread on soft soil in regions where Berries are grown. A maniac will buy it for a high price.
+Description = A fertilizer that lets a neglected, overripe plant regrow itself more times before it's finally spent. Wears out after a handful of plantings.
 #-------------------------------
 [SHOALSALT]
 Name = Shoal Salt

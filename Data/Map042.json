@@ -6840,6 +6840,17 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 401,
+                          "@indent": 4,
+                          "@parameters": [
+                            "\\bEither way, mulch wears out after a handful of plantings, so you'll need to spread more eventually."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
                           "@indent": 4,
                           "@parameters": []
@@ -6876,6 +6887,17 @@
                           "@indent": 4,
                           "@parameters": [
                             "\\bStable Mulch keeps a plant ripe and ready to pick for longer before it wilts, so you've more time to come collect it."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 4,
+                          "@parameters": [
+                            "\\bSame as the others - it only lasts a handful of plantings before it's spent and needs spreading again."
                           ]
                         }
                       },

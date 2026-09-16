@@ -4,21 +4,29 @@
 # Stored in $PokemonGlobal.eventvars by plantable-spot events.
 #===============================================================================
 class CropData
+  # How many times soil can be (re)planted while the applied mulch keeps
+  # working, before it's used up and needs to be spread again.
+  MULCH_PLANTINGS = 4
+
   attr_accessor :crop_id
-  attr_accessor :mulch_id
+  attr_reader   :mulch_id
   attr_accessor :time_alive
   attr_accessor :time_last_updated
   attr_accessor :growth_stage
   attr_accessor :replant_count
   attr_accessor :moisture_level
   attr_accessor :yield_penalty
+  attr_reader   :mulch_plantings_left
 
   def initialize
     reset
   end
 
   def reset(keep_mulch = false)
-    @mulch_id          = nil unless keep_mulch
+    if !keep_mulch
+      @mulch_id             = nil
+      @mulch_plantings_left = 0
+    end
     @crop_id           = nil
     @time_alive        = 0
     @time_last_updated = 0
@@ -28,8 +36,22 @@ class CropData
     @yield_penalty     = 0
   end
 
+  # Spreading mulch always tops the planting count back up to full - it's a
+  # fresh batch, not a top-up of whatever was left.
+  def mulch_id=(val)
+    @mulch_id             = val
+    @mulch_plantings_left = val.nil? ? 0 : MULCH_PLANTINGS
+  end
+
   def plant(crop_id)
     reset(true)   # preserve any mulch already applied
+    if @mulch_id
+      if @mulch_plantings_left <= 0
+        @mulch_id = nil   # used up - this planting goes into bare soil
+      else
+        @mulch_plantings_left -= 1   # this planting is the one that spends a use
+      end
+    end
     @crop_id           = crop_id
     @growth_stage      = 1
     @time_last_updated = pbGetTimeNow.to_i
