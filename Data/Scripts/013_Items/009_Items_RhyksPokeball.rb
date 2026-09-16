@@ -1,17 +1,18 @@
 #===============================================================================
-# Rhyk's Pokeball - a togglable Key Item. While active:
-#   - Every wild encounter (step-triggered, fishing, Rock Smash, Sweet Scent,
-#     Bug Contest, etc.) becomes a Safari-style catching battle (SafariBattle
-#     - no fighting, just Balls/Bait/Mud) instead of a normal battle, via the
-#     same :on_calling_wild_battle override hook the built-in Safari Zone
-#     uses (see 018_Alternate battle modes/001_SafariZone.rb).
-#   - Encounters can trigger even with zero usable Pokémon in the party (see
-#     the bypassed gate in 001_Overworld.rb's pbBattleOnStepTaken) - Safari
-#     battles never need one, since you're not fighting.
+# Rhyk's Pokeball - a togglable Key Item. While active, Rhyk (a persistent,
+# moveless Rhydon) occupies party slot 0 as a genuine Pokémon - he can be
+# healed normally, takes real damage, gains real EXP - and every wild
+# encounter (step-triggered, fishing, Rock Smash, Sweet Scent, Bug Contest,
+# etc.) becomes a Hybrid Battle (see
+# 011_Battle/008_Other battle types/002_HybridBattle.rb) via the same
+# :on_calling_wild_battle override hook the built-in Safari Zone uses (see
+# 018_Alternate battle modes/001_SafariZone.rb).
 #
-# Unlike the actual Safari Zone, this isn't a timed session with its own ball
-# allowance: it uses the player's real Safari Ball count from the Bag, and
-# whatever gets thrown during the battle is deducted from the Bag afterward.
+# Deactivating removes Rhyk from the party and stores him, as-is (not
+# healed), in $PokemonGlobal.rhyk_pokemon - there's deliberately no "heal him
+# by toggling off and on" shortcut. Reactivating puts the same Pokémon
+# object back (same level/EXP/HP/status), or creates him fresh the very
+# first time.
 #
 # Lives here in 013_Items (not 012_Overworld, where the rest of the
 # Overworld-side farm scripts live) because it registers with ItemHandlers
@@ -20,20 +21,62 @@
 # 012_Overworld. Registering here, alongside every other item's handlers,
 # guarantees ItemHandlers already exists.
 #===============================================================================
-class PokemonGlobalMetadata
-  attr_accessor :rhyks_pokeball_active
+class Pokemon
+  # Identifies the one persistent Rhyk Pokémon. Needed because object
+  # identity doesn't survive a save/load cycle (Marshal reconstructs new
+  # objects) or the player reordering their party, but a plain ivar does.
+  attr_accessor :is_rhyk
 end
 
+class PokemonGlobalMetadata
+  # Rhyk's Pokémon object while his Pokeball is inactive (i.e. he isn't
+  # currently occupying a party slot). nil while he's active and in the
+  # party instead.
+  attr_accessor :rhyk_pokemon
+end
+
+RHYK_STARTING_LEVEL = 15
+
 def pbRhyksPokeballActive?
-  return $PokemonGlobal&.rhyks_pokeball_active || false
+  return $player.party.any? { |p| p.is_rhyk }
+end
+
+#===============================================================================
+# Builds Rhyk the first time he's ever activated, or reuses (and clears from
+# cold storage) whatever's saved in $PokemonGlobal.rhyk_pokemon otherwise -
+# preserving his level/EXP/HP/status across the toggle.
+#===============================================================================
+def pbGetOrCreateRhyk
+  stored = $PokemonGlobal.rhyk_pokemon
+  if stored
+    $PokemonGlobal.rhyk_pokemon = nil
+    return stored
+  end
+  pkmn = Pokemon.new(:RHYDON, RHYK_STARTING_LEVEL)
+  pkmn.name           = "Rhyk"
+  pkmn.moves.clear
+  pkmn.is_rhyk        = true
+  pkmn.cannot_release = true   # a real party member now - don't let him be released...
+  pkmn.cannot_store   = true   # ...or boxed, which would silently break this key item
+  pkmn.calc_stats
+  pkmn.heal
+  return pkmn
 end
 
 ItemHandlers::UseInField.add(:RHYKSPOKEBALL, proc { |item|
-  $PokemonGlobal.rhyks_pokeball_active = !$PokemonGlobal.rhyks_pokeball_active
-  if $PokemonGlobal.rhyks_pokeball_active
-    pbMessage(_INTL("Rhyk's Pokeball hums to life.\nWild encounters will now be Safari-style catching challenges."))
+  if pbRhyksPokeballActive?
+    rhyk = $player.party.find { |p| p.is_rhyk }
+    $player.party.delete(rhyk)
+    $PokemonGlobal.rhyk_pokemon = rhyk
+    pbMessage(_INTL("Rhyk's Pokeball falls quiet.\nRhyk returns to his ball. Wild encounters are back to normal."))
   else
-    pbMessage(_INTL("Rhyk's Pokeball falls quiet.\nWild encounters are back to normal."))
+    if $player.party.length >= 6
+      pbMessage(_INTL("There's no room in your party for Rhyk right now."))
+      next true
+    end
+    rhyk = pbGetOrCreateRhyk
+    $player.party.unshift(rhyk)
+    pbMessage(_INTL("Rhyk's Pokeball hums to life.\nRhyk joins your party! Wild encounters will now be Hybrid Battles."))
   end
   next true
 })
@@ -47,28 +90,30 @@ ItemHandlers::UseText.add(:RHYKSPOKEBALL, proc { |item|
 })
 
 #===============================================================================
-# Runs a Safari-style battle against pkmn, using the player's own Safari
-# Balls (from the Bag) as the throwing allowance, and deducting however many
-# actually got thrown once the battle ends. Mirrors pbSafariBattle
-# (001_SafariZone.rb) but with no SafariState/session coupling - no ball
-# allowance to restore, no "game over" teleport, no capture-streak tracking.
+# Starts a Hybrid Battle against pkmn, built the same way a normal wild
+# battle is (see WildBattle.start_core in
+# 012_Overworld/002_Battle triggering/001_Overworld_BattleStarting.rb),
+# except using HybridBattle instead of Battle. Since $player.party genuinely
+# contains Rhyk (in slot 0) while his Pokeball is active, party construction
+# and the "Go! Rhyk!" send-out are both completely standard - no synthetic
+# one-off party needed.
 #===============================================================================
-def pbRhyksPokeballBattle(pkmn)
+def pbHybridBattle(pkmn)
   pkmn = pbGenerateWildPokemon(pkmn) if !pkmn.is_a?(Pokemon)
-  foeParty      = [pkmn]
-  playerTrainer = $player
-  starting_balls = $bag.quantity(:SAFARIBALL)
-  scene = BattleCreationHelperMethods.create_battle_scene
-  battle = SafariBattle.new(scene, playerTrainer, foeParty)
-  battle.ballCount = starting_balls
+  foe_party = [pkmn]
+  player_trainers, ally_items, player_party, player_party_starts =
+    BattleCreationHelperMethods.set_up_player_trainers(foe_party)
+  scene  = BattleCreationHelperMethods.create_battle_scene
+  battle = HybridBattle.new(scene, player_party, foe_party, player_trainers, nil)
+  battle.party1starts = player_party_starts
+  battle.ally_items   = ally_items
   BattleCreationHelperMethods.prepare_battle(battle)
+  $game_temp.clear_battle_rules
   decision = 0
-  pbBattleAnimation(pbGetWildBattleBGM(foeParty), 0, foeParty) do
+  pbBattleAnimation(pbGetWildBattleBGM(foe_party), 0, foe_party) do
     pbSceneStandby { decision = battle.pbStartBattle }
   end
   Input.update
-  used = starting_balls - battle.ballCount
-  $bag.remove(:SAFARIBALL, used) if used > 0
   $stats.safari_pokemon_caught += 1 if decision == 4
   pbSet(1, decision)
   EventHandlers.trigger(:on_wild_battle_end, pkmn.species_data.id, pkmn.level, decision)
@@ -79,6 +124,10 @@ EventHandlers.add(:on_calling_wild_battle, :rhyks_pokeball,
   proc { |pkmn, handled|
     next if !handled[0].nil?
     next if !pbRhyksPokeballActive?
-    handled[0] = pbRhyksPokeballBattle(pkmn)
+    rhyk = $player.party.find { |p| p.is_rhyk }
+    # Rhyk's fainted (and hasn't been healed) - fall through to a normal
+    # wild battle instead, same as if he weren't active at all.
+    next if !rhyk || rhyk.hp <= 0
+    handled[0] = pbHybridBattle(pkmn)
   }
 )

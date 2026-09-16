@@ -485,7 +485,11 @@ class PokemonBagScreen
         end
       end
       commands[cmdGive = commands.length]       = _INTL("Give") if $player.pokemon_party.length > 0 && itm.can_hold?
-      commands[cmdToss = commands.length]       = _INTL("Toss") if !itm.is_important? || $DEBUG
+      # Rhyk's Pokeball is excluded even under the $DEBUG bypass below - it's
+      # a unique key item with no way to get a replacement, and losing it
+      # would permanently break the Hybrid Battle feature (see
+      # 013_Items/009_Items_RhyksPokeball.rb).
+      commands[cmdToss = commands.length]       = _INTL("Toss") if (!itm.is_important? || $DEBUG) && item != :RHYKSPOKEBALL
       if @bag.registered?(item)
         commands[cmdRegister = commands.length] = _INTL("Deselect")
       elsif pbCanRegisterItem?(item)
