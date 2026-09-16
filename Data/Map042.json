@@ -6471,7 +6471,18 @@
                           "@code": 401,
                           "@indent": 4,
                           "@parameters": [
-                            "\\bMost trees will replant themselves several times over before they're worn out for good, so one tree can keep you going for a while."
+                            "\\bPicking it clears the soil right back to empty, so you'll need to plant a fresh Berry there for another batch."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 4,
+                          "@parameters": [
+                            "\\bLeave a ripe tree too long without picking it, though, and it'll sometimes sprout again on its own instead of just wilting - only so many times before it's truly spent."
                           ]
                         }
                       },
@@ -6853,7 +6864,7 @@
                           "@code": 101,
                           "@indent": 4,
                           "@parameters": [
-                            "\\bGooey Mulch lets a plant replant itself extra times before it's finally worn out."
+                            "\\bGooey Mulch means a plant that's gone too long unpicked can spring back to life more times before it's finally spent."
                           ]
                         }
                       },
@@ -7246,7 +7257,7 @@
                           "@code": 101,
                           "@indent": 4,
                           "@parameters": [
-                            "\\bMost plants will replant themselves automatically after you pick them, so you're not forever digging and replanting by hand."
+                            "\\bPick a plant while it's ripe and the soil goes right back to empty - you'll need to replant it yourself for another batch."
                           ]
                         }
                       },
@@ -7257,7 +7268,7 @@
                           "@code": 401,
                           "@indent": 4,
                           "@parameters": [
-                            "\\bBut nothing lasts forever - after enough cycles, a plant's given all it's got, and you'll need to start fresh on that patch."
+                            "\\bBut leave one unpicked too long past ripe, and it'll often regrow on its own instead of dying outright - just not forever, so don't let things go to waste."
                           ]
                         }
                       },
