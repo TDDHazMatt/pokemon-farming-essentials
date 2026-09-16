@@ -1,422 +1,674 @@
-# Unified crop plant definitions.
-# Fields:
-#   HoursPerStage   - hours spent in each growth stage
-#   DryingPerHour   - moisture lost per in-game hour; 0 or omit = no moisture system
-#   Yield           - min,max items produced when picked
-#   Replants        - how many times the plant auto-replants before dying (default 9)
-#   FullyGrownStages - how many ripe stages before the harvest window closes (default 4)
-#   GrowthStages    - how many pre-ripe rows the character sheet has, used as
-#                     "planted" (dirt, stage 1) + rows 1..N (down/left/right/up,
-#                     stages 2..N+1); the last row then holds for the whole
-#                     ripe window (default 4, i.e. all 4 rows)
-#   SpritePrefix    - base name for character sheet lookup (default "crop")
-#   HarvestItem     - item given on harvest; defaults to the planted item's ID
-#-------------------------------
-# Berries (SpritePrefix = berrytree, Replants = 9, FullyGrownStages = 4)
+﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
 [CHERIBERRY]
 HoursPerStage = 3
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CHERIBERRY
 #-------------------------------
 [CHESTOBERRY]
 HoursPerStage = 3
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CHESTOBERRY
 #-------------------------------
 [PECHABERRY]
 HoursPerStage = 3
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PECHABERRY
 #-------------------------------
 [RAWSTBERRY]
 HoursPerStage = 3
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = RAWSTBERRY
 #-------------------------------
 [ASPEARBERRY]
 HoursPerStage = 3
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = ASPEARBERRY
 #-------------------------------
 [LEPPABERRY]
 HoursPerStage = 4
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = LEPPABERRY
 #-------------------------------
 [ORANBERRY]
 HoursPerStage = 4
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = ORANBERRY
 #-------------------------------
 [PERSIMBERRY]
 HoursPerStage = 4
 DryingPerHour = 15
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PERSIMBERRY
 #-------------------------------
 [LUMBERRY]
 HoursPerStage = 12
 DryingPerHour = 8
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = LUMBERRY
 #-------------------------------
 [SITRUSBERRY]
 HoursPerStage = 8
 DryingPerHour = 7
 Yield = 2,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = SITRUSBERRY
 #-------------------------------
 [FIGYBERRY]
 HoursPerStage = 5
 DryingPerHour = 10
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = FIGYBERRY
 #-------------------------------
 [WIKIBERRY]
 HoursPerStage = 5
 DryingPerHour = 10
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = WIKIBERRY
 #-------------------------------
 [MAGOBERRY]
 HoursPerStage = 5
 DryingPerHour = 10
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = MAGOBERRY
 #-------------------------------
 [AGUAVBERRY]
 HoursPerStage = 5
 DryingPerHour = 10
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = AGUAVBERRY
 #-------------------------------
 [IAPAPABERRY]
 HoursPerStage = 5
 DryingPerHour = 10
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = IAPAPABERRY
 #-------------------------------
 [RAZZBERRY]
 HoursPerStage = 2
 DryingPerHour = 35
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = RAZZBERRY
 #-------------------------------
 [BLUKBERRY]
 HoursPerStage = 2
 DryingPerHour = 35
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = BLUKBERRY
 #-------------------------------
 [NANABBERRY]
 HoursPerStage = 2
 DryingPerHour = 35
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = NANABBERRY
 #-------------------------------
 [WEPEARBERRY]
 HoursPerStage = 2
 DryingPerHour = 35
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = WEPEARBERRY
 #-------------------------------
 [PINAPBERRY]
 HoursPerStage = 2
 DryingPerHour = 35
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PINAPBERRY
 #-------------------------------
 [POMEGBERRY]
 HoursPerStage = 8
 DryingPerHour = 8
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = POMEGBERRY
 #-------------------------------
 [KELPSYBERRY]
 HoursPerStage = 8
 DryingPerHour = 8
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = KELPSYBERRY
 #-------------------------------
 [QUALOTBERRY]
 HoursPerStage = 8
 DryingPerHour = 8
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = QUALOTBERRY
 #-------------------------------
 [HONDEWBERRY]
 HoursPerStage = 8
 DryingPerHour = 8
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = HONDEWBERRY
 #-------------------------------
 [GREPABERRY]
 HoursPerStage = 8
 DryingPerHour = 8
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = GREPABERRY
 #-------------------------------
 [TAMATOBERRY]
 HoursPerStage = 8
 DryingPerHour = 8
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = TAMATOBERRY
 #-------------------------------
 [CORNNBERRY]
 HoursPerStage = 6
 DryingPerHour = 10
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CORNNBERRY
 #-------------------------------
 [MAGOSTBERRY]
 HoursPerStage = 6
 DryingPerHour = 10
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = MAGOSTBERRY
 #-------------------------------
 [RABUTABERRY]
 HoursPerStage = 6
 DryingPerHour = 10
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = RABUTABERRY
 #-------------------------------
 [NOMELBERRY]
 HoursPerStage = 6
 DryingPerHour = 10
 Yield = 2,10
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = NOMELBERRY
 #-------------------------------
 [SPELONBERRY]
 HoursPerStage = 15
 DryingPerHour = 8
 Yield = 2,15
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = SPELONBERRY
 #-------------------------------
 [PAMTREBERRY]
 HoursPerStage = 15
 DryingPerHour = 8
 Yield = 3,15
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PAMTREBERRY
 #-------------------------------
 [WATMELBERRY]
 HoursPerStage = 15
 DryingPerHour = 8
 Yield = 2,15
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = WATMELBERRY
 #-------------------------------
 [DURINBERRY]
 HoursPerStage = 15
 DryingPerHour = 8
 Yield = 3,15
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = DURINBERRY
 #-------------------------------
 [BELUEBERRY]
 HoursPerStage = 15
 DryingPerHour = 8
 Yield = 2,15
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = BELUEBERRY
 #-------------------------------
 [OCCABERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = OCCABERRY
 #-------------------------------
 [PASSHOBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PASSHOBERRY
 #-------------------------------
 [WACANBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = WACANBERRY
 #-------------------------------
 [RINDOBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = RINDOBERRY
 #-------------------------------
 [YACHEBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = YACHEBERRY
 #-------------------------------
 [CHOPLEBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CHOPLEBERRY
 #-------------------------------
 [KEBIABERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = KEBIABERRY
 #-------------------------------
 [SHUCABERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = SHUCABERRY
 #-------------------------------
 [COBABERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = COBABERRY
 #-------------------------------
 [PAYAPABERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PAYAPABERRY
 #-------------------------------
 [TANGABERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = TANGABERRY
 #-------------------------------
 [CHARTIBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CHARTIBERRY
 #-------------------------------
 [KASIBBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = KASIBBERRY
 #-------------------------------
 [HABANBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = HABANBERRY
 #-------------------------------
 [COLBURBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = COLBURBERRY
 #-------------------------------
 [BABIRIBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = BABIRIBERRY
 #-------------------------------
 [CHILANBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CHILANBERRY
 #-------------------------------
 [LIECHIBERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = LIECHIBERRY
 #-------------------------------
 [GANLONBERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = GANLONBERRY
 #-------------------------------
 [SALACBERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = SALACBERRY
 #-------------------------------
 [PETAYABERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = PETAYABERRY
 #-------------------------------
 [APICOTBERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = APICOTBERRY
 #-------------------------------
 [LANSATBERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = LANSATBERRY
 #-------------------------------
 [STARFBERRY]
 HoursPerStage = 24
 DryingPerHour = 4
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = STARFBERRY
 #-------------------------------
 [ENIGMABERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = ENIGMABERRY
 #-------------------------------
 [MICLEBERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = MICLEBERRY
 #-------------------------------
 [CUSTAPBERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = CUSTAPBERRY
 #-------------------------------
 [JABOCABERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = JABOCABERRY
 #-------------------------------
 [ROWAPBERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = ROWAPBERRY
 #-------------------------------
 [ROSELIBERRY]
 HoursPerStage = 18
 DryingPerHour = 6
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = ROSELIBERRY
 #-------------------------------
 [KEEBERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
+HarvestItem = KEEBERRY
 #-------------------------------
 [MARANGABERRY]
 HoursPerStage = 24
 DryingPerHour = 7
 Yield = 1,5
+Replants = 9
+FullyGrownStages = 4
+GrowthStages = 4
 SpritePrefix = berrytree
-#-------------------------------
-# Apricorns (SpritePrefix = apricorntree, Replants = 20, FullyGrownStages = 2, DryingPerHour = 10)
+HarvestItem = MARANGABERRY
 #-------------------------------
 [REDAPRICORN]
 HoursPerStage = 12
@@ -424,7 +676,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
+HarvestItem = REDAPRICORN
 #-------------------------------
 [YELLOWAPRICORN]
 HoursPerStage = 12
@@ -432,7 +686,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
+HarvestItem = YELLOWAPRICORN
 #-------------------------------
 [BLUEAPRICORN]
 HoursPerStage = 12
@@ -440,7 +696,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
+HarvestItem = BLUEAPRICORN
 #-------------------------------
 [GREENAPRICORN]
 HoursPerStage = 12
@@ -448,7 +706,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
+HarvestItem = GREENAPRICORN
 #-------------------------------
 [PINKAPRICORN]
 HoursPerStage = 12
@@ -456,7 +716,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
+HarvestItem = PINKAPRICORN
 #-------------------------------
 [WHITEAPRICORN]
 HoursPerStage = 12
@@ -464,7 +726,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
+HarvestItem = WHITEAPRICORN
 #-------------------------------
 [BLACKAPRICORN]
 HoursPerStage = 12
@@ -472,9 +736,9 @@ DryingPerHour = 10
 Yield = 2,2
 Replants = 20
 FullyGrownStages = 2
+GrowthStages = 4
 SpritePrefix = apricorntree
-#-------------------------------
-# New crops
+HarvestItem = BLACKAPRICORN
 #-------------------------------
 [CARROTSEED]
 HoursPerStage = 6

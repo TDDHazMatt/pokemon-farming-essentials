@@ -4,6 +4,7 @@ module GameData
     attr_reader :item
     attr_reader :hours_per_unit
     attr_reader :max_stockpile
+    attr_reader :pbs_file_suffix
 
     DATA = {}
     DATA_FILENAME = "ranch_produce.dat"
@@ -24,6 +25,7 @@ module GameData
       @item           = hash[:item]
       @hours_per_unit = hash[:hours_per_unit] || 6
       @max_stockpile  = hash[:max_stockpile]  || 5
+      @pbs_file_suffix = hash[:pbs_file_suffix] || ""
     end
 
     def seconds_per_unit

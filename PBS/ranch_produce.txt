@@ -1,10 +1,4 @@
-# Ranch livestock produce definitions.
-# Each entry maps a species (kept in a ranch pen) to the item it produces
-# over time. Sections are keyed by species ID, mirroring crop_plants.txt.
-# Fields:
-#   Item          - item given when the pen's stockpile is collected
-#   HoursPerUnit  - hours to accumulate one unit of produce
-#   MaxStockpile  - cap on accumulated uncollected units (default 5)
+﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
 [MILTANK]
 Item = MOOMOOMILK
