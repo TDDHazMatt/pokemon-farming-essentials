@@ -169,6 +169,7 @@ class CropMulchSprite
     @sprite    = IconSprite.new(0, 0, viewport)
     @sprite.ox = 16
     @sprite.oy = 24
+    @sprite.opacity = 128   # a mulch hint, not a solid tile - stay translucent
     @has_mulch = nil   # nil forces first update_graphic call
     @disposed  = false
     update
@@ -213,6 +214,7 @@ class CropMoistureSprite
     @sprite         = IconSprite.new(0, 0, viewport)
     @sprite.ox      = 16
     @sprite.oy      = 24
+    @sprite.opacity = 128   # a moisture hint, not a solid tile - stay translucent
     @moisture_stage = -1
     @disposed       = false
     update_graphic

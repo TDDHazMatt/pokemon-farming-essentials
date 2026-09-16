@@ -1,6 +1,7 @@
 #===============================================================================
 # Universal plantable-soil interaction. Call pbPlantableSpot from an overworld
-# event's script box. The event name must match /plantablespot/i for the
+# event's script box. The event name must match /plantablespot/i (or
+# /tillablespot/i, once tilled - see 010_Overworld_TillableSpot.rb) for the
 # combined sprite hook.
 #
 # New crops only require a PBS entry in crop_plants.txt, a sprite sheet, and a
@@ -11,12 +12,15 @@ def pbPlantableSpot
   plant_data = interp.getVariable
 
   if plant_data.is_a?(CropData) && plant_data.planted?
+    # pbInteractWithCrop harvests in place (crop_data.reset(true) keeps the
+    # mulch, clears growth) - the variable is left exactly how it should be,
+    # so there's nothing to clean up here. In particular this must NOT touch
+    # self-switch A: for a TillableSpot-derived event that switch is what
+    # keeps it on its "already tilled" page (010_Overworld_TillableSpot.rb) -
+    # clearing it after every harvest used to silently revert the spot back
+    # to untilled dry soil. It's a no-op for a plain PlantableSpot (single
+    # page, self-switch A isn't a condition on anything).
     pbInteractWithCrop(plant_data)
-    after = interp.getVariable
-    if after.is_a?(CropData) && !after.planted?
-      interp.setVariable(nil)
-      pbSetSelfSwitch(interp.get_self.id, "A", false)
-    end
     return
   end
 
@@ -324,8 +328,9 @@ def pbCropMarketRates
 end
 
 #===============================================================================
-# Always-on sprite wrapper for /plantablespot/i events. Dynamically creates
-# the correct sub-sprites whenever the type of planted data changes.
+# Always-on sprite wrapper for /plantablespot/i (and, once tilled,
+# /tillablespot/i) events. Dynamically creates the correct sub-sprites
+# whenever the type of planted data changes.
 #===============================================================================
 class PlantableSpotSprite
   def initialize(event, map, viewport)
@@ -388,7 +393,12 @@ EventHandlers.add(:on_new_spriteset_map, :add_plantable_spot_graphics,
   proc { |spriteset, viewport|
     map = spriteset.map
     map.events.each do |event|
-      next if !event[1].name[/plantablespot/i]
+      # TillableSpot events (010_Overworld_TillableSpot.rb) behave exactly
+      # like a PlantableSpot once tilled, but keep the "TillableSpot" name
+      # throughout (needed for their own till/auto-till hooks) - so they need
+      # to match here too, or their mulch/moisture/crop overlay never gets
+      # attached and the tilled soil just looks empty forever.
+      next if !event[1].name[/plantablespot|tillablespot/i]
       spriteset.addUserSprite(PlantableSpotSprite.new(event[1], map, viewport))
     end
   }
