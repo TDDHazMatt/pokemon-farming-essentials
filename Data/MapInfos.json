@@ -510,7 +510,7 @@
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
-          "@expanded": false,
+          "@expanded": true,
           "@name": "Ranch Entrance",
           "@order": 70,
           "@parent_id": 0,
