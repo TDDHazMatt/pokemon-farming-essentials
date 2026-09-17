@@ -198,6 +198,12 @@ class PokemonLoad_Scene
   # autosaves instead of picking a command (see PokemonLoadScreen#pbStartLoadScreen).
   CYCLE_VIEW_COMMAND = -2
 
+  # The currently highlighted command index - read by PokemonLoadScreen#cycle_view!
+  # to capture which primary save was highlighted at the moment D was pressed.
+  def current_index
+    return @sprites["cmdwindow"].index
+  end
+
   def pbChoose(commands)
     @sprites["cmdwindow"].commands = commands
     loop do
@@ -258,9 +264,9 @@ class PokemonLoadScreen
   def slot_numbers_for_view(view)
     case view
     when :daily
-      return (1..AutoSaveState::DAILY_SLOT_COUNT).map { |i| AutoSaveState::DAILY_SLOT_BASE + i }
+      return AutoSaveState.daily_slot_numbers(@rollback_primary_slot)
     when :milestone
-      return (1..AutoSaveState::MILESTONE_SLOT_CAP).map { |i| AutoSaveState::MILESTONE_SLOT_BASE + i }
+      return AutoSaveState.milestone_slot_numbers(@rollback_primary_slot)
     else
       return (1..Settings::MAX_SAVE_SLOTS).to_a
     end
@@ -298,9 +304,9 @@ class PokemonLoadScreen
   def label_for_slot(slot)
     case @view
     when :daily
-      return _INTL("Daily {1}", slot - AutoSaveState::DAILY_SLOT_BASE)
+      return _INTL("Daily {1}", slot - (@rollback_primary_slot * 1000 + 100))
     when :milestone
-      return _INTL("Milestone {1}", slot - AutoSaveState::MILESTONE_SLOT_BASE)
+      return _INTL("Milestone {1}", slot - (@rollback_primary_slot * 1000 + 200))
     else
       return (@slot_data.length > 1) ? _INTL("Slot {1}", slot) : _INTL("Continue")
     end
@@ -308,14 +314,26 @@ class PokemonLoadScreen
 
   def view_display_name(view)
     case view
-    when :daily     then return _INTL("Daily Autosaves")
-    when :milestone then return _INTL("Milestone Autosaves")
+    when :daily     then return _INTL("Slot {1} - Daily Autosaves", @rollback_primary_slot)
+    when :milestone then return _INTL("Slot {1} - Milestone Autosaves", @rollback_primary_slot)
     else                 return _INTL("Your Saves")
     end
   end
 
   # Advances to the next view in VIEW_ORDER and redraws the screen with it.
+  # Leaving :normal captures whichever primary save card was highlighted at
+  # that moment (@rollback_primary_slot) - that's what filters the daily/
+  # milestone views, and stays fixed while cycling between just those two
+  # (only re-picked the next time you leave :normal again).
   def cycle_view!
+    if @view == :normal
+      highlighted_slot = @show_continue ? @cmd_slots[@scene.current_index] : nil
+      if !highlighted_slot
+        pbMessage(_INTL("Highlight one of your saves first to view its rollback history."))
+        return
+      end
+      @rollback_primary_slot = highlighted_slot
+    end
     @view = VIEW_ORDER[(VIEW_ORDER.index(@view) + 1) % VIEW_ORDER.length]
     @slot_data = load_slot_data_for_view(@view)
     @save_data = @slot_data.values.first || {} if @view == :normal

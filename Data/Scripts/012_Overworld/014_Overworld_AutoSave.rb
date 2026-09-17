@@ -6,32 +6,44 @@
 # the slot ranges below live entirely outside that range and never show up
 # there or collide with a player's manual save.
 #
-# Two rotating pools:
+# Each primary save slot gets its OWN pair of rotating pools, namespaced by
+# primary slot number (see slot_for below) so slot 2's autosaves can never
+# collide with slot 1's or slot 3's:
 #   - Daily:     one autosave every day at 12:01 AM (in-game time - see
 #                pbGetTimeNow, 003_Overworld_Time.rb), keeping the most
-#                recent 7 (slots 101-107, wrapping oldest-out).
+#                recent 7, wrapping oldest-out.
 #   - Milestone: one extra autosave every Monday 12:01 AM that the week's
 #                bills end up fully paid off (see 013_Overworld_WeeklyBills.rb
 #                - pbTriggerMilestoneAutosave is called from there), keeping
-#                the most recent 10 (slots 201-210, wrapping oldest-out) - a
-#                deeper rollback net for when things are actually going well.
+#                the most recent 10, wrapping oldest-out - a deeper rollback
+#                net for when things are actually going well.
 #
-# Retrievable via the debug menu ("Autosave Manager" - see
-# 020_Debug/003_Debug menus/002_Debug_MenuCommands.rb).
+# $PokemonGlobal.autosave_state (this class) is itself part of that primary
+# save's own data (see 002_Overworld_Metadata.rb), so each primary slot
+# naturally keeps its own independent rotation position/schedule.
+#
+# Retrievable from the title screen's Load list - press D to cycle between
+# normal saves / that save's daily autosaves / that save's milestone
+# autosaves (see 016_UI/013_UI_Load.rb).
 #===============================================================================
 class AutoSaveState
-  DAILY_SLOT_BASE     = 100   # slots 101..107
-  DAILY_SLOT_COUNT    = 7
-  MILESTONE_SLOT_BASE = 200   # slots 201..210
-  MILESTONE_SLOT_CAP  = 10
+  DAILY_SLOT_COUNT   = 7
+  MILESTONE_SLOT_CAP = 10
 
   attr_reader :next_daily_due, :next_daily_index, :next_milestone_index, :milestone_count
 
-  def initialize
-    @next_daily_due       = self.class.next_1201am(pbGetTimeNow).to_i
-    @next_daily_index     = 1   # cycles 1..DAILY_SLOT_COUNT
-    @next_milestone_index = 1   # cycles 1..MILESTONE_SLOT_CAP
-    @milestone_count      = 0   # total milestone saves ever made (for display only)
+  def initialize(primary_slot = nil)
+    @primary_slot          = primary_slot || $game_temp&.save_slot || 1
+    @next_daily_due        = self.class.next_1201am(pbGetTimeNow).to_i
+    @next_daily_index      = 1   # cycles 1..DAILY_SLOT_COUNT
+    @next_milestone_index  = 1   # cycles 1..MILESTONE_SLOT_CAP
+    @milestone_count       = 0   # total milestone saves ever made (for display only)
+  end
+
+  # Saves made before this ivar existed deserialize with @primary_slot unset -
+  # self-heal from the currently active slot rather than crash on nil math.
+  def primary_slot
+    return @primary_slot ||= ($game_temp&.save_slot || 1)
   end
 
   def self.next_1201am(time)
@@ -40,12 +52,25 @@ class AutoSaveState
     return candidate
   end
 
+  # Every rollback slot number is namespaced as 1000*primary_slot + a 3-digit
+  # band (1xx daily, 2xx milestone) + index, so it's derivable purely from
+  # (primary_slot, index) without needing any saved state - the title screen's
+  # Load list uses these same two class methods to list a given primary
+  # slot's rollback saves without having to load that save first.
+  def self.daily_slot_numbers(primary_slot)
+    return (1..DAILY_SLOT_COUNT).map { |i| primary_slot * 1000 + 100 + i }
+  end
+
+  def self.milestone_slot_numbers(primary_slot)
+    return (1..MILESTONE_SLOT_CAP).map { |i| primary_slot * 1000 + 200 + i }
+  end
+
   def daily_due?(time = pbGetTimeNow)
     return time.to_i >= @next_daily_due
   end
 
   def daily_slot
-    return DAILY_SLOT_BASE + @next_daily_index
+    return primary_slot * 1000 + 100 + @next_daily_index
   end
 
   def advance_daily!
@@ -56,7 +81,7 @@ class AutoSaveState
   # Claims the next milestone slot (wrapping after MILESTONE_SLOT_CAP) and
   # returns it.
   def claim_milestone_slot!
-    slot = MILESTONE_SLOT_BASE + @next_milestone_index
+    slot = primary_slot * 1000 + 200 + @next_milestone_index
     @next_milestone_index = (@next_milestone_index % MILESTONE_SLOT_CAP) + 1
     @milestone_count += 1
     return slot
