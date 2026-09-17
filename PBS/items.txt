@@ -540,6 +540,14 @@ Price = 40000
 Flags = Fling_130
 Description = A big nugget of pure gold that gives off a lustrous gleam. A maniac will buy it for a high price.
 #-------------------------------
+[UNTRAINABLEMAGIKARP]
+Name = Untrainable Magikarp
+NamePlural = Untrainable Magikarps
+Pocket = 1
+Price = 100
+Flags = Fling_30
+Description = A Magikarp lacking proper sentience, only useful as food.
+#-------------------------------
 [HEARTSCALE]
 Name = Heart Scale
 NamePlural = Heart Scales
