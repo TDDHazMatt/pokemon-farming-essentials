@@ -1164,7 +1164,7 @@
                           "@parameters": [
                             [
                               "Make Sale",
-                              "Current Market Rates",
+                              "Special Requests",
                               "Explanation",
                               "Nevermind"
                             ],
@@ -1188,6 +1188,17 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 355,
+                          "@indent": 3,
+                          "@parameters": [
+                            "pbGrandmaPokemonSale"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
                           "@indent": 3,
                           "@parameters": []
@@ -1201,7 +1212,18 @@
                           "@indent": 2,
                           "@parameters": [
                             1,
-                            "Current Market Rates"
+                            "Special Requests"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 3,
+                          "@parameters": [
+                            "pbGrandmaSpecialRequests"
                           ]
                         }
                       },
@@ -1223,6 +1245,28 @@
                           "@parameters": [
                             2,
                             "Explanation"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 3,
+                          "@parameters": [
+                            "\\rBring me a Pokémon and I'll pay a fair price for it based on its level."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 3,
+                          "@parameters": [
+                            "\\rSpecial Requests are Pokémon folks are specifically asking after that week - sell me one of those and I'll pay quite a bit more per level than usual."
                           ]
                         }
                       },

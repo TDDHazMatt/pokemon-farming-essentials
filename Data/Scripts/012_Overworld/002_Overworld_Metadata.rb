@@ -31,6 +31,10 @@ class PokemonGlobalMetadata
   # then an AutoSaveState (see 014_Overworld_AutoSave.rb).
   def autosave_state;       return @autosave_state; end
   def autosave_state=(val); @autosave_state = val;   end
+  # Grandma's "Special Requests" board - nil until first checked, then a
+  # SpecialRequests (see 015_Overworld_SpecialRequests.rb).
+  def special_requests;       return @special_requests; end
+  def special_requests=(val); @special_requests = val;   end
   # Movement
   attr_accessor :bicycle
   attr_accessor :surfing

@@ -196,13 +196,21 @@ def pbWeeklyBillsSellItems
   end
 end
 
-# Selling Pokémon isn't implemented yet - stubbed entry point so the menu
-# shape (From Party / From PC) is already in place for when it is.
+# Liquidation prices every Pokémon at $20/level rather than the normal
+# $50 default (016_UI/026_UI_PokemonSale.rb) - Grandma's not paying top
+# dollar for a rush sale.
+LIQUIDATION_PRICE_PER_LEVEL = 20
+
 def pbWeeklyBillsSellPokemon
   commands = [_INTL("From Party"), _INTL("From PC"), _INTL("Cancel")]
   cmd = pbMessage(_INTL("Sell a Pokémon from where?"), commands, commands.length)
   return if cmd < 0 || cmd == commands.length - 1
-  pbMessage(_INTL("Grandma: \"Oh, we're not set up to sell Pokémon that way yet, dear. Sorry.\""))
+  PokemonSalePrice.with_situational_price_per_level(LIQUIDATION_PRICE_PER_LEVEL) do
+    case cmd
+    when 0 then pbSellPokemonFromParty
+    when 1 then pbSellPokemonFromStorage
+    end
+  end
 end
 
 # [item_id, qty] pairs restricted to what's actually sellable - same filter
