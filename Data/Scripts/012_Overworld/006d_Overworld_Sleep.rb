@@ -23,14 +23,36 @@ def pbSleepInBed
   )
   return if choice < 0 || choice >= SLEEP_HOUR_CHOICES.length
 
-  hours = SLEEP_HOUR_CHOICES[choice]
+  hours              = SLEEP_HOUR_CHOICES[choice]
+  requested_seconds  = hours * 3600
+  seconds_to_advance = requested_seconds
+
+  # Sleeping can jump several hours at once, which could leap straight over
+  # the Sunday-midnight bills deadline without ever running the overdue call
+  # (that call only fires on a per-step check - see 013_Overworld_WeeklyBills.rb).
+  # Cap the jump at the due moment instead, so waking up runs the call first.
+  bills = pbWeeklyBills
+  interrupted_by_bills = false
+  if !bills.paid_in_full?
+    seconds_until_due = bills.due_at - pbGetTimeNow.to_i
+    if seconds_until_due >= 0 && seconds_until_due < requested_seconds
+      seconds_to_advance    = seconds_until_due
+      interrupted_by_bills  = true
+    end
+  end
 
   pbBGMFade(1.5)
   pbFadeOutIn do
-    $PokemonGlobal.time_offset += hours * 3600
+    $PokemonGlobal.time_offset += seconds_to_advance
     PBDayNight.instance_variable_set(:@dayNightToneLastUpdate, nil)
   end
   $game_map.autoplayAsCue
+
+  if interrupted_by_bills
+    pbMessage(_INTL("Your Pokégear rings, jolting you awake..."))
+    pbWeeklyBillsOverdueCall
+    return
+  end
 
   hour     = pbGetTimeNow.hour
   greeting = if hour >= 5 && hour < 12

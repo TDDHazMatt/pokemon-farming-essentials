@@ -409,6 +409,7 @@
                               "Livestock Sales",
                               "Pokemon Sales",
                               "Order Goods",
+                              "Contribute Funds",
                               "Nothing"
                             ],
                             5
@@ -1367,6 +1368,38 @@
                           "@indent": 0,
                           "@parameters": [
                             4,
+                            "Contribute Funds"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 1,
+                          "@parameters": [
+                            "pbContributeFundsToGrandma"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 1,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 402,
+                          "@indent": 0,
+                          "@parameters": [
+                            5,
                             "Nothing"
                           ]
                         }
