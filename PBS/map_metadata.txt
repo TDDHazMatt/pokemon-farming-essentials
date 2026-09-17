@@ -102,6 +102,10 @@ MapPosition = 0,14,8
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
+[022]   # Ranch Entrance
+Outdoor = true
+Bicycle = true
+#-------------------------------
 [023]   # Lerucean Town
 Name = Lerucean Town
 Outdoor = true
@@ -205,6 +209,12 @@ BicycleAlways = true
 MapPosition = 0,11,7
 MapSize = 1,111
 #-------------------------------
+[042]   # RanchS
+Outdoor = true
+#-------------------------------
+[043]   # RanchSW
+Outdoor = true
+#-------------------------------
 [044]   # Route 6
 Name = Route 6
 Outdoor = true
@@ -234,6 +244,9 @@ MapPosition = 0,15,10
 BattleBack = rocky
 MapSize = 2,11
 Environment = Rock
+#-------------------------------
+[048]   # RanchW
+Outdoor = true
 #-------------------------------
 [049]   # Rock Cave 1F
 Name = Route 7
@@ -396,3 +409,21 @@ Name = Tiall Region
 Outdoor = true
 MapPosition = 1,13,16
 BattleBack = city
+#-------------------------------
+[076]   # RanchNW
+Outdoor = true
+#-------------------------------
+[077]   # RanchN
+Outdoor = true
+#-------------------------------
+[078]   # RanchC
+Outdoor = true
+#-------------------------------
+[079]   # RanchNE
+Outdoor = true
+#-------------------------------
+[080]   # RanchE
+Outdoor = true
+#-------------------------------
+[081]   # RanchSE
+Outdoor = true

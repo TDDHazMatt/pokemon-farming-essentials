@@ -291,11 +291,7 @@
       "Temp Pokemon Name",
       "Temp Move Name",
       "Temp Text Entry",
-      {
-        "__type": "text_b",
-        "text": "Poké Center healing ball count",
-        "enc": "ASCII-8BIT"
-      },
+      "Poké Center healing ball count",
       "Starter choice",
       "Apricorn being converted",
       "Fossil being revived",
