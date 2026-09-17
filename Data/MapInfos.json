@@ -619,7 +619,7 @@
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
-          "@expanded": true,
+          "@expanded": false,
           "@name": "RanchS",
           "@order": 73,
           "@parent_id": 0,
@@ -1001,51 +1001,6 @@
       }
     ],
     [
-      45,
-      {
-        "__type": "object",
-        "class": "RPG::MapInfo",
-        "ivars": {
-          "@expanded": false,
-          "@name": "Route 6 Cycling Road",
-          "@order": 41,
-          "@parent_id": 44,
-          "@scroll_x": 624,
-          "@scroll_y": 384
-        }
-      }
-    ],
-    [
-      7,
-      {
-        "__type": "object",
-        "class": "RPG::MapInfo",
-        "ivars": {
-          "@expanded": false,
-          "@name": "Cedolan City",
-          "@order": 8,
-          "@parent_id": 0,
-          "@scroll_x": 561,
-          "@scroll_y": 1065
-        }
-      }
-    ],
-    [
-      64,
-      {
-        "__type": "object",
-        "class": "RPG::MapInfo",
-        "ivars": {
-          "@expanded": false,
-          "@name": "Battle Factory arena",
-          "@order": 59,
-          "@parent_id": 62,
-          "@scroll_x": 320,
-          "@scroll_y": 240
-        }
-      }
-    ],
-    [
       26,
       {
         "__type": "object",
@@ -1065,47 +1020,47 @@
       }
     ],
     [
-      55,
+      64,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
-          "@expanded": true,
-          "@name": "Battle Tower",
-          "@order": 50,
-          "@parent_id": 52,
+          "@expanded": false,
+          "@name": "Battle Factory arena",
+          "@order": 59,
+          "@parent_id": 62,
           "@scroll_x": 320,
           "@scroll_y": 240
         }
       }
     ],
     [
-      17,
+      7,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": "Cedolan Dept. 4F",
-          "@order": 17,
-          "@parent_id": 14,
-          "@scroll_x": 320,
-          "@scroll_y": 272
+          "@name": "Cedolan City",
+          "@order": 8,
+          "@parent_id": 0,
+          "@scroll_x": 561,
+          "@scroll_y": 1065
         }
       }
     ],
     [
-      74,
+      45,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": "Route 6 Cycling Road gate",
-          "@order": 42,
+          "@name": "Route 6 Cycling Road",
+          "@order": 41,
           "@parent_id": 44,
-          "@scroll_x": 320,
-          "@scroll_y": 240
+          "@scroll_x": 624,
+          "@scroll_y": 384
         }
       }
     ],
@@ -1129,49 +1084,45 @@
       }
     ],
     [
-      27,
+      74,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": {
-            "__type": "text_b",
-            "text": "Pokémon Day Care",
-            "enc": "ASCII-8BIT"
-          },
-          "@order": 26,
-          "@parent_id": 23,
+          "@name": "Route 6 Cycling Road gate",
+          "@order": 42,
+          "@parent_id": 44,
           "@scroll_x": 320,
           "@scroll_y": 240
         }
       }
     ],
     [
-      46,
+      17,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": "Route 4 Cycling Road gate",
-          "@order": 38,
-          "@parent_id": 39,
+          "@name": "Cedolan Dept. 4F",
+          "@order": 17,
+          "@parent_id": 14,
           "@scroll_x": 320,
-          "@scroll_y": 240
+          "@scroll_y": 272
         }
       }
     ],
     [
-      65,
+      55,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
-          "@expanded": false,
-          "@name": "Battle Factory corridor",
-          "@order": 60,
-          "@parent_id": 62,
+          "@expanded": true,
+          "@name": "Battle Tower",
+          "@order": 50,
+          "@parent_id": 52,
           "@scroll_x": 320,
           "@scroll_y": 240
         }
@@ -1193,32 +1144,66 @@
       }
     ],
     [
-      75,
+      65,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": "Tiall Region",
-          "@order": 69,
-          "@parent_id": 0,
-          "@scroll_x": 512,
-          "@scroll_y": 384
+          "@name": "Battle Factory corridor",
+          "@order": 60,
+          "@parent_id": 62,
+          "@scroll_x": 320,
+          "@scroll_y": 240
         }
       }
     ],
     [
-      18,
+      46,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": "Cedolan Dept. 5F",
-          "@order": 18,
-          "@parent_id": 14,
+          "@name": "Route 4 Cycling Road gate",
+          "@order": 38,
+          "@parent_id": 39,
           "@scroll_x": 320,
-          "@scroll_y": 272
+          "@scroll_y": 240
+        }
+      }
+    ],
+    [
+      27,
+      {
+        "__type": "object",
+        "class": "RPG::MapInfo",
+        "ivars": {
+          "@expanded": false,
+          "@name": {
+            "__type": "text_b",
+            "text": "Pokémon Day Care",
+            "enc": "ASCII-8BIT"
+          },
+          "@order": 26,
+          "@parent_id": 23,
+          "@scroll_x": 320,
+          "@scroll_y": 240
+        }
+      }
+    ],
+    [
+      56,
+      {
+        "__type": "object",
+        "class": "RPG::MapInfo",
+        "ivars": {
+          "@expanded": false,
+          "@name": "Battle Tower arena",
+          "@order": 52,
+          "@parent_id": 55,
+          "@scroll_x": 320,
+          "@scroll_y": 240
         }
       }
     ],
@@ -1242,17 +1227,32 @@
       }
     ],
     [
-      56,
+      18,
       {
         "__type": "object",
         "class": "RPG::MapInfo",
         "ivars": {
           "@expanded": false,
-          "@name": "Battle Tower arena",
-          "@order": 52,
-          "@parent_id": 55,
+          "@name": "Cedolan Dept. 5F",
+          "@order": 18,
+          "@parent_id": 14,
           "@scroll_x": 320,
-          "@scroll_y": 240
+          "@scroll_y": 272
+        }
+      }
+    ],
+    [
+      75,
+      {
+        "__type": "object",
+        "class": "RPG::MapInfo",
+        "ivars": {
+          "@expanded": false,
+          "@name": "Tiall Region",
+          "@order": 69,
+          "@parent_id": 0,
+          "@scroll_x": 512,
+          "@scroll_y": 384
         }
       }
     ]

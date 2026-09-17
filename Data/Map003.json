@@ -81,104 +81,6 @@
       "__type": "hash",
       "entries": [
         [
-          16,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 16,
-              "@name": "SleepInBed",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbSleepInBed"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": true
-                  }
-                }
-              ],
-              "@x": 21,
-              "@y": 6
-            }
-          }
-        ],
-        [
           5,
           {
             "__type": "object",
@@ -273,6 +175,104 @@
               ],
               "@x": 21,
               "@y": 5
+            }
+          }
+        ],
+        [
+          16,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 16,
+              "@name": "SleepInBed",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbSleepInBed"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 21,
+              "@y": 6
             }
           }
         ],
@@ -1025,8 +1025,8 @@
                   }
                 }
               ],
-              "@x": 2,
-              "@y": 3
+              "@x": 18,
+              "@y": 14
             }
           }
         ],
@@ -1611,8 +1611,172 @@
                   }
                 }
               ],
-              "@x": 29,
-              "@y": 1
+              "@x": 27,
+              "@y": 14
+            }
+          }
+        ],
+        [
+          1,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 1,
+              "@name": "Exit",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 250,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::AudioFile",
+                              "ivars": {
+                                "@name": "Door exit",
+                                "@pitch": 100,
+                                "@volume": 80
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 223,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "Tone",
+                              "red": -255.0,
+                              "green": -255.0,
+                              "blue": -255.0,
+                              "gray": 0.0
+                            },
+                            6
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 106,
+                          "@indent": 0,
+                          "@parameters": [
+                            8
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 201,
+                          "@indent": 0,
+                          "@parameters": [
+                            0, 2, 8, 7, 0, 1
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 223,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "Tone",
+                              "red": 0.0,
+                              "green": 0.0,
+                              "blue": 0.0,
+                              "gray": 0.0
+                            },
+                            6
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 1,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 3,
+              "@y": 9
             }
           }
         ],
@@ -3311,172 +3475,8 @@
                   }
                 }
               ],
-              "@x": 9,
-              "@y": 7
-            }
-          }
-        ],
-        [
-          1,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 1,
-              "@name": "Exit",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 250,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::AudioFile",
-                              "ivars": {
-                                "@name": "Door exit",
-                                "@pitch": 100,
-                                "@volume": 80
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 223,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "Tone",
-                              "red": -255.0,
-                              "green": -255.0,
-                              "blue": -255.0,
-                              "gray": 0.0
-                            },
-                            6
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 106,
-                          "@indent": 0,
-                          "@parameters": [
-                            8
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 201,
-                          "@indent": 0,
-                          "@parameters": [
-                            0, 2, 8, 7, 0, 1
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 223,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "Tone",
-                              "red": 0.0,
-                              "green": 0.0,
-                              "blue": 0.0,
-                              "gray": 0.0
-                            },
-                            6
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 1,
-                    "@walk_anime": true
-                  }
-                }
-              ],
-              "@x": 3,
-              "@y": 9
+              "@x": 15,
+              "@y": 14
             }
           }
         ],
@@ -4079,8 +4079,366 @@
                   }
                 }
               ],
-              "@x": 30,
-              "@y": 1
+              "@x": 28,
+              "@y": 14
+            }
+          }
+        ],
+        [
+          2,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 2,
+              "@name": "Stairs up",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 209,
+                          "@indent": 0,
+                          "@parameters": [
+                            -1,
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveRoute",
+                              "ivars": {
+                                "@list": [
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 37,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 39,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 18,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 8,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 38,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 40,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 0,
+                                      "@parameters": []
+                                    }
+                                  }
+                                ],
+                                "@repeat": false,
+                                "@skippable": false
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 37,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 39,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 18,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 8,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 38,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 40,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 210,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 250,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::AudioFile",
+                              "ivars": {
+                                "@name": "Door exit",
+                                "@pitch": 100,
+                                "@volume": 80
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 223,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "Tone",
+                              "red": -255.0,
+                              "green": -255.0,
+                              "blue": -255.0,
+                              "gray": 0.0
+                            },
+                            6
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 106,
+                          "@indent": 0,
+                          "@parameters": [
+                            8
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 201,
+                          "@indent": 0,
+                          "@parameters": [
+                            0, 3, 29, 2, 0, 1
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 223,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "Tone",
+                              "red": 0.0,
+                              "green": 0.0,
+                              "blue": 0.0,
+                              "gray": 0.0
+                            },
+                            6
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 1,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 10,
+              "@y": 2
             }
           }
         ],
@@ -5057,366 +5415,8 @@
                   }
                 }
               ],
-              "@x": 10,
-              "@y": 7
-            }
-          }
-        ],
-        [
-          2,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 2,
-              "@name": "Stairs up",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 209,
-                          "@indent": 0,
-                          "@parameters": [
-                            -1,
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveRoute",
-                              "ivars": {
-                                "@list": [
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 37,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 39,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 18,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 8,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 38,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 40,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 0,
-                                      "@parameters": []
-                                    }
-                                  }
-                                ],
-                                "@repeat": false,
-                                "@skippable": false
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 37,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 39,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 18,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 8,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 38,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 40,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 210,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 250,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::AudioFile",
-                              "ivars": {
-                                "@name": "Door exit",
-                                "@pitch": 100,
-                                "@volume": 80
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 223,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "Tone",
-                              "red": -255.0,
-                              "green": -255.0,
-                              "blue": -255.0,
-                              "gray": 0.0
-                            },
-                            6
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 106,
-                          "@indent": 0,
-                          "@parameters": [
-                            8
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 201,
-                          "@indent": 0,
-                          "@parameters": [
-                            0, 3, 29, 2, 0, 1
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 223,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "Tone",
-                              "red": 0.0,
-                              "green": 0.0,
-                              "blue": 0.0,
-                              "gray": 0.0
-                            },
-                            6
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 1,
-                    "@walk_anime": true
-                  }
-                }
-              ],
-              "@x": 10,
-              "@y": 2
+              "@x": 16,
+              "@y": 14
             }
           }
         ],
@@ -5686,8 +5686,366 @@
                   }
                 }
               ],
-              "@x": 5,
-              "@y": 4
+              "@x": 15,
+              "@y": 13
+            }
+          }
+        ],
+        [
+          3,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 3,
+              "@name": "Stairs down",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 209,
+                          "@indent": 0,
+                          "@parameters": [
+                            -1,
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveRoute",
+                              "ivars": {
+                                "@list": [
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 37,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 39,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 17,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 2,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 38,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 40,
+                                      "@parameters": []
+                                    }
+                                  },
+                                  {
+                                    "__type": "object",
+                                    "class": "RPG::MoveCommand",
+                                    "ivars": {
+                                      "@code": 0,
+                                      "@parameters": []
+                                    }
+                                  }
+                                ],
+                                "@repeat": false,
+                                "@skippable": false
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 37,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 39,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 17,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 2,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 38,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 509,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::MoveCommand",
+                              "ivars": {
+                                "@code": 40,
+                                "@parameters": []
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 210,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 250,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "object",
+                              "class": "RPG::AudioFile",
+                              "ivars": {
+                                "@name": "Door exit",
+                                "@pitch": 100,
+                                "@volume": 80
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 223,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "Tone",
+                              "red": -255.0,
+                              "green": -255.0,
+                              "blue": -255.0,
+                              "gray": 0.0
+                            },
+                            6
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 106,
+                          "@indent": 0,
+                          "@parameters": [
+                            8
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 201,
+                          "@indent": 0,
+                          "@parameters": [
+                            0, 3, 9, 2, 0, 1
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 223,
+                          "@indent": 0,
+                          "@parameters": [
+                            {
+                              "__type": "Tone",
+                              "red": 0.0,
+                              "green": 0.0,
+                              "blue": 0.0,
+                              "gray": 0.0
+                            },
+                            6
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 1,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 28,
+              "@y": 2
             }
           }
         ],
@@ -6286,366 +6644,8 @@
                   }
                 }
               ],
-              "@x": 1,
-              "@y": 5
-            }
-          }
-        ],
-        [
-          3,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 3,
-              "@name": "Stairs down",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 209,
-                          "@indent": 0,
-                          "@parameters": [
-                            -1,
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveRoute",
-                              "ivars": {
-                                "@list": [
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 37,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 39,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 17,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 2,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 38,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 40,
-                                      "@parameters": []
-                                    }
-                                  },
-                                  {
-                                    "__type": "object",
-                                    "class": "RPG::MoveCommand",
-                                    "ivars": {
-                                      "@code": 0,
-                                      "@parameters": []
-                                    }
-                                  }
-                                ],
-                                "@repeat": false,
-                                "@skippable": false
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 37,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 39,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 17,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 2,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 38,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 509,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::MoveCommand",
-                              "ivars": {
-                                "@code": 40,
-                                "@parameters": []
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 210,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 250,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "object",
-                              "class": "RPG::AudioFile",
-                              "ivars": {
-                                "@name": "Door exit",
-                                "@pitch": 100,
-                                "@volume": 80
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 223,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "Tone",
-                              "red": -255.0,
-                              "green": -255.0,
-                              "blue": -255.0,
-                              "gray": 0.0
-                            },
-                            6
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 106,
-                          "@indent": 0,
-                          "@parameters": [
-                            8
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 201,
-                          "@indent": 0,
-                          "@parameters": [
-                            0, 3, 9, 2, 0, 1
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 223,
-                          "@indent": 0,
-                          "@parameters": [
-                            {
-                              "__type": "Tone",
-                              "red": 0.0,
-                              "green": 0.0,
-                              "blue": 0.0,
-                              "gray": 0.0
-                            },
-                            6
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 1,
-                    "@walk_anime": true
-                  }
-                }
-              ],
-              "@x": 28,
-              "@y": 2
+              "@x": 14,
+              "@y": 14
             }
           }
         ],
@@ -7183,6 +7183,78 @@
                       "class": "RPG::Event::Page::Condition",
                       "ivars": {
                         "@self_switch_ch": "A",
+                        "@self_switch_valid": true,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "NPC 28",
+                        "@direction": 4,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                },
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
                         "@self_switch_valid": false,
                         "@switch1_id": 1,
                         "@switch1_valid": true,
@@ -7413,6 +7485,104 @@
               ],
               "@x": 7,
               "@y": 4
+            }
+          }
+        ],
+        [
+          4,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 4,
+              "@name": "PC",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbTrainerPC"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 20,
+              "@y": 1
             }
           }
         ],
@@ -8167,106 +8337,8 @@
                   }
                 }
               ],
-              "@x": 5,
-              "@y": 1
-            }
-          }
-        ],
-        [
-          4,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 4,
-              "@name": "PC",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbTrainerPC"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": true
-                  }
-                }
-              ],
-              "@x": 20,
-              "@y": 1
+              "@x": 16,
+              "@y": 13
             }
           }
         ],
@@ -9115,8 +9187,8 @@
                   }
                 }
               ],
-              "@x": 1,
-              "@y": 3
+              "@x": 17,
+              "@y": 14
             }
           }
         ]

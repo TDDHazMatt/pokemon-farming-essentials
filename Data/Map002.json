@@ -277,17 +277,6 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 101,
-                          "@indent": 1,
-                          "@parameters": [
-                            "\\bHey, aren't you supposed to be getting your very own Pokémon soon for your big adventure?"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
                           "@code": 0,
                           "@indent": 1,
                           "@parameters": []
