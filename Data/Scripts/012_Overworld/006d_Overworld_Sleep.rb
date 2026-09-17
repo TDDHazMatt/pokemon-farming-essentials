@@ -48,6 +48,16 @@ def pbSleepInBed
   end
   $game_map.autoplayAsCue
 
+  # Sleeping jumps time in one go rather than ticking step by step, so it can
+  # cross the 12:01 AM daily-autosave boundary without the per-step check
+  # (014_Overworld_AutoSave.rb) ever running during the jump. Catch it up
+  # here instead - the autosave just ends up capturing the moment right after
+  # waking, whatever time that turns out to be.
+  while pbAutoSaveState.daily_due?
+    pbPerformAutoSave(pbAutoSaveState.daily_slot)
+    pbAutoSaveState.advance_daily!
+  end
+
   if interrupted_by_bills
     pbMessage(_INTL("Your Pokégear rings, jolting you awake..."))
     pbWeeklyBillsOverdueCall

@@ -193,6 +193,11 @@ class PokemonLoad_Scene
     end
   end
 
+  # Returns the chosen command's index, or CYCLE_VIEW_COMMAND if the player
+  # pressed D to cycle between normal saves / daily autosaves / milestone
+  # autosaves instead of picking a command (see PokemonLoadScreen#pbStartLoadScreen).
+  CYCLE_VIEW_COMMAND = -2
+
   def pbChoose(commands)
     @sprites["cmdwindow"].commands = commands
     loop do
@@ -201,6 +206,8 @@ class PokemonLoad_Scene
       pbUpdate
       if Input.trigger?(Input::USE)
         return @sprites["cmdwindow"].index
+      elsif Input.trigger_d?
+        return CYCLE_VIEW_COMMAND
       end
     end
   end
@@ -233,15 +240,88 @@ end
 #
 #===============================================================================
 class PokemonLoadScreen
+  # Pressing D on this screen (PokemonLoad_Scene::CYCLE_VIEW_COMMAND) cycles
+  # through these in order, wrapping back to :normal. :daily and :milestone
+  # browse the rotating autosave pools from 012_Overworld/014_Overworld_AutoSave.rb
+  # instead of the player's own numbered save slots - a rollback option that
+  # doesn't depend on the debug menu (which real players can't reach anyway,
+  # and which turned out to be unsafe to load a save from mid-game).
+  VIEW_ORDER = [:normal, :daily, :milestone].freeze
+
   def initialize(scene)
     @scene = scene
-    @slot_data = {}
-    (1..Settings::MAX_SAVE_SLOTS).each do |slot|
-      next unless SaveData.exists?(slot)
-      data = load_save_file(SaveData.file_path(slot))
-      @slot_data[slot] = data unless data.empty?
-    end
+    @view = :normal
+    @slot_data = load_slot_data_for_view(@view)
     @save_data = @slot_data.values.first || {}
+  end
+
+  def slot_numbers_for_view(view)
+    case view
+    when :daily
+      return (1..AutoSaveState::DAILY_SLOT_COUNT).map { |i| AutoSaveState::DAILY_SLOT_BASE + i }
+    when :milestone
+      return (1..AutoSaveState::MILESTONE_SLOT_CAP).map { |i| AutoSaveState::MILESTONE_SLOT_BASE + i }
+    else
+      return (1..Settings::MAX_SAVE_SLOTS).to_a
+    end
+  end
+
+  def load_slot_data_for_view(view)
+    data = {}
+    slot_numbers_for_view(view).each do |slot|
+      next unless SaveData.exists?(slot)
+      path = SaveData.file_path(slot)
+      d = (view == :normal) ? load_save_file(path) : load_autosave_file(path)
+      data[slot] = d unless d.empty?
+    end
+    return data
+  end
+
+  # Like load_save_file, but for the daily/milestone autosave pools: a corrupt
+  # or incompatible autosave should just be silently skipped from the list,
+  # never trigger load_save_file's prompt_save_deletion (which offers to wipe
+  # the player's actual 1..MAX_SAVE_SLOTS saves, or exit the game entirely -
+  # appropriate for a corrupt primary save at boot, not for one incidental
+  # slot out of 17 rollback options).
+  def load_autosave_file(file_path)
+    save_data = SaveData.read_from_file(file_path)
+    return save_data if SaveData.valid?(save_data)
+    if File.file?(file_path + ".bak")
+      backup = SaveData.read_from_file(file_path + ".bak")
+      return backup if SaveData.valid?(backup)
+    end
+    return {}
+  rescue StandardError
+    return {}
+  end
+
+  def label_for_slot(slot)
+    case @view
+    when :daily
+      return _INTL("Daily {1}", slot - AutoSaveState::DAILY_SLOT_BASE)
+    when :milestone
+      return _INTL("Milestone {1}", slot - AutoSaveState::MILESTONE_SLOT_BASE)
+    else
+      return (@slot_data.length > 1) ? _INTL("Slot {1}", slot) : _INTL("Continue")
+    end
+  end
+
+  def view_display_name(view)
+    case view
+    when :daily     then return _INTL("Daily Autosaves")
+    when :milestone then return _INTL("Milestone Autosaves")
+    else                 return _INTL("Your Saves")
+    end
+  end
+
+  # Advances to the next view in VIEW_ORDER and redraws the screen with it.
+  def cycle_view!
+    @view = VIEW_ORDER[(VIEW_ORDER.index(@view) + 1) % VIEW_ORDER.length]
+    @slot_data = load_slot_data_for_view(@view)
+    @save_data = @slot_data.values.first || {} if @view == :normal
+    @scene.pbEndScene
+    pbMessage(_INTL("Now viewing: {1}", view_display_name(@view)))
+    build_and_show_screen
   end
 
   def load_save_file(file_path)
@@ -300,10 +380,14 @@ class PokemonLoadScreen
   # warning for occupied ones) when saves are present.
   # Returns the chosen slot number, or -1 if cancelled.
   def choose_slot_for_new_game
-    return 1 if Settings::MAX_SAVE_SLOTS == 1 || @slot_data.empty?
+    # @slot_data holds whatever view is currently browsed (see cycle_view!) -
+    # this needs the player's real numbered slots specifically, regardless of
+    # whether a daily/milestone autosave view happens to be showing right now.
+    normal_slot_data = (@view == :normal) ? @slot_data : load_slot_data_for_view(:normal)
+    return 1 if Settings::MAX_SAVE_SLOTS == 1 || normal_slot_data.empty?
     commands = (1..Settings::MAX_SAVE_SLOTS).map do |slot|
-      if @slot_data.key?(slot)
-        _INTL("Slot {1}: {2} [Overwrite]", slot, @slot_data[slot][:player].name)
+      if normal_slot_data.key?(slot)
+        _INTL("Slot {1}: {2} [Overwrite]", slot, normal_slot_data[slot][:player].name)
       else
         _INTL("Slot {1}: Empty", slot)
       end
@@ -312,7 +396,7 @@ class PokemonLoadScreen
     choice = pbMessage(_INTL("Choose a save slot for your new game:"), commands, commands.length)
     return -1 if choice == commands.length - 1
     slot = choice + 1
-    if @slot_data.key?(slot)
+    if normal_slot_data.key?(slot)
       return -1 unless pbConfirmMessageSerious(
         _INTL("Slot {1} already has save data. It will be overwritten. Continue?", slot)
       )
@@ -320,85 +404,98 @@ class PokemonLoadScreen
     return slot
   end
 
-  def pbStartLoadScreen
+  # Builds the command list/panels for the current @view and shows them.
+  # Called both for the initial screen and every time cycle_view! redraws
+  # after a D press. Populates @commands/@cmd_slots/@show_continue and the
+  # cmd_* index ivars pbStartLoadScreen's loop switches on.
+  def build_and_show_screen
     commands        = []
     slot_data_array = []
     cmd_slots       = []   # slot numbers in the order their continue cards appear
-    cmd_mystery_gift = -1
-    cmd_new_game    = -1
-    cmd_options     = -1
-    cmd_language    = -1
-    cmd_debug       = -1
-    cmd_quit        = -1
+    @cmd_mystery_gift = -1
+    @cmd_new_game     = -1
+    @cmd_options      = -1
+    @cmd_language     = -1
+    @cmd_debug        = -1
+    @cmd_quit         = -1
 
-    show_continue = @slot_data.any?
+    @show_continue = @slot_data.any?
 
-    if show_continue
+    if @show_continue
       @slot_data.each do |slot, data|
         player = data[:player]
         map_id = data[:map_factory]&.map&.map_id || 0
-        # Single slot keeps the familiar "Continue" label; multiple slots get "Slot N".
-        label = @slot_data.length > 1 ? _INTL("Slot {1}", slot) : _INTL("Continue")
         cmd_slots << slot
-        commands  << label
+        commands  << label_for_slot(slot)
         slot_data_array << { trainer: player, stats: data[:stats], map_id: map_id }
       end
-      if @save_data[:player]&.mystery_gift_unlocked
-        commands[cmd_mystery_gift = commands.length] = _INTL("Mystery Gift")
+      if @view == :normal && @save_data[:player]&.mystery_gift_unlocked
+        commands[@cmd_mystery_gift = commands.length] = _INTL("Mystery Gift")
         slot_data_array << nil
       end
     end
 
-    commands[cmd_new_game = commands.length]  = _INTL("New Game")
+    commands[@cmd_new_game = commands.length]  = _INTL("New Game")
     slot_data_array << nil
-    commands[cmd_options = commands.length]   = _INTL("Options")
+    commands[@cmd_options = commands.length]   = _INTL("Options")
     slot_data_array << nil
     if Settings::LANGUAGES.length >= 2
-      commands[cmd_language = commands.length] = _INTL("Language")
+      commands[@cmd_language = commands.length] = _INTL("Language")
       slot_data_array << nil
     end
     if $DEBUG
-      commands[cmd_debug = commands.length] = _INTL("Debug")
+      commands[@cmd_debug = commands.length] = _INTL("Debug")
       slot_data_array << nil
     end
-    commands[cmd_quit = commands.length] = _INTL("Quit Game")
+    commands[@cmd_quit = commands.length] = _INTL("Quit Game")
     slot_data_array << nil
 
+    @commands  = commands
+    @cmd_slots = cmd_slots
+
     @scene.pbStartScene(commands, slot_data_array)
-    @scene.pbSetParty(slot_data_array) if show_continue
+    @scene.pbSetParty(slot_data_array) if @show_continue
     @scene.pbStartScene2
+  end
+
+  def pbStartLoadScreen
+    build_and_show_screen
 
     loop do
-      command = @scene.pbChoose(commands)
-      pbPlayDecisionSE if command != cmd_quit
-      # Any command index less than cmd_slots.length is a continue card.
-      if show_continue && command < cmd_slots.length
+      command = @scene.pbChoose(@commands)
+      if command == PokemonLoad_Scene::CYCLE_VIEW_COMMAND
+        cycle_view!
+        next
+      end
+      pbPlayDecisionSE if command != @cmd_quit
+      # Any command index less than @cmd_slots.length is a continue card.
+      if @show_continue && command < @cmd_slots.length
         @scene.pbEndScene
-        slot = cmd_slots[command]
+        slot = @cmd_slots[command]
         Game.load(@slot_data[slot], slot)
         return
       end
       case command
-      when cmd_mystery_gift
+      when @cmd_mystery_gift
         pbFadeOutIn { pbDownloadMysteryGift(@save_data[:player]) }
-      when cmd_new_game
+      when @cmd_new_game
         @scene.pbEndScene
         slot = choose_slot_for_new_game
         next if slot < 0
         $game_temp.save_slot = slot
         Game.start_new
         return
-      when cmd_options
+      when @cmd_options
         pbFadeOutIn do
           scene = PokemonOption_Scene.new
           screen = PokemonOptionScreen.new(scene)
           screen.pbStartScreen(true)
         end
-      when cmd_language
+      when @cmd_language
         @scene.pbEndScene
         $PokemonSystem.language = pbChooseLanguage
         MessageTypes.load_message_files(Settings::LANGUAGES[$PokemonSystem.language][1])
-        if show_continue
+        if @show_continue
           @slot_data.each do |slot, data|
             data[:pokemon_system] = $PokemonSystem
             File.open(SaveData.file_path(slot), "wb") { |f| Marshal.dump(data, f) }
@@ -406,9 +503,9 @@ class PokemonLoadScreen
         end
         $scene = pbCallTitle
         return
-      when cmd_debug
+      when @cmd_debug
         pbFadeOutIn { pbDebugMenu(false) }
-      when cmd_quit
+      when @cmd_quit
         pbPlayCloseMenuSE
         @scene.pbEndScene
         $scene = nil

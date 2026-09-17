@@ -104,28 +104,36 @@ end
 #===============================================================================
 def pbWeeklyBillsOverdueCall
   bills = pbWeeklyBills
-  return if bills.paid_in_full?
-  balance = bills.balance_remaining
 
-  ring = $player.has_pokegear
-  Phone::Call.start_message if ring
-  pbMessage(_INTL("Grandma: \"Oh, sweetheart... this week's bills came due and we're still ${1} short.\"", balance))
-  pbMessage(_INTL("Grandma: \"Could you wire over the rest for us?\""))
+  if !bills.paid_in_full?
+    balance = bills.balance_remaining
 
-  if $player.money >= balance
-    $player.money -= balance
-    bills.contribute(balance)
-    pbMessage(_INTL("You wired ${1} to Grandma.", balance))
-    pbMessage(_INTL("Grandma: \"Thank you so much, dear. That takes care of it!\""))
-  else
-    # TODO: decide what happens when the player can't cover the shortfall
-    # (debt carried forward, a favor owed, consequences, etc.) - not designed
-    # yet, so just let the week roll over unpaid for now.
-    pbMessage(_INTL("Grandma: \"Oh dear... well, we'll have to figure something out. Don't you worry about it for now.\""))
+    ring = $player.has_pokegear
+    Phone::Call.start_message if ring
+    pbMessage(_INTL("Grandma: \"Oh, sweetheart... this week's bills came due and we're still ${1} short.\"", balance))
+    pbMessage(_INTL("Grandma: \"Could you wire over the rest for us?\""))
+
+    if $player.money >= balance
+      $player.money -= balance
+      bills.contribute(balance)
+      pbMessage(_INTL("You wired ${1} to Grandma.", balance))
+      pbMessage(_INTL("Grandma: \"Thank you so much, dear. That takes care of it!\""))
+    else
+      # TODO: decide what happens when the player can't cover the shortfall
+      # (debt carried forward, a favor owed, consequences, etc.) - not designed
+      # yet, so just let the week roll over unpaid for now.
+      pbMessage(_INTL("Grandma: \"Oh dear... well, we'll have to figure something out. Don't you worry about it for now.\""))
+    end
+    Phone::Call.end_message if ring
   end
-  Phone::Call.end_message if ring
 
+  # Whether it was already covered early (Contribute Funds) or just now via
+  # the call above, this is the "did the week end paid off" checkpoint - a
+  # milestone autosave (see 014_Overworld_AutoSave.rb) is only worth taking
+  # when the answer is yes.
+  payment_successful = bills.paid_in_full?
   bills.advance_week!
+  pbTriggerMilestoneAutosave if payment_successful
 end
 
 #===============================================================================

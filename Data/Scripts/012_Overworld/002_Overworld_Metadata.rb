@@ -27,6 +27,10 @@ class PokemonGlobalMetadata
   # from week to week via WeeklyBills#advance_week!.
   def weekly_bills;       return @weekly_bills; end
   def weekly_bills=(val); @weekly_bills = val;   end
+  # Rotating-autosave schedule/slot bookkeeping - nil until first checked,
+  # then an AutoSaveState (see 014_Overworld_AutoSave.rb).
+  def autosave_state;       return @autosave_state; end
+  def autosave_state=(val); @autosave_state = val;   end
   # Movement
   attr_accessor :bicycle
   attr_accessor :surfing
