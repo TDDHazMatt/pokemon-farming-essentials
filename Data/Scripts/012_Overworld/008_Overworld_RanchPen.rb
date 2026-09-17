@@ -222,8 +222,6 @@ class RanchPenIconSprite
     @event     = event
     @map       = map
     @sprite    = IconSprite.new(0, 0, viewport)
-    @sprite.ox = 16
-    @sprite.oy = 40
     @shown_for = false   # false forces the first update to set the bitmap
     @disposed  = false
     update
@@ -250,6 +248,16 @@ class RanchPenIconSprite
       if species
         filename = GameData::Species.icon_filename_from_pokemon(pkmn)
         @sprite.setBitmap(filename || "")
+        if @sprite.bitmap
+          # Icon graphics are laid out as one or more square animation frames
+          # side by side - only show the first frame, not the whole strip.
+          frame_size = @sprite.bitmap.height
+          @sprite.src_rect.set(0, 0, frame_size, frame_size)
+          @sprite.ox = frame_size / 2
+          # Bottom-anchored, like a standing character sprite - screen_y is
+          # the event's feet position, not its vertical center.
+          @sprite.oy = frame_size
+        end
       else
         @sprite.setBitmap("")
       end

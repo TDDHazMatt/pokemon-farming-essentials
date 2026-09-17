@@ -28,26 +28,26 @@
       "ysize": 20,
       "zsize": 3,
       "data": [
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 387, 388, 389, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 776, 777, 778, 385, 385, 387, 388, 389, 385, 386, 387, 388,
       389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
       389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
       389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 385, 385, 387, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 385, 385, 387, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 385, 385, 387, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
       389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 386, 792, 793, 794, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      389, 385, 386, 387, 388, 389, 385, 385, 385, 385, 385, 385, 385, 387, 388, 389, 385, 386, 387, 388,
-      385, 385, 385, 385, 385, 385, 385, 385, 385, 385, 385, 385, 385, 808, 809, 808, 809, 808, 809, 808,
-      385, 388, 385, 1088, 1089, 1090, 388, 385, 385, 385, 385, 385, 385, 800, 801, 800, 801, 800, 801, 800,
+      389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
+      389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
+      389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
+      389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
+      389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 387, 388, 389, 385, 386, 387, 388,
+      389, 385, 386, 385, 385, 387, 385, 386, 784, 785, 786, 385, 385, 388, 389, 385, 385, 386, 387, 388,
+      389, 385, 386, 385, 385, 387, 385, 386, 784, 785, 786, 385, 385, 388, 389, 385, 385, 386, 387, 388,
+      389, 385, 386, 385, 385, 387, 385, 386, 784, 785, 786, 385, 385, 388, 389, 385, 385, 386, 387, 388,
+      389, 385, 386, 387, 388, 389, 385, 386, 784, 785, 786, 385, 385, 388, 389, 385, 385, 386, 387, 388,
+      388, 389, 385, 386, 387, 388, 389, 386, 784, 785, 786, 385, 385, 386, 388, 385, 386, 387, 388, 389,
+      385, 385, 385, 385, 385, 385, 385, 386, 388, 388, 389, 385, 385, 808, 809, 808, 809, 808, 809, 808,
+      385, 388, 385, 1088, 1089, 1090, 388, 386, 388, 388, 389, 385, 385, 800, 801, 800, 801, 800, 801, 800,
+      388, 387, 385, 1096, 1097, 1098, 389, 386, 388, 388, 389, 385, 385, 808, 809, 808, 809, 808, 809, 808,
+      385, 387, 389, 1234, 1092, 1098, 388, 386, 388, 388, 389, 385, 385, 800, 801, 800, 801, 800, 801, 800,
+      385, 387, 387, 385, 1096, 1098, 385, 386, 388, 388, 389, 385, 385, 808, 809, 808, 809, 808, 809, 808,
+      385, 385, 388, 385, 1233, 1233, 385, 386, 388, 388, 389, 385, 385, 816, 817, 816, 817, 816, 817, 816,
       0, 0, 593, 595, 0, 593, 595, 0, 0, 0, 0, 0, 593, 595, 0, 593, 595, 0, 0, 0,
       0, 0, 601, 603, 0, 601, 603, 0, 0, 0, 0, 0, 601, 603, 0, 601, 603, 0, 0, 0,
       0, 0, 601, 603, 0, 601, 603, 0, 0, 0, 0, 0, 601, 603, 0, 601, 603, 0, 0, 0,
@@ -57,20 +57,17 @@
       0, 0, 601, 603, 0, 601, 603, 0, 0, 0, 0, 0, 601, 603, 0, 601, 603, 0, 0, 0,
       0, 0, 601, 603, 0, 601, 603, 0, 0, 0, 0, 0, 601, 603, 0, 601, 603, 0, 0, 0,
       0, 0, 609, 611, 0, 609, 611, 0, 0, 0, 0, 0, 609, 611, 0, 609, 611, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1816, 1817, 1820, 0, 0, 0, 0,
+      0, 0, 0, 1429, 1430, 1431, 0, 0, 0, 0, 0, 0, 0, 1824, 1825, 1828, 0, 0, 0, 0,
+      0, 0, 0, 1437, 1438, 1439, 0, 0, 0, 0, 0, 0, 0, 1832, 1833, 1836, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1840, 2065, 1844, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1816, 1817, 1820, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1824, 1825, 1828, 0, 0, 0,
-      0, 0, 1429, 1430, 1431, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1832, 1833, 1836, 0, 0, 0,
-      0, 0, 1437, 1438, 1439, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1840, 2065, 1844, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 2664, 2665, 2666, 2667, 2668, 2669, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 2640, 2641, 2641, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
-      1681, 1681, 1681, 1681, 1681, 1681, 1663, 2640, 2641, 2641, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 1128, 1129, 1130, 1664, 2640, 2641, 2641, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      1681, 1681, 1681, 1681, 1681, 1681, 1663, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 1128, 1129, 1130, 1664, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 1136, 0, 1138, 1664, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 1132, 1138, 1664, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 1132, 1138, 1664, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      1889, 1890, 1891, 1892, 1893, 1681, 1679, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -80,14 +77,17 @@
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 1384, 1385, 1386, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 1392, 1393, 1394, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 1400, 0, 1402, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 1384, 1385, 1386, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 1392, 1393, 1394, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 1400, 0, 1402, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 804, 805, 804, 805, 804, 805, 804,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      0, 0, 0, 0, 0, 0, 0, 2664, 2665, 2666, 2667, 2668, 2669, 804, 805, 804, 805, 804, 805, 804,
+      0, 0, 0, 0, 0, 0, 0, 2640, 2641, 2642, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 2640, 2641, 2642, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 2640, 2641, 2642, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 2640, 2641, 2642, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
+      1884, 1884, 1884, 1884, 1885, 0, 0, 2640, 2641, 2642, 2642, 2643, 2644, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 804, 805, 2672, 2673, 2674, 2675, 2676, 2677, 0, 0, 0, 0, 0, 0, 0
     ]
     },
     "@encounter_list": [],
@@ -2642,7 +2642,7 @@
                   "__type": "object",
                   "class": "RPG::Event::Page",
                   "ivars": {
-                    "@always_on_top": false,
+                    "@always_on_top": true,
                     "@condition": {
                       "__type": "object",
                       "class": "RPG::Event::Page::Condition",
@@ -2669,7 +2669,7 @@
                         "@direction": 2,
                         "@opacity": 255,
                         "@pattern": 1,
-                        "@tile_id": 0
+                        "@tile_id": 2642
                       }
                     },
                     "@list": [
@@ -2993,15 +2993,15 @@
                     },
                     "@move_speed": 3,
                     "@move_type": 0,
-                    "@step_anime": false,
+                    "@step_anime": true,
                     "@through": false,
                     "@trigger": 1,
-                    "@walk_anime": true
+                    "@walk_anime": false
                   }
                 }
               ],
               "@x": 9,
-              "@y": 17
+              "@y": 14
             }
           }
         ],
@@ -3363,7 +3363,7 @@
                   }
                 }
               ],
-              "@x": 4,
+              "@x": 12,
               "@y": 11
             }
           }
@@ -5472,8 +5472,8 @@
                   }
                 }
               ],
-              "@x": 15,
-              "@y": 14
+              "@x": 14,
+              "@y": 12
             }
           }
         ],
@@ -5655,188 +5655,6 @@
               ],
               "@x": 3,
               "@y": 6
-            }
-          }
-        ],
-        [
-          78,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 78,
-              "@name": "EV078",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "Object ball",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbItemBall(:RHYKSPOKEBALL,10)"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 123,
-                          "@indent": 0,
-                          "@parameters": [
-                            "A",
-                            0
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": true
-                  }
-                },
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": true,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 3,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": false,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": true
-                  }
-                }
-              ],
-              "@x": 5,
-              "@y": 11
             }
           }
         ],
@@ -8358,6 +8176,485 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
+                          "@code": 111,
+                          "@indent": 0,
+                          "@parameters": [
+                            2,
+                            "A",
+                            1
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bBy the way, I came up with an unorthodox way for "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "you to safely catch pokemon even without a fancy "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "starter pokemon from Professor Oak..."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bI can lend you my old pal Rhyk. It's like Rick, but he's "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "a "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "Rhydon, so....."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bYou don't think its as funny as I do, do you \\PN?... "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "Oh well. Anyway!"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bRhyk is getting on in years, so he doesn't have any "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "of the get up and go for attacking and all that jazz, "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "but he's a trooper."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bKnowing you're my grandkid, Old Rhyk would "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "protect you for all he's worth without a complaint."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bStill, since Rhyk won't do any of the attacking for "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "you, you'll just have to catch pokemon the old "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "fashioned way... with rocks, and bait!"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bIt will be tricky to get used to, what with different "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "pokemon having different personalities that will "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "respond better to aggression or reward..."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bBut do it right, and you can have a wild pokemon so "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "focused on eating, or attacking Rhyk that it won't flee "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "from you!"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bWon't help you none in battles with other trainers, "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "so you will need to train up a team eventually, but "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "Rhyk will keep you safe until then!"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bHere, treat him with respect, and he'll treat you right "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "and keep you safe."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 1,
+                          "@parameters": [
+                            "pbItemBall(:RHYKSPOKEBALL,1)"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bGo into your bag and let him out when you need his "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "protection, and he'll jump into your party. Then just "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "return him to his ball to free up a slot in your party."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bI won't tell anyone you have more than 6 pokemon "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "on you, HAHAHAHA!"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bGood luck Kiddo, and to you too Rhyk. Thanks "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "again for what you're doing for us. I know this isn't "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "the start to your journey you expected,"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 1,
+                          "@parameters": [
+                            "\\bbut I know it'll be a grand adventure anyway! Love "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 1,
+                          "@parameters": [
+                            "ya kiddo!"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 123,
+                          "@indent": 1,
+                          "@parameters": [
+                            "A",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 1,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 411,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 1,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 412,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
                           "@code": 0,
                           "@indent": 0,
                           "@parameters": []
@@ -8392,8 +8689,8 @@
                   }
                 }
               ],
-              "@x": 3,
-              "@y": 14
+              "@x": 4,
+              "@y": 11
             }
           }
         ],
@@ -8575,6 +8872,188 @@
               ],
               "@x": 13,
               "@y": 8
+            }
+          }
+        ],
+        [
+          79,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 79,
+              "@name": "EV079",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "Object ball",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbItemBall(:CARROTSEED,10)"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 123,
+                          "@indent": 0,
+                          "@parameters": [
+                            "A",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                },
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": true,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 12,
+              "@y": 12
             }
           }
         ],
@@ -9671,13 +10150,13 @@
             "class": "RPG::Event",
             "ivars": {
               "@id": 4,
-              "@name": "RanchPen",
+              "@name": "EV004",
               "@pages": [
                 {
                   "__type": "object",
                   "class": "RPG::Event::Page",
                   "ivars": {
-                    "@always_on_top": false,
+                    "@always_on_top": true,
                     "@condition": {
                       "__type": "object",
                       "class": "RPG::Event::Page::Condition",
@@ -9700,25 +10179,14 @@
                       "ivars": {
                         "@blend_type": 0,
                         "@character_hue": 0,
-                        "@character_name": "Object ball",
+                        "@character_name": "",
                         "@direction": 2,
                         "@opacity": 255,
                         "@pattern": 0,
-                        "@tile_id": 0
+                        "@tile_id": 2666
                       }
                     },
                     "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbRanchPen"
-                          ]
-                        }
-                      },
                       {
                         "__type": "object",
                         "class": "RPG::EventCommand",
@@ -9750,15 +10218,15 @@
                     },
                     "@move_speed": 3,
                     "@move_type": 0,
-                    "@step_anime": false,
+                    "@step_anime": true,
                     "@through": false,
                     "@trigger": 0,
-                    "@walk_anime": true
+                    "@walk_anime": false
                   }
                 }
               ],
-              "@x": 11,
-              "@y": 10
+              "@x": 9,
+              "@y": 13
             }
           }
         ],

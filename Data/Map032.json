@@ -1531,7 +1531,7 @@
                           "@code": 201,
                           "@indent": 0,
                           "@parameters": [
-                            0, 42, 9, 16, 0, 1
+                            0, 42, 9, 13, 0, 1
                           ]
                         }
                       },
@@ -1647,7 +1647,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "This way, your grandmother will want to thank you "
+                            "\\bThis way, your grandmother will want to thank you "
                           ]
                         }
                       },
@@ -2300,7 +2300,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "To be blunt, we are in dire financial straights..."
+                            "\\bTo be blunt, we are in dire financial straights..."
                           ]
                         }
                       },
@@ -2311,7 +2311,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "We need to come up with 2000$ by the end of the "
+                            "\\bWe need to come up with 2000$ by the end of the "
                           ]
                         }
                       },
@@ -2355,7 +2355,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "There are a few ways that the ranch can bring in "
+                            "\\bThere are a few ways that the ranch can bring in "
                           ]
                         }
                       },
@@ -2377,7 +2377,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "You can grow Berries or Apricorns in the Orchard.."
+                            "\\bYou can grow Berries or Apricorns in the Orchard.."
                           ]
                         }
                       },
@@ -2399,7 +2399,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "Catch fish or poultry to sell.."
+                            "\\bCatch fish or poultry to sell.."
                           ]
                         }
                       },
@@ -2432,7 +2432,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "Oh dear, without a pokemon of your own though, it'll "
+                            "\\b Oh dear, without a pokemon of your own though, "
                           ]
                         }
                       },
@@ -2443,7 +2443,7 @@
                           "@code": 401,
                           "@indent": 0,
                           "@parameters": [
-                            "be impossible to catch the initial breeding pairs... We "
+                            "it'll be impossible to catch the initial breeding pairs..."
                           ]
                         }
                       },
@@ -2451,10 +2451,10 @@
                         "__type": "object",
                         "class": "RPG::EventCommand",
                         "ivars": {
-                          "@code": 401,
+                          "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "sold our last two a week ago..."
+                            "\\bWe sold our last two a week ago..."
                           ]
                         }
                       },
@@ -2498,7 +2498,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "We'll trust your judgement and help where we can. "
+                            "\\bWe'll trust your judgement and help where we can. "
                           ]
                         }
                       },
@@ -2542,7 +2542,7 @@
                           "@code": 101,
                           "@indent": 0,
                           "@parameters": [
-                            "We love you kiddo, and can't thank you enough... "
+                            "\\bWe love you kiddo, and can't thank you enough... "
                           ]
                         }
                       },
@@ -2565,6 +2565,28 @@
                           "@indent": 0,
                           "@parameters": [
                             "some old tools in the shed as well."
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 101,
+                          "@indent": 0,
+                          "@parameters": [
+                            "\\bHmm...I might have an idea on how you could "
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 401,
+                          "@indent": 0,
+                          "@parameters": [
+                            "safely catch pokemon, come talk to me later.."
                           ]
                         }
                       },
