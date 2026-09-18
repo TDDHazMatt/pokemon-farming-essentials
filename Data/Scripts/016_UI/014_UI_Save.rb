@@ -55,6 +55,7 @@ class PokemonSave_Scene
     end
     location_tag = shadowc3tag(LOCATION_TEXT_BASE, LOCATION_TEXT_SHADOW)
     loctext = location_tag + "<ac>" + mapname + "</ac></c3>"
+    loctext += text_tag + pbWeekTimeLabel(pbWeeklyBills.week, pbGetTimeNow) + "</c3><br>"
     loctext += _INTL("Player") + "<r>" + text_tag + $player.name + "</c3><br>"
     if hour > 0
       loctext += _INTL("Time") + "<r>" + text_tag + _INTL("{1}h {2}m", hour, min) + "</c3><br>"

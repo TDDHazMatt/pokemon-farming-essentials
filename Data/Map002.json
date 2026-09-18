@@ -150,7 +150,7 @@
                           "@indent": 0,
                           "@parameters": [
                             12,
-                            "get_self.x == $game_player.x && get_self.y == $game_player.y"
+                            "get_self.x == $game_player.x && get_self.y == $game_player.y && $player.party.empty?"
                           ]
                         }
                       },
@@ -324,7 +324,7 @@
                     "@move_type": 0,
                     "@step_anime": false,
                     "@through": true,
-                    "@trigger": 2,
+                    "@trigger": 1,
                     "@walk_anime": true
                   }
                 }
@@ -386,7 +386,7 @@
                           "@indent": 0,
                           "@parameters": [
                             12,
-                            "get_self.x == $game_player.x && get_self.y == $game_player.y"
+                            "get_self.x == $game_player.x && get_self.y == $game_player.y && $player.party.empty?"
                           ]
                         }
                       },
@@ -560,7 +560,7 @@
                     "@move_type": 0,
                     "@step_anime": false,
                     "@through": true,
-                    "@trigger": 2,
+                    "@trigger": 1,
                     "@walk_anime": true
                   }
                 }

@@ -108,6 +108,104 @@
       "__type": "hash",
       "entries": [
         [
+          16,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 16,
+              "@name": "Don't Steal",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbKurtDontStealCheck"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": true,
+                    "@trigger": 1,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 13,
+              "@y": 14
+            }
+          }
+        ],
+        [
           5,
           {
             "__type": "object",
@@ -407,6 +505,165 @@
           }
         ],
         [
+          17,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 17,
+              "@name": "Don't Steal Kurt",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": true,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                },
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": true,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "NPC 18",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 12,
+              "@y": 8
+            }
+          }
+        ],
+        [
           6,
           {
             "__type": "object",
@@ -584,6 +841,104 @@
               ],
               "@x": 14,
               "@y": 16
+            }
+          }
+        ],
+        [
+          12,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 12,
+              "@name": "PlantableSpot",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": true,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbPlantableSpot"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 2,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": true,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": false
+                  }
+                }
+              ],
+              "@x": 9,
+              "@y": 18
             }
           }
         ],
@@ -2118,104 +2473,6 @@
           }
         ],
         [
-          12,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 12,
-              "@name": "PlantableSpot",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": true,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbPlantableSpot"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 2,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": true,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": false
-                  }
-                }
-              ],
-              "@x": 9,
-              "@y": 18
-            }
-          }
-        ],
-        [
           7,
           {
             "__type": "object",
@@ -2393,6 +2650,104 @@
               ],
               "@x": 15,
               "@y": 16
+            }
+          }
+        ],
+        [
+          13,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 13,
+              "@name": "Don't Steal",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbKurtDontStealCheck"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": false,
+                    "@through": true,
+                    "@trigger": 1,
+                    "@walk_anime": true
+                  }
+                }
+              ],
+              "@x": 12,
+              "@y": 14
             }
           }
         ],
@@ -2578,13 +2933,13 @@
           }
         ],
         [
-          3,
+          8,
           {
             "__type": "object",
             "class": "RPG::Event",
             "ivars": {
-              "@id": 3,
-              "@name": "BerryPlant",
+              "@id": 8,
+              "@name": "Don't Steal",
               "@pages": [
                 {
                   "__type": "object",
@@ -2606,15 +2961,15 @@
                         "@variable_value": 0
                       }
                     },
-                    "@direction_fix": true,
+                    "@direction_fix": false,
                     "@graphic": {
                       "__type": "object",
                       "class": "RPG::Event::Page::Graphic",
                       "ivars": {
                         "@blend_type": 0,
                         "@character_hue": 0,
-                        "@character_name": "berrytree_ORANBERRY",
-                        "@direction": 8,
+                        "@character_name": "",
+                        "@direction": 2,
                         "@opacity": 255,
                         "@pattern": 0,
                         "@tile_id": 0
@@ -2628,7 +2983,7 @@
                           "@code": 355,
                           "@indent": 0,
                           "@parameters": [
-                            "pbPickBerry(:ORANBERRY, 2)"
+                            "pbKurtDontStealCheck"
                           ]
                         }
                       },
@@ -2663,98 +3018,15 @@
                     },
                     "@move_speed": 3,
                     "@move_type": 0,
-                    "@step_anime": true,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": false
-                  }
-                },
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": true,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": false,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbPlantableSpot"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 2,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": true,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": false
+                    "@step_anime": false,
+                    "@through": true,
+                    "@trigger": 1,
+                    "@walk_anime": true
                   }
                 }
               ],
-              "@x": 10,
-              "@y": 16
+              "@x": 11,
+              "@y": 14
             }
           }
         ],
@@ -2960,6 +3232,187 @@
           }
         ],
         [
+          3,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 3,
+              "@name": "BerryPlant",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": true,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "berrytree_ORANBERRY",
+                        "@direction": 8,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbPickBerry(:ORANBERRY, 2)"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 3,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": true,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": false
+                  }
+                },
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": true,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": false,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbPlantableSpot"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 2,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": true,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": false
+                  }
+                }
+              ],
+              "@x": 10,
+              "@y": 16
+            }
+          }
+        ],
+        [
           9,
           {
             "__type": "object",
@@ -3136,104 +3589,6 @@
                 }
               ],
               "@x": 15,
-              "@y": 18
-            }
-          }
-        ],
-        [
-          4,
-          {
-            "__type": "object",
-            "class": "RPG::Event",
-            "ivars": {
-              "@id": 4,
-              "@name": "PlantableSpot",
-              "@pages": [
-                {
-                  "__type": "object",
-                  "class": "RPG::Event::Page",
-                  "ivars": {
-                    "@always_on_top": false,
-                    "@condition": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Condition",
-                      "ivars": {
-                        "@self_switch_ch": "A",
-                        "@self_switch_valid": false,
-                        "@switch1_id": 1,
-                        "@switch1_valid": false,
-                        "@switch2_id": 1,
-                        "@switch2_valid": false,
-                        "@variable_id": 1,
-                        "@variable_valid": false,
-                        "@variable_value": 0
-                      }
-                    },
-                    "@direction_fix": true,
-                    "@graphic": {
-                      "__type": "object",
-                      "class": "RPG::Event::Page::Graphic",
-                      "ivars": {
-                        "@blend_type": 0,
-                        "@character_hue": 0,
-                        "@character_name": "",
-                        "@direction": 2,
-                        "@opacity": 255,
-                        "@pattern": 0,
-                        "@tile_id": 0
-                      }
-                    },
-                    "@list": [
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 355,
-                          "@indent": 0,
-                          "@parameters": [
-                            "pbPlantableSpot"
-                          ]
-                        }
-                      },
-                      {
-                        "__type": "object",
-                        "class": "RPG::EventCommand",
-                        "ivars": {
-                          "@code": 0,
-                          "@indent": 0,
-                          "@parameters": []
-                        }
-                      }
-                    ],
-                    "@move_frequency": 2,
-                    "@move_route": {
-                      "__type": "object",
-                      "class": "RPG::MoveRoute",
-                      "ivars": {
-                        "@list": [
-                          {
-                            "__type": "object",
-                            "class": "RPG::MoveCommand",
-                            "ivars": {
-                              "@code": 0,
-                              "@parameters": []
-                            }
-                          }
-                        ],
-                        "@repeat": true,
-                        "@skippable": false
-                      }
-                    },
-                    "@move_speed": 3,
-                    "@move_type": 0,
-                    "@step_anime": true,
-                    "@through": false,
-                    "@trigger": 0,
-                    "@walk_anime": false
-                  }
-                }
-              ],
-              "@x": 14,
               "@y": 18
             }
           }
@@ -3436,6 +3791,104 @@
               ],
               "@x": 9,
               "@y": 8
+            }
+          }
+        ],
+        [
+          4,
+          {
+            "__type": "object",
+            "class": "RPG::Event",
+            "ivars": {
+              "@id": 4,
+              "@name": "PlantableSpot",
+              "@pages": [
+                {
+                  "__type": "object",
+                  "class": "RPG::Event::Page",
+                  "ivars": {
+                    "@always_on_top": false,
+                    "@condition": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Condition",
+                      "ivars": {
+                        "@self_switch_ch": "A",
+                        "@self_switch_valid": false,
+                        "@switch1_id": 1,
+                        "@switch1_valid": false,
+                        "@switch2_id": 1,
+                        "@switch2_valid": false,
+                        "@variable_id": 1,
+                        "@variable_valid": false,
+                        "@variable_value": 0
+                      }
+                    },
+                    "@direction_fix": true,
+                    "@graphic": {
+                      "__type": "object",
+                      "class": "RPG::Event::Page::Graphic",
+                      "ivars": {
+                        "@blend_type": 0,
+                        "@character_hue": 0,
+                        "@character_name": "",
+                        "@direction": 2,
+                        "@opacity": 255,
+                        "@pattern": 0,
+                        "@tile_id": 0
+                      }
+                    },
+                    "@list": [
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 355,
+                          "@indent": 0,
+                          "@parameters": [
+                            "pbPlantableSpot"
+                          ]
+                        }
+                      },
+                      {
+                        "__type": "object",
+                        "class": "RPG::EventCommand",
+                        "ivars": {
+                          "@code": 0,
+                          "@indent": 0,
+                          "@parameters": []
+                        }
+                      }
+                    ],
+                    "@move_frequency": 2,
+                    "@move_route": {
+                      "__type": "object",
+                      "class": "RPG::MoveRoute",
+                      "ivars": {
+                        "@list": [
+                          {
+                            "__type": "object",
+                            "class": "RPG::MoveCommand",
+                            "ivars": {
+                              "@code": 0,
+                              "@parameters": []
+                            }
+                          }
+                        ],
+                        "@repeat": true,
+                        "@skippable": false
+                      }
+                    },
+                    "@move_speed": 3,
+                    "@move_type": 0,
+                    "@step_anime": true,
+                    "@through": false,
+                    "@trigger": 0,
+                    "@walk_anime": false
+                  }
+                }
+              ],
+              "@x": 14,
+              "@y": 18
             }
           }
         ],

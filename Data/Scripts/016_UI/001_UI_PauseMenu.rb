@@ -9,6 +9,15 @@ class PokemonPauseMenu_Scene
     @sprites["cmdwindow"] = Window_CommandPokemon.new([])
     @sprites["cmdwindow"].visible = false
     @sprites["cmdwindow"].viewport = @viewport
+    # Week/day/time readout, left side (cmdwindow docks right - see
+    # pbShowCommands). Bottom-left rather than top-left so it doesn't
+    # collide with infowindow, which Safari Zone/Bug Contest also dock at
+    # (0,0) for their ball-count display.
+    @sprites["timewindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
+    @sprites["timewindow"].text = pbWeekTimeLabel(pbWeeklyBills.week, pbGetTimeNow)
+    @sprites["timewindow"].resizeToFit(@sprites["timewindow"].text, Graphics.height)
+    pbBottomLeft(@sprites["timewindow"])
+    @sprites["timewindow"].visible = false
     @sprites["infowindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
     @sprites["infowindow"].visible = false
     @sprites["helpwindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
@@ -35,12 +44,14 @@ class PokemonPauseMenu_Scene
 
   def pbShowMenu
     @sprites["cmdwindow"].visible = true
+    @sprites["timewindow"].visible = true
     @sprites["infowindow"].visible = @infostate
     @sprites["helpwindow"].visible = @helpstate
   end
 
   def pbHideMenu
     @sprites["cmdwindow"].visible = false
+    @sprites["timewindow"].visible = false
     @sprites["infowindow"].visible = false
     @sprites["helpwindow"].visible = false
   end

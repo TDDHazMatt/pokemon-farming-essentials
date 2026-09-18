@@ -86,7 +86,10 @@ def pbContributeFundsToGrandma
     # TODO: decide what happens when the player can't cover the full amount
     # up front (partial contributions, a payment plan, etc.) - not designed
     # yet, so just turn them away gently for now.
-    pbMessage(_INTL("Grandma: \"That's okay, Sweetie. We still have some time.\""))
+    shortfall = amount - $player.money
+    pbMessage(_INTL("Grandma checks the books over her glasses.\n\"Oh... not quite enough yet, sweetheart.\""))
+    pbMessage(_INTL("Grandma: \"We need ${1} for this week, and it looks like you're ${2} short.\"", amount, shortfall))
+    pbMessage(_INTL("Grandma: \"That's okay, though - we've still got a little time before it's due. No need to rush on my account.\""))
     return
   end
 
@@ -120,9 +123,15 @@ def pbWeeklyBillsOverdueCall
       pbMessage(_INTL("Grandma: \"Thank you so much, dear. That takes care of it!\""))
       Phone::Call.end_message if ring
     else
+      pbMessage(_INTL("Grandma: \"Oh no... we don't have enough.\""))
       sold_enough = false
-      if pbConfirmMessage(_INTL("Grandma: \"Is there anything you could sell to help cover the rest?\""))
-        sold_enough = pbWeeklyBillsLiquidateAssets(bills)
+      loop do
+        offered = pbConfirmMessage(_INTL("Grandma: \"Is there anything you could sell to help cover the rest?\""))
+        sold_enough = offered && pbWeeklyBillsLiquidateAssets(bills)
+        break if sold_enough
+        # Backing out here ends the run - make sure that's really what they want
+        # before committing to it, rather than a stray No turning into a game over.
+        break if pbConfirmMessage(_INTL("(Are you sure? This will result in a Game Over.)"))
       end
       if sold_enough
         remaining = bills.balance_remaining

@@ -164,9 +164,17 @@ class PokemonStorageScreen
         pbSummary(selected, nil)
       elsif command == cmd_sell
         box, index = selected
-        if pbSellPokemonConfirm(pokemon) { @storage.pbDelete(box, index) }
-          @scene.pbRefresh
+        # The box icon sprite doesn't disappear on its own - PokemonBoxSprite#refresh
+        # only repositions whatever's already in its sprite array, it never re-syncs
+        # against @storage. @scene.pbRelease plays the same shrink/fade release
+        # animation the stock Release command uses, which is what actually disposes
+        # the icon (see PokemonBoxIcon#update) - @storage.pbDelete alone only removes
+        # the data, same as the stock flow pairs both calls together.
+        sold = pbSellPokemonConfirm(pokemon) do
+          @scene.pbRelease(selected, nil)
+          @storage.pbDelete(box, index)
         end
+        @scene.pbRefresh if sold
       end
     end
     @scene.pbCloseBox

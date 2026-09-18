@@ -11,7 +11,7 @@ class PokemonLoadPanel < Sprite
   FEMALE_TEXT_COLOR        = Color.new(240, 72, 88)
   FEMALE_TEXT_SHADOW_COLOR = Color.new(160, 64, 64)
 
-  def initialize(index, title, isContinue, trainer, stats, mapid, viewport = nil)
+  def initialize(index, title, isContinue, trainer, stats, mapid, weekTimeLabel = nil, viewport = nil)
     super(viewport)
     @index = index
     @title = title
@@ -19,6 +19,7 @@ class PokemonLoadPanel < Sprite
     @trainer = trainer
     @totalsec = stats&.play_time.to_i || 0
     @mapid = mapid
+    @weekTimeLabel = weekTimeLabel
     @selected = (index == 0)
     @bgbitmap = AnimatedBitmap.new("Graphics/UI/Load/panels")
     @refreshBitmap = true
@@ -63,6 +64,7 @@ class PokemonLoadPanel < Sprite
       textpos = []
       if @isContinue
         textpos.push([@title, 32, 16, :left, TEXT_COLOR, TEXT_SHADOW_COLOR])
+        textpos.push([@weekTimeLabel, 32, 40, :left, TEXT_COLOR, TEXT_SHADOW_COLOR]) if @weekTimeLabel
         textpos.push([_INTL("Badges:"), 32, 118, :left, TEXT_COLOR, TEXT_SHADOW_COLOR])
         textpos.push([@trainer.badge_count.to_s, 206, 118, :right, TEXT_COLOR, TEXT_SHADOW_COLOR])
         textpos.push([_INTL("Pokédex:"), 32, 150, :left, TEXT_COLOR, TEXT_SHADOW_COLOR])
@@ -99,7 +101,8 @@ end
 #===============================================================================
 class PokemonLoad_Scene
   # slot_data_array: Array parallel to commands. Each entry is either nil
-  # (non-continue command) or a Hash with :trainer, :stats, :map_id keys.
+  # (non-continue command) or a Hash with :trainer, :stats, :map_id,
+  # :week_time_label keys.
   def pbStartScene(commands, slot_data_array)
     @commands = commands
     @slot_data_array = slot_data_array
@@ -118,6 +121,7 @@ class PokemonLoad_Scene
         sd && sd[:trainer],
         sd && sd[:stats],
         (sd && sd[:map_id]) || 0,
+        sd && sd[:week_time_label],
         @viewport
       )
       @sprites["panel#{i}"].x = 48
@@ -441,11 +445,17 @@ class PokemonLoadScreen
 
     if @show_continue
       @slot_data.each do |slot, data|
-        player = data[:player]
-        map_id = data[:map_factory]&.map&.map_id || 0
+        player   = data[:player]
+        map_id   = data[:map_factory]&.map&.map_id || 0
+        metadata = data[:global_metadata]
+        week     = metadata&.weekly_bills&.week || 1
+        time     = GAME_START_EPOCH + (metadata&.time_offset || 0)
         cmd_slots << slot
         commands  << label_for_slot(slot)
-        slot_data_array << { trainer: player, stats: data[:stats], map_id: map_id }
+        slot_data_array << {
+          trainer: player, stats: data[:stats], map_id: map_id,
+          week_time_label: pbWeekTimeLabel(week, time)
+        }
       end
       if @view == :normal && @save_data[:player]&.mystery_gift_unlocked
         commands[@cmd_mystery_gift = commands.length] = _INTL("Mystery Gift")

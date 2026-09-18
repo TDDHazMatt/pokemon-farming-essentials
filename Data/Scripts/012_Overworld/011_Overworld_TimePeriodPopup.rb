@@ -30,6 +30,19 @@ def pbGetTimePeriodLabel(time = nil)
   return _INTL("{1} {2}", pbGetWeekdayName(time), pbGetTimePeriodName(time))
 end
 
+# "Week 3, Monday Afternoon 6:24" - the combined readout used by the pause
+# menu sidebar (016_UI/001_UI_PauseMenu.rb) and each save slot's header
+# (016_UI/013_UI_Load.rb). Takes week/time explicitly rather than reading
+# pbWeeklyBills/pbGetTimeNow itself, so the Load screen can build the same
+# label for a save file that isn't the currently active one (reconstructed
+# from that save's own $PokemonGlobal - see PokemonLoadScreen).
+def pbWeekTimeLabel(week, time = nil)
+  time ||= pbGetTimeNow
+  hour12 = time.hour % 12
+  hour12 = 12 if hour12 == 0
+  return _INTL("Week {1}, {2} {3}:{4}", week, pbGetTimePeriodLabel(time), hour12, format("%02d", time.min))
+end
+
 def pbShowTimePeriodPopup
   return if !$scene.is_a?(Scene_Map)
   $scene.spriteset.addUserSprite(LocationWindow.new(pbGetTimePeriodLabel))
