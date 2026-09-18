@@ -15,6 +15,13 @@
 #   - Daily (every 12:01 AM): any request slot that was fulfilled during the
 #     day gets replaced with a fresh one - a completed request doesn't
 #     reopen instantly, only the next morning.
+#
+# Caught up lazily, on access (SpecialRequests#refresh_if_due!, called from
+# pbSpecialRequests below) rather than via a step-driven background hook -
+# that way the board is always correct no matter how time got to where it
+# is (ordinary steps, a multi-hour sleep, a debug time skip), instead of
+# staying stale until the player's next literal footstep after the
+# threshold passed.
 #===============================================================================
 class SpecialRequests
   REQUEST_COUNT       = 10
@@ -54,6 +61,27 @@ class SpecialRequests
 
   def advance_daily!
     @next_daily_check += 24 * 60 * 60
+  end
+
+  # Catches the board up to the current time, regardless of how it got here -
+  # a run of ordinary steps, a multi-hour sleep, a debug time jump, or simply
+  # not having been looked at in a while. Called from pbSpecialRequests on
+  # every access (see below) rather than relying solely on a step-driven
+  # background hook, which could leave the board stale until the player's
+  # next literal footstep - or never refresh at all if time was advanced by
+  # something that doesn't fire on_player_step_taken in between (sleeping
+  # straight through a boundary, a debug menu time skip, etc.). The while
+  # loops (rather than a single if) mean an arbitrarily large jump still ends
+  # up fully caught up, not just one week/day closer.
+  def refresh_if_due!
+    while weekly_due?
+      regenerate_all!
+      advance_weekly!
+    end
+    while daily_due?
+      refill_completed!
+      advance_daily!
+    end
   end
 
   # Throws out the whole board and draws 10 fresh requests.
@@ -139,8 +167,9 @@ class SpecialRequests
 end
 
 def pbSpecialRequests
-  $PokemonGlobal.special_requests ||= SpecialRequests.new
-  return $PokemonGlobal.special_requests
+  requests = ($PokemonGlobal.special_requests ||= SpecialRequests.new)
+  requests.refresh_if_due!
+  return requests
 end
 
 #===============================================================================
@@ -161,17 +190,3 @@ def pbGrandmaSpecialRequests
   end
   pbMessage(_INTL("Folks are looking for these Pokémon this week:") + "\r\n" + lines.join("\r\n"))
 end
-
-EventHandlers.add(:on_player_step_taken, :check_special_requests_due,
-  proc {
-    requests = pbSpecialRequests
-    if requests.weekly_due?
-      requests.regenerate_all!
-      requests.advance_weekly!
-      requests.advance_daily! while requests.daily_due?   # today's daily check is already covered by the regen
-    elsif requests.daily_due?
-      requests.refill_completed!
-      requests.advance_daily!
-    end
-  }
-)
